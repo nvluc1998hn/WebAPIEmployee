@@ -296,6 +296,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             }
             catch (Exception ex)
             {
+                listEmployee = null;
                 _logger.LogError("GetAllEmployee: " + ex.Message);
             }
             

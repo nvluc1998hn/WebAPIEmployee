@@ -126,9 +126,13 @@ namespace EmployeeAPI.Controllers
                 }
             }
             catch(Exception ex){
+                _resultResponse.Success = false;
+                _resultResponse.messenger = "Có lỗi phát sinh từ Serve !";
                 _logger.LogError("addOrUpdateEmployee: " + ex.Message);
             }
-            return  _resultResponse;
+            if(_resultResponse.Success) return _resultResponse;
+            return BadRequest(_resultResponse);
+
         }
         /// <summary>Lấy ra danh sách nhân viên có phân trang</summary>
         /// <param name="PageNo">Đang ở trang nào</param>
@@ -160,12 +164,22 @@ namespace EmployeeAPI.Controllers
                 else
                 {
                     var result = _userService.GetAllEmployee(PageNo, PageSize, SortOrder, descyn, dfrom, dto, sex, keyWord);
-                    _resultResponse.Result = result;
-                    _resultResponse.Success = true;
+                    if(result != null)
+                    {
+                        _resultResponse.Result = result;
+                        _resultResponse.Success = true;
+                    }
+                    else
+                    {
+                        _resultResponse.Result = null;
+                        _resultResponse.Success = false;
+                        _resultResponse.messenger = "Có lỗi phát sinh từ server !";
+                    }
+                   
                 }          
             }
             catch (Exception ex)
-            {
+            {           
                 _logger.LogError("getAllEmployee: " + ex.Message);
             }
             if (_resultResponse.messenger != "")
@@ -207,6 +221,8 @@ namespace EmployeeAPI.Controllers
             }
             catch (Exception ex)
             {
+                _resultResponse.Success = false;
+                _resultResponse.messenger = "Có lỗi phát sinh từ Serve!";
                 _logger.LogError("deleteEmployee: " + ex.Message);
             }         
             if (_resultResponse.Success)
@@ -237,6 +253,8 @@ namespace EmployeeAPI.Controllers
             }
             catch (Exception ex)
             {
+                _resultResponse.Success = false;
+                _resultResponse.messenger = "Có lỗi phát sinh từ Serve!";
                 _logger.LogError("getEmployee: " + ex.Message);
 
             }
@@ -255,7 +273,7 @@ namespace EmployeeAPI.Controllers
         /// lucnv 6/24/2022 created
         /// </Modified>
         [HttpGet("GetCountEmployee")]
-        public ResultResponse GetCountEmployee()
+        public ActionResult<ResultResponse> GetCountEmployee()
         {
             try {
                 var result = _userService.GetCountEmployee();
@@ -264,10 +282,16 @@ namespace EmployeeAPI.Controllers
             }
             catch (Exception ex)
             {
+                _resultResponse.Success = false;
                 _logger.LogError("GetCountEmployee: " + ex.Message);
-            }      
-            return _resultResponse;
+            }
+            if (_resultResponse.Success)
+            {
+                return _resultResponse;
+            }
+             return BadRequest(_resultResponse);
         }
+        
 
     }
 }

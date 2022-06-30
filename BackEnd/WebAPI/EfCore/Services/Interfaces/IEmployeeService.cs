@@ -11,6 +11,7 @@ namespace EmployeeManagement.EfCore.Services.Interfaces
     {
         bool CheckLogin(string userName, string passWord);
         Employee GetEmployeeById(Guid idEmployee);
+        Guid GetIdEmployeeByUserName(string userName);
         IEnumerable<Employee> GetAllEmployee(int PageNo,int PageSize,string SortOrder,bool descyn, DateTime dfrom,DateTime dto,int sex,string keyWord);
         bool AddEmployee(Employee Employee);
         bool SaveEditEmployee(Employee Employee);
