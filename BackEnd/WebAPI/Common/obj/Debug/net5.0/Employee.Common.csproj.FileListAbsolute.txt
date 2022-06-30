@@ -1,0 +1,12 @@
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\bin\Debug\net5.0\Employee.Common.deps.json
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\bin\Debug\net5.0\Employee.Common.dll
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\bin\Debug\net5.0\Employee.Common.pdb
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\obj\Debug\net5.0\Employee.Common.csproj.AssemblyReference.cache
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\obj\Debug\net5.0\Employee.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\obj\Debug\net5.0\Employee.Common.AssemblyInfoInputs.cache
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\obj\Debug\net5.0\Employee.Common.AssemblyInfo.cs
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\obj\Debug\net5.0\Employee.Common.csproj.CoreCompileInputs.cache
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\obj\Debug\net5.0\Employee.Common.dll
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\obj\Debug\net5.0\refint\Employee.Common.dll
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\obj\Debug\net5.0\Employee.Common.pdb
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Common\obj\Debug\net5.0\ref\Employee.Common.dll

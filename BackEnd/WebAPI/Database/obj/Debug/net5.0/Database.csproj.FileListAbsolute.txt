@@ -1,0 +1,102 @@
+D:\Project\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.deps.json
+D:\Project\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.dll
+D:\Project\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.pdb
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.AssemblyReference.cache
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfoInputs.cache
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfo.cs
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CoreCompileInputs.cache
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.dll
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\refint\Database.dll
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.pdb
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\ref\Database.dll
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.deps.json
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.dll
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\ref\Database.dll
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.pdb
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.AssemblyReference.cache
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfoInputs.cache
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfo.cs
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CoreCompileInputs.cache
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.dll
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\ref\Database.dll
+C:\ThangDV23\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.pdb
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\bin\Debug\net5.0\Database.deps.json
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\bin\Debug\net5.0\Database.dll
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\bin\Debug\net5.0\Database.pdb
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.AssemblyReference.cache
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfoInputs.cache
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfo.cs
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CoreCompileInputs.cache
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\Database.dll
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\refint\Database.dll
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\Database.pdb
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\ref\Database.dll
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\bin\Debug\net5.0\Common.dll
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\bin\Debug\net5.0\Common.pdb
+D:\Project\WebQuanLyCovid\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CopyComplete
+D:\Project\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Common.dll
+D:\Project\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Common.pdb
+D:\Project\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CopyComplete
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.deps.json
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.dll
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.pdb
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Common.dll
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Common.pdb
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.AssemblyReference.cache
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfoInputs.cache
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfo.cs
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CoreCompileInputs.cache
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CopyComplete
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.dll
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\refint\Database.dll
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.pdb
+C:\Users\vubeo09699\Desktop\TTCN2\WebXayDung (1)\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\ref\Database.dll
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.deps.json
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.dll
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\ref\Database.dll
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Database.pdb
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Common.dll
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\bin\Debug\net5.0\Common.pdb
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.AssemblyReference.cache
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfoInputs.cache
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfo.cs
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CoreCompileInputs.cache
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CopyComplete
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.dll
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\ref\Database.dll
+C:\Users\Van Luc IT\Downloads\WebXayDung\API\WebAPI\Database\obj\Debug\net5.0\Database.pdb
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Database.deps.json
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Database.dll
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\ref\Database.dll
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Database.pdb
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Common.dll
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Common.pdb
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.csproj.AssemblyReference.cache
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfoInputs.cache
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfo.cs
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CoreCompileInputs.cache
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CopyComplete
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.dll
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\ref\Database.dll
+C:\Users\Van Luc IT\Downloads\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.pdb
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Database.deps.json
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Database.dll
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Database.pdb
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Common.dll
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\bin\Debug\net5.0\Common.pdb
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.csproj.AssemblyReference.cache
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfoInputs.cache
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.AssemblyInfo.cs
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CoreCompileInputs.cache
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.csproj.CopyComplete
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.dll
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\refint\Database.dll
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Database.pdb
+C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\ref\Database.dll
