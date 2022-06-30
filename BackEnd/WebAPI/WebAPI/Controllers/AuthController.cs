@@ -37,7 +37,7 @@ namespace EmployeeAPI.Controllers
         /// <summary>Kiểm tra login</summary>
         /// <param name="employee">Tài khoản , mật khẩu truyền vào</param>
         /// <returns>
-        ///   <br />
+        ///   Trả về thông ID của Employee, Token
         /// </returns>
         /// <Modified>
         /// Name Date Comments
@@ -51,6 +51,7 @@ namespace EmployeeAPI.Controllers
             bool isAdmin = false;
             try
             {
+                // ưu tiên check trong file config trước , nếu không có thì check trong db
                 string path = @"c:\Users\lucnv\Desktop\abc.txt";
                 if (System.IO.File.Exists(path))
                 {
@@ -67,29 +68,25 @@ namespace EmployeeAPI.Controllers
                         if (taikhoan[0].Trim() == employee.Email && taikhoan[1].Trim() == employee.PassWord) isAdmin = true;
                     }
                    
-                }               
+                }
+                var checkLogin = _userService.CheckLogin(employee.Email, employee.PassWord);
+                if (isAdmin) checkLogin = true;
+                if (checkLogin)
+                {
+
+                    var token = SaveSession();
+                    UserInfo userInfo = new UserInfo();
+                    userInfo.Token = SaveSession();
+                    userInfo.EmployeeId = _userService.GetIdEmployeeByUserName(employee.Email);
+                    result.Result = userInfo;
+                    result.Success = true;
+                }
             }
             catch (Exception ex)
             {
                 _logger.LogError("Login :" + ex.Message);
             }
-            try
-            {
-               
-                var checkLogin = _userService.CheckLogin(employee.Email, employee.PassWord);
-                if (isAdmin) checkLogin = true;
-                if (checkLogin)
-                {
-                    var token = SaveSession();
-                    result.Result = token;
-                    result.Success = true;                
-                }           
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+           
             return result;
         }
 
