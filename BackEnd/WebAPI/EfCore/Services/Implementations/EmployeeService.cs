@@ -171,10 +171,10 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             bool isSuccess = false;
             try
             {
-                var user = _EmployeeRepository.FindSingle(c => c.PassWord == Encryptor.SHA256(passWord));
+                var user = _EmployeeRepository.FindSingle(c => c.PassWord == Encryptor.SHA256(passWord) && (c.Email.Trim().ToUpper() == userName || c.Phone == userName));
                 if (user != null)
                 {
-                    return isSuccess;
+                     isSuccess = true;
                 }
             }
             catch (Exception ex)
@@ -184,7 +184,30 @@ namespace EmployeeManagement.EfCore.Services.Implementations
            
             return isSuccess;
         }
-
+        /// <summary>Lấy ID của nhân viên khi login sử dụng cho việc lưu lại log người sửa, thêm mới, xóa</summary>
+        /// <param name="userName">Tài khoản đăng nhập</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 30-06-2022 created
+        /// </Modified>
+        public Guid GetIdEmployeeByUserName(string userName)
+        {
+            Guid idEmployee = Guid.Empty;
+            try
+            {
+                 idEmployee = _EmployeeRepository.FindSingle(c =>c.Email.Trim().ToUpper() == userName || c.Phone == userName).EmployeeID;
+                
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("GetIdEmployeeByUserName: " + ex.Message);
+            }
+            return idEmployee;
+        }
         public bool DeleteEmployee(Guid idEmployee)
         {
             bool isDelete = false;
