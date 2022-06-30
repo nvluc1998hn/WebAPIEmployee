@@ -50,7 +50,7 @@ namespace EmployeeAPI.Controllers
         /// </Modified>
         [Authorize]
         [HttpPost("addOrUpdateEmployee")]
-        public async ActionResult<ResultResponse> addOrUpdateEmployee([FromBody] Employee employee)
+        public  ActionResult<ResultResponse> addOrUpdateEmployee([FromBody] Employee employee)
         {
             string messerError = "";
             bool isExistsEmail = false;

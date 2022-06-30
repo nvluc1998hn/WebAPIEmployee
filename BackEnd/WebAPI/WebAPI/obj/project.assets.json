@@ -3981,11 +3981,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\WebAPI\\EmployeeManagementAPI.csproj",
+      "projectUniqueName": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\WebAPI\\EmployeeManagementAPI.csproj",
       "projectName": "EmployeeManagementAPI",
-      "projectPath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\WebAPI\\EmployeeManagementAPI.csproj",
+      "projectPath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\WebAPI\\EmployeeManagementAPI.csproj",
       "packagesPath": "C:\\Users\\lucnv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lucnv\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4002,11 +4002,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj": {
-              "projectPath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj"
+            "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj": {
+              "projectPath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj"
             },
-            "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\EfCore\\EmployeeManagement.EfCore.csproj": {
-              "projectPath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\EfCore\\EmployeeManagement.EfCore.csproj"
+            "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\EfCore\\EmployeeManagement.EfCore.csproj": {
+              "projectPath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\EfCore\\EmployeeManagement.EfCore.csproj"
             }
           }
         }

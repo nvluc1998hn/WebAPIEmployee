@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj": {}
+    "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj": {
+    "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj",
+        "projectUniqueName": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj",
         "projectName": "EmployeeManagement.Database",
-        "projectPath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj",
+        "projectPath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj",
         "packagesPath": "C:\\Users\\lucnv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Database\\obj\\",
+        "outputPath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Database\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lucnv\\AppData\\Roaming\\NuGet\\NuGet.Config",

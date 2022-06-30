@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JRKPaLK1EvC8pwCvVXc6enHNluG3j6S0C5Oh1DmPjxgoED+NN3P57Wq+eN6/JopBwXVvK+bTfocqMfpoS3djEw==",
+  "dgSpecHash": "0VYpMO34HNihfYO/L15j2Yjh/LQ3MoEmiG7bvmx2u1o8fgrqPWzjCG0K3qQnPWr8GBgw8lsaIV32qe1Ws0tNfw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\EfCore\\EmployeeManagement.EfCore.csproj",
+  "projectFilePath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\EfCore\\EmployeeManagement.EfCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucnv\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\lucnv\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

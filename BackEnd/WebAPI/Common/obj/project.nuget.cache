@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nSFdJVzfSPvixVaySt4THucC0hp+f/HWBcPlcLy4tffYKBqOy7lRTvO2BSDmERMp4M4qYEmT2a04/Yfd6cWZiA==",
+  "dgSpecHash": "3+OO1GZ7NDyFkbV+JfcMA8SIdheH9kI35dOludgqo8zSqMBrujxzrd21TLEG1YIXLVcOhhrglOrRQSMFw+1ALQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj",
+  "projectFilePath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucnv\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\lucnv\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",

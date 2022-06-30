@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj": {}
+    "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj": {
+    "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj",
+        "projectUniqueName": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj",
         "projectName": "EmployeeManagement.Common",
-        "projectPath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj",
+        "projectPath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj",
         "packagesPath": "C:\\Users\\lucnv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Common\\obj\\",
+        "outputPath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lucnv\\AppData\\Roaming\\NuGet\\NuGet.Config",

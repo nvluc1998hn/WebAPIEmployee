@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ttzBBrQbEEGt08LV8To3A5E2m2whdzXgTMhJir1uS5t9sAhsFyqKqiPsrNVkJJgmnAS4HaDack9MNws/YhvQuQ==",
+  "dgSpecHash": "BzMjSNyFBl7tNfQXWyhp6fL+sVc0rzbge5qV5oBLR9zDNCQvS2BWB4BphuGiH3s+D7sPD8Rog7xrRN5jeH59mg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj",
+  "projectFilePath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Database\\EmployeeManagement.Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucnv\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\lucnv\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/aOq1/36drRMIZED6qyv40Q7cPbI0O6z/frR+q4Ex/cPCJeXLMpqiYX2CVveciNt4kbw17qme2BgO/PAFzcVEQ==",
+  "dgSpecHash": "JpR2TeJnkOCT563xvwQj0UCmxtAHC6AF4ivmBs1MCqOSGFv5fFLl0mVpSiJFuNW3gU1XstQvTQiJcIqEaBAKgQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lucnv\\Desktop\\BackEnd\\MockProject\\BackEnd\\WebAPI\\WebAPI\\EmployeeManagementAPI.csproj",
+  "projectFilePath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\WebAPI\\EmployeeManagementAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucnv\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
     "C:\\Users\\lucnv\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",

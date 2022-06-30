@@ -2473,3 +2473,7 @@ Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instanc
 ClientConnectionId:00000000-0000-0000-0000-000000000000
 Error Number:10061,State:0,Class:20
 2022-06-30T11:44:59.7848418+07:00 8000014c-0001-ff00-b63f-84710c7967bb [ERR] SaveEditEmployee: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No connection could be made because the target machine actively refused it.) (e89f54da)
+2022-06-30T13:17:00.0662309+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-06-30T13:17:00.0702832+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-06-30T13:17:00.0712875+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2022-06-30T13:17:21.7639170+07:00 800000db-0006-f900-b63f-84710c7967bb [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
