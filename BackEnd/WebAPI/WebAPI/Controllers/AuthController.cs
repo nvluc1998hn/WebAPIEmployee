@@ -46,18 +46,18 @@ namespace EmployeeAPI.Controllers
         [HttpPost("login")]
         public ActionResult<ResultResponse> Login([FromBody] Employee employee)
         {
-            
+
             var result = new ResultResponse();
             bool isAdmin = false;
-            try
+            // ưu tiên check trong file config trước , nếu không có thì check trong db
+            string path = @"c:\Users\lucnv\Desktop\abc.txt";
+            if (System.IO.File.Exists(path))
             {
-                // ưu tiên check trong file config trước , nếu không có thì check trong db
-                string path = @"c:\Users\lucnv\Desktop\abc.txt";
-                if (System.IO.File.Exists(path))
+                try
                 {
                     using (StreamReader sr = new StreamReader("c:/Users/lucnv/Desktop/abc.txt"))
                     {
-                        string line= "";
+                        string line = "";
                         string[] taikhoan = new string[2];
                         int i = 0;
                         while ((line = sr.ReadLine()) != null)
@@ -67,26 +67,34 @@ namespace EmployeeAPI.Controllers
                         }
                         if (taikhoan[0].Trim() == employee.Email && taikhoan[1].Trim() == employee.PassWord) isAdmin = true;
                     }
-                   
                 }
-                var checkLogin = _userService.CheckLogin(employee.Email, employee.PassWord);
-                if (isAdmin) checkLogin = true;
-                if (checkLogin)
+                catch (Exception ex)
                 {
-
-                    var token = SaveSession();
-                    UserInfo userInfo = new UserInfo();
-                    userInfo.Token = SaveSession();
-                    userInfo.EmployeeId = _userService.GetIdEmployeeByUserName(employee.Email);
-                    result.Result = userInfo;
-                    result.Success = true;
+                    _logger.LogError("Login Read File :" + ex.Message);
                 }
+
             }
-            catch (Exception ex)
+            bool? checkLogin = _userService.CheckLogin(employee.Email, employee.PassWord);
+            if (isAdmin) checkLogin = true;
+            if (checkLogin == true)
             {
-                _logger.LogError("Login :" + ex.Message);
-            }
-           
+
+                var token = SaveSession();
+                UserInfo userInfo = new UserInfo();
+                userInfo.Token = SaveSession();
+                if (isAdmin)
+                {
+                    userInfo.EmployeeId = new Guid("99999999 - 0000 - 9999 - 0000 - 000000000000");
+                }
+                else
+                {
+                    userInfo.EmployeeId = _userService.GetIdEmployeeByUserName(employee.Email);
+
+                }
+                result.Result = userInfo;
+                result.Success = true;
+            }         
+            if(checkLogin ==null) return BadRequest(result);
             return result;
         }
 
