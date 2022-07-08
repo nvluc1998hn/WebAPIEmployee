@@ -32,10 +32,10 @@ namespace EmployeeManagement.Database.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatorAdd")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CreatorEdit")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("DateOfBirth")
                         .HasColumnType("datetime2");

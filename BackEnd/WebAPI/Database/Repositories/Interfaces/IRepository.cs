@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Database.Repositories.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T,Key> where T : class
     {
         T FindSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
@@ -17,9 +17,9 @@ namespace EmployeeManagement.Database.Repositories.Interfaces
 
         IQueryable<T> GetMany(Expression<Func<T, bool>> where);
 
-        void Insert(T entity);
+        Key Insert(T entity, string keyField);
 
-        void Inserts(List<T> entity);
+      
 
         void Update(T entity);
 

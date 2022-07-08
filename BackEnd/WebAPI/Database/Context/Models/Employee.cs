@@ -14,24 +14,40 @@ namespace EmployeeManagement.Database.Context.Models
         [Key]
         [NotNull]
         public Guid EmployeeID { get; set; }
+
         [NotNull]
         [StringLength(150)]
-        public string FullName { get; set; }      
-        public DateTime? DateOfBirth { get; set; }
+        public string FullName { get; set; }
+
         [NotNull]
-        [StringLength(250)]
+        public DateTime? DateOfBirth { get; set; }
+              
         public string Email { get; set; }
+
+        [NotNull]
         [StringLength(20)]
         public string Phone { get; set; }
+
         [NotNull]
         [StringLength(500)]
         public string PassWord { get; set; }
+
+        [NotNull]
         public byte Sex { get; set; }
+
+        [NotNull]
         public bool IsDelete { get; set; }
+
+        [NotNull]
         public DateTime CreateDate { get; set; }
-        public string CreatorAdd { get; set; }
+
+        [NotNull]
+        public Guid CreatorAdd { get; set; }
+
         public DateTime? ModifiedDate { get; set; }
-        public string CreatorEdit { get; set; }
+
+        public Guid? CreatorEdit { get; set; }
+     
 
 
     }

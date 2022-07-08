@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
+using Enum = EmployeeManagement.Common.Constant.Enum;
 
 namespace EmployeeAPI.Controllers
 {
@@ -28,6 +29,8 @@ namespace EmployeeAPI.Controllers
     {
         private readonly IEmployeeService _userService;
         private readonly ILogger<AuthController> _logger;
+      
+        
         public AuthController(ILogger<AuthController> logger, IEmployeeService userService, IConfiguration configuration)
             : base(logger, configuration)
         {
@@ -46,7 +49,7 @@ namespace EmployeeAPI.Controllers
         [HttpPost("login")]
         public ActionResult<ResultResponse> Login([FromBody] Employee employee)
         {
-
+            
             var result = new ResultResponse();
             bool isAdmin = false;
             // ưu tiên check trong file config trước , nếu không có thì check trong db
@@ -76,25 +79,40 @@ namespace EmployeeAPI.Controllers
             }
             bool? checkLogin = _userService.CheckLogin(employee.Email, employee.PassWord);
             if (isAdmin) checkLogin = true;
+            UserInfo userInfo = new UserInfo();
             if (checkLogin == true)
             {
-
+                Employee inforEmployee = new Employee();
+                inforEmployee = _userService.GetEmployeeByUserName(employee.Email);
                 var token = SaveSession();
-                UserInfo userInfo = new UserInfo();
-                userInfo.Token = SaveSession();
+                userInfo.AccessToken = SaveSession();
+                userInfo.FullName = inforEmployee.FullName;
                 if (isAdmin)
                 {
                     userInfo.EmployeeId = new Guid("99999999 - 0000 - 9999 - 0000 - 000000000000");
                 }
                 else
                 {
-                    userInfo.EmployeeId = _userService.GetIdEmployeeByUserName(employee.Email);
+                    userInfo.EmployeeId = inforEmployee.EmployeeID ;
 
                 }
+                result.StatusCode = (int)Enum.StatusCode.LoginSucces;
                 result.Result = userInfo;
                 result.Success = true;
-            }         
-            if(checkLogin ==null) return BadRequest(result);
+            }else if(checkLogin == false) // trường hợp tài khoản mật khẩu sai 
+            {
+                result.StatusCode = (int)Enum.StatusCode.LoginSucces;
+                result.Messenger =  Enum.messageCode.LoginFailed.ToString();
+                result.Result = null;
+                result.Success = false;
+            }    
+            else//trường hợp có lỗi server
+            {
+                result.StatusCode = (int)Enum.StatusCode.LoginFalse;
+                result.Result = null;
+                result.Success = false;
+              
+            }
             return result;
         }
 

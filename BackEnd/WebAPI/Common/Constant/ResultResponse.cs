@@ -10,7 +10,10 @@ namespace EmployeeManagement.Common.Constant
     {
 
         public dynamic Result { get; set; }
+
         public bool Success { get; set; }
-        public string messenger { get; set; }
+        public int StatusCode { get; set; }
+        public int TotalItems { get; set; }
+        public string Messenger { get; set; }
     }
 }

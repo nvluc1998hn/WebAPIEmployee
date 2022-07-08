@@ -28,7 +28,6 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         private readonly IConfiguration _configuration;
         private readonly IEmployeeRepository _EmployeeRepository;
         private readonly ILogger<EmployeeService> _logger;
-        public static int number_Record = 0;
         private readonly ApplicationDbContext _db;
 
         public EmployeeService(IConfiguration configuration, IMapper mapper, IEmployeeRepository employeeRepository, ApplicationDbContext applicationDbContext, ILogger<EmployeeService> logger)
@@ -41,51 +40,60 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             _logger = logger;
         }
 
-        /// <summary>Adds the employee.</summary>
-        /// <param name="Employee">Thêm mới nhân viên.</param>
+        /// <summary>Thêm mới nhân viên.</summary>
+        /// <param name="employee">Đối tượng nhân viên</param>
         /// <returns>
-        ///   <br />
+        ///   true - > thêm thành công ,
+        ///   false - > thêm thất bại
         /// </returns>
         /// <Modified>
         /// Name Date Comments
         /// lucnv 6/30/2022 created
         /// </Modified>
-        public bool? AddEmployee(Employee Employee)
+        public bool AddEmployee(Employee employee)
         {
-            bool? isSuccess = false;
+            bool isSuccess = false;
             try
             {
-                Employee.PassWord = Encryptor.SHA256(Employee.PassWord);
-                _EmployeeRepository.Insert(Employee);
-                _EmployeeRepository.SaveChange();
-                isSuccess = true;
+                employee.PassWord = Encryptor.SHA256(employee.PassWord);
+                var id=  _EmployeeRepository.Insert(employee, nameof(Employee.EmployeeID));
+                if (id != Guid.Empty)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
             }
             catch (Exception ex)
             {
-                _logger.LogInformation("AddEmployee: " + ex.Message);               
-                isSuccess = null;
+                _logger.LogError("AddEmployee: " + ex.Message);               
+                isSuccess = false;
             }        
             return isSuccess;
         }
-        public bool? SaveEditEmployee(Employee Employee)
+
+        public bool SaveEditEmployee(Employee Employee)
         {
-            bool? isSuccess = false;
+            bool isSuccess = false;
             Task t = Task.Run(() =>
             {
                 try
                 {
                     _EmployeeRepository.Update(Employee);
                     _EmployeeRepository.SaveChange();
+                    isSuccess = true;
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogInformation("SaveEditEmployee: " + ex.Message);
+                    _logger.LogError("SaveEditEmployee: " + ex.Message);
                 }
             });
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-                isSuccess = null;
+                isSuccess = true;
             }           
             return isSuccess;
         }
@@ -101,10 +109,10 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         /// Name Date Comments
         /// lucnv 6/24/2022 created
         /// </Modified>
-        public bool? CheckExistsEmail(string email, Guid idEmployee)
+        public bool CheckExistsEmail(string email, Guid idEmployee)
         {
 
-            bool? isExistsEmail = false;
+            bool isExistsEmail = false;
             Task t = Task.Run(() =>
             {
                 try
@@ -122,13 +130,13 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogInformation("CheckExistsEmail: " + ex.Message);
+                    _logger.LogError("CheckExistsEmail: " + ex.Message);
                 }
             });
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-                isExistsEmail = null;
+                isExistsEmail = true;
             }
            
             return isExistsEmail;
@@ -145,9 +153,9 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         /// Name Date Comments
         /// lucnv 6/24/2022 created
         /// </Modified>
-        public bool? CheckExistsPhone(string phone, Guid idEmployee)
+        public bool CheckExistsPhone(string phone, Guid idEmployee)
         {
-            bool? isExistsPhone = false;
+            bool isExistsPhone = false;
             Task t = Task.Run(() =>
             {
                 try
@@ -165,13 +173,13 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogInformation("CheckExistsPhone: " + ex.Message);
+                    _logger.LogError("CheckExistsPhone: " + ex.Message);
                 }
             });
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-                isExistsPhone = null;
+               isExistsPhone = true;
             }        
             return isExistsPhone;
         }
@@ -186,9 +194,9 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         /// Name Date Comments
         /// lucnv 6/30/2022 created
         /// </Modified>
-        public bool? CheckLogin(string userName, string passWord)
+        public bool CheckLogin(string userName, string passWord)
         {
-            bool? isSuccess = false;
+            bool isSuccess = false;
             Task t = Task.Run(() =>
             {
                 try
@@ -201,16 +209,17 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogInformation("CheckLogin: " + ex.Message);
+                    _logger.LogError("CheckLogin: " + ex.Message);
                 }
             });
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-                isSuccess = null;
+                isSuccess = true;
             }    
             return isSuccess;
         }
+
         /// <summary>Lấy ID của nhân viên khi login sử dụng cho việc lưu lại log người sửa, thêm mới, xóa</summary>
         /// <param name="userName">Tài khoản đăng nhập</param>
         /// <returns>
@@ -221,19 +230,19 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         /// Name Date Comments
         /// lucnv 30-06-2022 created
         /// </Modified>
-        public Guid GetIdEmployeeByUserName(string userName)
+        public Employee GetEmployeeByUserName(string userName)
         {
-            Guid idEmployee = Guid.Empty;
+            Employee employee = new Employee();
             Task t = Task.Run(() =>
             {
                 try
                 {
-                    idEmployee = _EmployeeRepository.FindSingle(c => c.Email.Trim().ToUpper() == userName || c.Phone == userName).EmployeeID;
+                    employee = _EmployeeRepository.FindSingle(c => c.Email.Trim().ToUpper() == userName || c.Phone == userName);
 
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogInformation("GetIdEmployeeByUserName: " + ex.Message);
+                    _logger.LogError("GetIdEmployeeByUserName: " + ex.Message);
                 }
             });
             TimeSpan ts = TimeSpan.FromSeconds(3);
@@ -241,11 +250,12 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             {
                 
             }
-            return idEmployee;
+            return employee;
         }
-        public bool? DeleteEmployee(Guid idEmployee)
+
+        public bool DeleteEmployee(Guid idEmployee)
         {
-            bool? isDelete = false;
+            bool isDelete = false;
             Task t = Task.Run(() =>
             {
                 try
@@ -261,16 +271,17 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogInformation("DeleteEmployee: " + ex.Message);
+                    _logger.LogError("DeleteEmployee: " + ex.Message);
                 }
             });
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-                isDelete = null;
+                isDelete = true;
             }          
             return isDelete;
         }
+
         public Employee GetEmployeeById(Guid idEmployee)
         {
             var user = new Employee();
@@ -283,7 +294,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogInformation("GetEmployeeById: " + ex.Message);
+                    _logger.LogError("GetEmployeeById: " + ex.Message);
                 }
             });
             TimeSpan ts = TimeSpan.FromSeconds(3);
@@ -293,11 +304,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             }
             return user;
         }
-        public int GetCountEmployee()
-        {
-            return number_Record;
-        }
-
+      
         /// <summary>Lấy ra danh sách nhân viên có phân trang</summary>
         /// <param name="PageNo">Đang ở trang nào</param>
         /// <param name="PageSize">Số lượnng bản ghi 1 trang</param>
@@ -326,23 +333,19 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 var paramdto = new SqlParameter("dto", dto);
                 var paramsex = new SqlParameter("sex", sex);
                 var paramkeyWord = new SqlParameter("keyWord", keyWord);
-                var output = new SqlParameter();
-                output.ParameterName = "@parameterReturn";
-                output.SqlDbType = SqlDbType.Int;
-                output.Direction = ParameterDirection.Output;
+               
                 Task t = Task.Run(() =>
                 {
                     try
                     {
                         listEmployee = _db.Employee.FromSqlRaw("EXEC WebAPI_Employee_GetAll @PageNo,@PageSize,@SortOrder,@descyn,@dfrom,@dto,@sex,@keyWord",
                          paramPageNo, paramPageSize, paramSortOrder, typeSort, paramdfrom, paramdto, paramsex, paramkeyWord);
-                        _db.Database.ExecuteSqlRaw("EXEC WebAPI_CountEmployee @dfrom={0},@dto={1},@sex={2},@keyword={3}, @employee_count={4} OUT"
-                         , paramdfrom, paramdto, paramsex, paramkeyWord, output);
-                        number_Record = (int)output.Value;
+                       
+                        
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogInformation("GetAllEmployee: " + ex.Message);
+                        _logger.LogError("GetAllEmployee: " + ex.Message);
                     }
                 });
                 TimeSpan ts = TimeSpan.FromSeconds(3);
@@ -350,10 +353,37 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 {
 
                     listEmployee = null;
-                    number_Record = 0;
                 }      
             return listEmployee;
 
+        }
+
+        public int GetCountEmployee(DateTime dfrom, DateTime dto, int sex, string keyWord)
+        {
+            int number_Record = 0;
+
+            if (String.IsNullOrEmpty(keyWord)) keyWord = ""; // Xử lý trường hợp lỗi trong function nếu gửi về null
+            var paramdfrom = new SqlParameter("dfrom", dfrom);
+            var paramdto = new SqlParameter("dto", dto);
+            var paramsex = new SqlParameter("sex", sex);
+            var paramkeyWord = new SqlParameter("keyWord", keyWord);
+
+            var output = new SqlParameter();
+            output.ParameterName = "@parameterReturn";
+            output.SqlDbType = SqlDbType.Int;
+            output.Direction = ParameterDirection.Output;
+
+            try
+            {
+                _db.Database.ExecuteSqlRaw("EXEC WebAPI_CountEmployee @dfrom={0},@dto={1},@sex={2},@keyword={3}, @employee_count={4} OUT"
+                        , paramdfrom, paramdto, paramsex, paramkeyWord, output);
+                number_Record = (int)output.Value;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("GetCountEmployee: " + ex.Message);
+            }
+            return number_Record;
         }
 
 

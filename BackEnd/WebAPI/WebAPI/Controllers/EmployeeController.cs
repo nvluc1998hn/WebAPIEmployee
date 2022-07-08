@@ -17,7 +17,7 @@ using Microsoft.AspNetCore.Http;
 namespace EmployeeAPI.Controllers
 {
     /// <summary>
-    ///   Xử lý các nhiệp vụ như thêm sửa xóa nhân viên
+    ///    Thêm sửa xóa nhân viên
     /// </summary>
     /// <Modified>
     /// Name Date Comments
@@ -33,6 +33,7 @@ namespace EmployeeAPI.Controllers
         private string error_DisconnectServe = "Có lỗi phát sinh từ server !";
 
         private ResultResponse _resultResponse = new ResultResponse();
+
         public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService userService, IConfiguration configuration)
            : base(logger, configuration)
         {
@@ -44,20 +45,21 @@ namespace EmployeeAPI.Controllers
         /// <param name="nhanVien">Đối tượng nhân viên</param>
         /// <returns>
         ///   200 => success = true
-        ///   400 => success = false, và kèm thông báo lý do thất bại
+        ///   500 => success = false, và kèm thông báo lý do thất bại
         /// </returns>
         /// <Modified>
         /// Name Date Comments
         /// lucnv 6/24/2022 created
         /// </Modified>
         [Authorize]
-        [HttpPost("addOrUpdateEmployee")]
-        public ActionResult<ResultResponse> addOrUpdateEmployee([FromBody] Employee employee)
+        [HttpPost("SaveEmployee")]
+        public ActionResult<ResultResponse> SaveEmployee([FromBody] Employee employee)
         {
             string messerError = "";
-            bool? isExistsEmail = false;
-            bool? isExistsPhone = false;
+            bool isExistsEmail = false;
+            bool isExistsPhone = false;
             DateTime dateTime = DateTime.Now;
+            bool kt = string.IsNullOrEmpty(employee.Email);
 
 
             if (string.IsNullOrEmpty(messerError) && string.IsNullOrEmpty(employee.FullName))
@@ -81,10 +83,7 @@ namespace EmployeeAPI.Controllers
             {
                 messerError = "Tuổi phải lớn hơn 18 !";
             }
-            else if (string.IsNullOrEmpty(messerError) && !regexMail.IsMatch(employee.Email) && !string.IsNullOrEmpty(employee.Email))
-            {
-                messerError = "Email không hợp lệ !";
-            }
+            
             if (messerError.Equals(""))
             {
                 isExistsEmail = _userService.CheckExistsEmail(employee.Email, employee.EmployeeID);
@@ -104,14 +103,15 @@ namespace EmployeeAPI.Controllers
                 messerError = "Số điện thoại đã tồn tại trong hệ thống !";
             }
             // Gửi về trạng thái là đang thêm mới hay sửa
-            if (isExistsPhone == false && isExistsEmail == false && messerError.Equals("")) // isExistsPhone = true -> đã tồn tại , isExistsPhone = null có lỗi serve
+            bool checkSave = false;
+            if (isExistsPhone == false && isExistsEmail == false && messerError.Equals("")) 
             {
                 if (employee.EmployeeID == Guid.Empty)
                 {
                     Guid g = Guid.NewGuid();
                     employee.CreateDate = dateTime;
                     employee.EmployeeID = g;
-                    _userService.AddEmployee(employee);
+                    checkSave = _userService.AddEmployee(employee);
                 }
                 else
                 {
@@ -119,12 +119,22 @@ namespace EmployeeAPI.Controllers
                     _userService.SaveEditEmployee(employee);
 
                 }
-                _resultResponse.Success = true;
+                if (checkSave)
+                {
+                    _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
+                    _resultResponse.Success = true;
+                }
+                else
+                {
+                    _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
+                    _resultResponse.Success = false;
+                }
+               
             }
             else
             {
                 _resultResponse.Success = false;
-                _resultResponse.messenger = messerError;
+                _resultResponse.Messenger = messerError;
             }
 
             if (_resultResponse.Success) return _resultResponse;
@@ -132,9 +142,9 @@ namespace EmployeeAPI.Controllers
 
         }
         /// <summary>Lấy ra danh sách nhân viên có phân trang</summary>
-        /// <param name="PageNo">Đang ở trang nào</param>
-        /// <param name="PageSize">Số lượnng bản ghi 1 trang</param>
-        /// <param name="SortOrder">Sắp xếp theo tiêu chí nào (chưa dùng)</param>
+        /// <param name="pageNo">Đang ở trang nào</param>
+        /// <param name="pageSize">Số lượnng bản ghi 1 trang</param>
+        /// <param name="sortOrder">Sắp xếp theo tiêu chí nào (chưa dùng)</param>
         /// <param name="dfrom">Điều kiện lọc từ ngày sinh</param>
         /// <param name="dto">Điều kiện lọc đến ngày sinh</param>
         /// <param name="sex">Điều kiện lọc Giới tính.</param>
@@ -147,20 +157,23 @@ namespace EmployeeAPI.Controllers
         /// Name Date Comments
         /// lucnv 6/24/2022 created
         /// </Modified>
+        /// 
+
         [Authorize]
-        [HttpGet("getAllEmployee")]
-        public ActionResult<ResultResponse> getAllEmployee(int PageNo, int PageSize, string SortOrder, bool descyn, DateTime dfrom, DateTime dto, int sex, string keyWord)
+        [HttpGet("GetAllEmployee")]
+        public ActionResult<ResultResponse> GetAllEmployee(int pageNo, int pageSize, string sortOrder, bool descyn, DateTime dfrom, DateTime dto, int sex, string keyWord)
         {
 
             if (dfrom.Year > 1900 && dto.Year > 1900 && dfrom > dto)
             {
-                _resultResponse.messenger = "Ngày bắt đầu phải nhỏ hơn ngày kết thúc";
+                _resultResponse.Messenger = "Ngày bắt đầu phải nhỏ hơn ngày kết thúc";
                 _resultResponse.Success = false;
                 _resultResponse.Result = null;
             }
             else
             {
-                _resultResponse.Result = _userService.GetAllEmployee(PageNo, PageSize, SortOrder, descyn, dfrom, dto, sex, keyWord);
+        //        _resultResponse.Result = _userService.GetAllEmployee(PageNo, PageSize, SortOrder, descyn, dfrom, dto, sex, keyWord).ToList();
+                _resultResponse.TotalItems = _userService.GetCountEmployee(dfrom, dto, sex, keyWord);
                 if (_resultResponse.Result != null)
                 {
                     _resultResponse.Success = true;
@@ -168,7 +181,7 @@ namespace EmployeeAPI.Controllers
                 else
                 {
                     _resultResponse.Success = false;
-                    _resultResponse.messenger = error_DisconnectServe;
+                    _resultResponse.Messenger = error_DisconnectServe;
                 }
             }
             if (_resultResponse.Success)
@@ -179,6 +192,7 @@ namespace EmployeeAPI.Controllers
             return BadRequest(_resultResponse);
 
         }
+       
         /// <summary>Xóa nhân viên.</summary>
         /// <param name="idNhanVien">ID của nhân viên.</param>
         /// <returns>
@@ -188,22 +202,24 @@ namespace EmployeeAPI.Controllers
         /// Name Date Comments
         /// lucnv 6/29/2022 created
         /// </Modified>
+        /// 
         [Authorize]
-        [HttpPost("deleteEmployee")]
-        public ActionResult<ResultResponse> deleteEmployee([FromBody] Guid idNhanVien)
+        [HttpPost("DeleteEmployee")]
+        public ActionResult<ResultResponse> DeleteEmployee([FromBody] Guid idEmployee)
         {
 
-            var result = _userService.DeleteEmployee(idNhanVien);
+            var result = _userService.DeleteEmployee(idEmployee);
             if (result == true)
             {
                 _resultResponse.Result = result;
                 _resultResponse.Success = true;
+                _resultResponse.StatusCode = 200;
             }
             else
             {
                 _resultResponse.Result = null;
                 _resultResponse.Success = false;
-                _resultResponse.messenger = "Nhân Viên không tồn tại trong hệ thống !";
+                _resultResponse.Messenger = "Nhân Viên không tồn tại trong hệ thống !";
 
             }
 
@@ -213,19 +229,36 @@ namespace EmployeeAPI.Controllers
             }
             return BadRequest(_resultResponse);
         }
+
+        /// <summary>
+        ///   <para>
+        ///     <br />
+        ///   </para>
+        ///   <para>Lấy thông tin nhân viên
+        /// </para>
+        /// </summary>
+        /// <param name="idEmployee">Id nhân viên</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 08-07-2022 created
+        /// </Modified>
         [Authorize]
-        [HttpGet("getEmployee")]
-        public ActionResult<ResultResponse> getEmployee(Guid idNhanVien)
+        [HttpGet("GetEmployee")]
+        public ActionResult<ResultResponse> GetEmployee(Guid idEmployee)
         {
-            var result = _userService.GetEmployeeById(idNhanVien);
+            var result = _userService.GetEmployeeById(idEmployee);
             if (result != null)
             {
                 _resultResponse.Result = result;
                 _resultResponse.Success = true;
+                _resultResponse.StatusCode = 200;
             }
             else
             {
-                _resultResponse.messenger = "Nhân viên không tồn tại trong hệ thống!";
+                _resultResponse.Messenger = "Nhân viên không tồn tại trong hệ thống!";
                 _resultResponse.Result = result;
                 _resultResponse.Success = false;
 
@@ -236,29 +269,6 @@ namespace EmployeeAPI.Controllers
             }
             return _resultResponse;
         }
-        /// <summary>Lấy ra số lượng bản ghi dùng cho phân trang.</summary>
-        /// <returns>
-        ///   Số lượng bản ghi
-        /// </returns>
-        /// <Modified>
-        /// Name Date Comments
-        /// lucnv 6/24/2022 created
-        /// </Modified>
-        [HttpGet("GetCountEmployee")]
-        public ActionResult<ResultResponse> GetCountEmployee()
-        {
-
-            var result = _userService.GetCountEmployee();
-            _resultResponse.Result = result;
-            _resultResponse.Success = true;
-            if (_resultResponse.Success)
-            {
-                return _resultResponse;
-            }
-            return BadRequest(_resultResponse);
-        }
-
-
     }
 }
 
