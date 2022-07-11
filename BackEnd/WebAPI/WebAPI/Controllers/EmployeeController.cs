@@ -31,7 +31,6 @@ namespace EmployeeAPI.Controllers
         private readonly IEmployeeService _userService;
         private readonly ILogger<EmployeeController> _logger;
         private string error_DisconnectServe = "Có lỗi phát sinh từ server !";
-
         private ResultResponse _resultResponse = new ResultResponse();
 
         public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService userService, IConfiguration configuration)

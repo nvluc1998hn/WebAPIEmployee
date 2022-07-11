@@ -91,7 +91,6 @@ namespace EmployeeManagement.Database.Repositories.Implementations
             return items;
         }
 
-
         /// <summary>Tìm kiếm theo điều kiện lọc.</summary>
         /// <param name="predicate">The predicate.</param>
         /// <param name="includeProperties">The include properties.</param>
@@ -115,7 +114,6 @@ namespace EmployeeManagement.Database.Repositories.Implementations
             return items.Where(predicate);
         }  
         
-
         public virtual IQueryable<T> GetMany(Expression<Func<T, bool>> where)
         {
             IQueryable<T> data = _context.Set<T>();
@@ -248,12 +246,10 @@ namespace EmployeeManagement.Database.Repositories.Implementations
             try
             {
                 _context.Set<T>().RemoveRange(entities);
-
             }
             catch (Exception ex)
             {
                 _logger.LogError("RemoveMultiple" + ex.Message);
-
             }
         }
 
@@ -297,7 +293,7 @@ namespace EmployeeManagement.Database.Repositories.Implementations
             catch (Exception ex)
             {
 
-                _logger.LogError("RemoveMultiple" + ex.Message);
+                _logger.LogError("Updates" + ex.Message);
             }
         }
 
@@ -331,12 +327,10 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-
         }
 
         protected virtual void Dispose(bool disposing)
         {
-
             if (disposing)
             {
                 if (_context != null)
@@ -344,7 +338,6 @@ namespace EmployeeManagement.Database.Repositories.Implementations
                     _context.Dispose();
                 }
             }
-
         }
 
         /// <summary>Lưu sự thay đổi của dữ liệu</summary>
@@ -353,11 +346,8 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         /// lucnv 08-07-2022 created
         /// </Modified>
         public void SaveChange()
-        {
-            
-                _context.SaveChanges();
-
-           
+        {           
+             _context.SaveChanges();     
         }
     }
 }
