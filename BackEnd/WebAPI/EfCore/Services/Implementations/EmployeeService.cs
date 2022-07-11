@@ -337,9 +337,9 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         }
       
         /// <summary>Lấy ra danh sách nhân viên có phân trang</summary>
-        /// <param name="PageNo">Đang ở trang nào</param>
-        /// <param name="PageSize">Số lượnng bản ghi 1 trang</param>
-        /// <param name="SortOrder">Sắp xếp theo cột nào</param>
+        /// <param name="pageNo">Đang ở trang nào</param>
+        /// <param name="pageSize">Số lượnng bản ghi 1 trang</param>
+        /// <param name="sortOrder">Sắp xếp theo cột nào</param>
         /// <param name="descyn">sắp xếp tăng dần hay giảm dần</param>
         /// <param name="dfrom">Điều kiện lọc từ ngày sinh</param>
         /// <param name="dto">Điều kiện lọc đến ngày sinh</param>
