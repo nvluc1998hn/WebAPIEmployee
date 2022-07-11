@@ -81,13 +81,21 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         {
 
             IQueryable<T> items = _context.Set<T>();
-            if (includeProperties != null)
+            try
             {
-                foreach (var includeProperty in includeProperties)
+                if (includeProperties != null)
                 {
-                    items = items.Include(includeProperty);
+                    foreach (var includeProperty in includeProperties)
+                    {
+                        items = items.Include(includeProperty);
+                    }
                 }
             }
+            catch (Exception ex) 
+            {
+
+                _logger.LogError("FindAll" + ex.Message);
+            }         
             return items;
         }
 
@@ -104,13 +112,21 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         public virtual IQueryable<T> FindAll(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> items = _context.Set<T>();
-            if (includeProperties != null)
+            try
             {
-                foreach (var includeProperty in includeProperties)
+                if (includeProperties != null)
                 {
-                    items = items.Include(includeProperty);
+                    foreach (var includeProperty in includeProperties)
+                    {
+                        items = items.Include(includeProperty);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+
+                _logger.LogError("FindAll" + ex.Message);
+            }        
             return items.Where(predicate);
         }  
         
@@ -141,8 +157,16 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         /// </Modified>
         public virtual T FindSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
-          
-            return  FindAll(includeProperties).SingleOrDefault(predicate); ;
+            T t = null;
+            try
+            {
+                t = FindAll(includeProperties).SingleOrDefault(predicate);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("FindSingle" + ex.Message);
+            }
+            return t;
         }
 
         /// <summary>Tìm kiếm đồng bộ</summary>
@@ -217,10 +241,18 @@ namespace EmployeeManagement.Database.Repositories.Implementations
             return _context.Set<T>();
         }
 
+        /// <summary>Lấy dữ liệu</summary>
+        /// <param name="where">The where.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 11-07-2022 created
+        /// </Modified>
         public virtual T Get(Expression<Func<T, bool>> where)
-        {
-            var entity = _context.Set<T>().Where(where).FirstOrDefault();
-            return entity;
+        {         
+            return _context.Set<T>().Where(where).FirstOrDefault();
         }
 
         /// <summary>Xóa 1 bản ghi</summary>

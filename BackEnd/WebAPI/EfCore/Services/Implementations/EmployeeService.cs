@@ -74,7 +74,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             return isSuccess;
         }
 
-        /// <summary>Sử nhân viên</summary>
+        /// <summary>Sửa nhân viên</summary>
         /// <param name="Employee">Đối tượng nhân viên</param>
         /// <returns>
         ///   <br />
@@ -255,7 +255,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-                
+                employee = null;
             }
             return employee;
         }

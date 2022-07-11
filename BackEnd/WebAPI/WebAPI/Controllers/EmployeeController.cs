@@ -139,6 +139,7 @@ namespace EmployeeAPI.Controllers
             return BadRequest(_resultResponse);
 
         }
+       
         /// <summary>Lấy ra danh sách nhân viên có phân trang</summary>
         /// <param name="pageNo">Đang ở trang nào</param>
         /// <param name="pageSize">Số lượnng bản ghi 1 trang</param>
@@ -156,7 +157,6 @@ namespace EmployeeAPI.Controllers
         /// lucnv 6/24/2022 created
         /// </Modified>
         /// 
-
         [Authorize]
         [HttpGet("GetAllEmployee")]
         public ActionResult<ResultResponse> GetAllEmployee(int pageNo, int pageSize, string sortOrder, bool descyn, DateTime dfrom, DateTime dto, int sex, string keyWord)
