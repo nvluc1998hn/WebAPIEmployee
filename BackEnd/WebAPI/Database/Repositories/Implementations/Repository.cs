@@ -81,52 +81,47 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         {
 
             IQueryable<T> items = _context.Set<T>();
-            try
+            if (includeProperties != null)
             {
-                if (includeProperties != null)
+                foreach (var includeProperty in includeProperties)
                 {
-                    foreach (var includeProperty in includeProperties)
-                    {
-                        items = items.Include(includeProperty);
-                    }
+                    items = items.Include(includeProperty);
                 }
             }
-            catch (Exception ex)
-            {
-
-                _logger.LogError("FindAll" + ex.Message);
-            }
-           
             return items;
         }
 
+
+        /// <summary>Tìm kiếm theo điều kiện lọc.</summary>
+        /// <param name="predicate">The predicate.</param>
+        /// <param name="includeProperties">The include properties.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 10-07-2022 created
+        /// </Modified>
         public virtual IQueryable<T> FindAll(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> items = _context.Set<T>();
-            try
+            if (includeProperties != null)
             {
-                if (includeProperties != null)
+                foreach (var includeProperty in includeProperties)
                 {
-                    foreach (var includeProperty in includeProperties)
-                    {
-                        items = items.Include(includeProperty);
-                    }
+                    items = items.Include(includeProperty);
                 }
             }
-            catch (Exception ex)
-            {
-
-                _logger.LogError("FindAll" + ex.Message);
-            }        
             return items.Where(predicate);
-        }
+        }  
+        
 
         public virtual IQueryable<T> GetMany(Expression<Func<T, bool>> where)
         {
             IQueryable<T> data = _context.Set<T>();
             try
             {
-                 data = data.Where(where);
+                data = data.Where(where);
             }
             catch (Exception ex)
             {
@@ -148,17 +143,8 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         /// </Modified>
         public virtual T FindSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
-            T data = null;
-            try
-            {
-                data = FindAll(includeProperties).SingleOrDefault(predicate);
-            }
-            catch (Exception ex)
-            {
-
-                _logger.LogError("FindSingle" + ex.Message);
-            }
-            return data;
+          
+            return  FindAll(includeProperties).SingleOrDefault(predicate); ;
         }
 
         /// <summary>Tìm kiếm đồng bộ</summary>
@@ -188,10 +174,10 @@ namespace EmployeeManagement.Database.Repositories.Implementations
             {
                 _context.Set<T>().Remove(entity);
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
-                _logger.LogError("Remove" +ex.Message);
-            }        
+                _logger.LogError("Remove" + ex.Message);
+            }
         }
 
         /// <summary>Lấy dữ liệu của 1 bản ghi</summary>
@@ -209,6 +195,7 @@ namespace EmployeeManagement.Database.Repositories.Implementations
             try
             {
                 data = _context.Set<T>().Find(id);
+                
             }
             catch (Exception ex)
             {
@@ -228,7 +215,7 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         /// </Modified>
         public virtual IQueryable<T> GetAll()
         {
-           
+
             return _context.Set<T>();
         }
 
@@ -263,7 +250,7 @@ namespace EmployeeManagement.Database.Repositories.Implementations
                 _context.Set<T>().RemoveRange(entities);
 
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 _logger.LogError("RemoveMultiple" + ex.Message);
 
@@ -276,19 +263,22 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         /// Name Date Comments
         /// lucnv 6/27/2022 created
         /// </Modified>
-        public virtual void Update(T entity)
+        public virtual bool Update(T entity)
         {
+            bool isSuccess = false;
             try
             {
                 _context.Entry(entity).State = EntityState.Modified;
                 _context.Set<T>().Update(entity);
+                if (_context.SaveChanges() == 1) isSuccess = true;
+                
             }
             catch (Exception ex)
             {
 
-                _logger.LogError("RemoveMultiple" + ex.Message);
+                _logger.LogError("Update" + ex.Message);
             }
-          
+            return isSuccess;
         }
 
         /// <summary>Cập nhật nhìu thông tin</summary>
@@ -329,7 +319,7 @@ namespace EmployeeManagement.Database.Repositories.Implementations
             {
 
                 _logger.LogError("AddOrUpdateRange" + ex.Message);
-            }        
+            }
         }
 
         /// <summary>Giải phóng dữ liệu</summary>
@@ -339,33 +329,22 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         /// </Modified>
         public void Dispose()
         {
-            try
-            {
-                Dispose(true);
-                GC.SuppressFinalize(this);
-            }
-            catch (Exception ex)
-            {
+            Dispose(true);
+            GC.SuppressFinalize(this);
 
-                _logger.LogError("Dispose" + ex.Message);
-            }        
         }
 
         protected virtual void Dispose(bool disposing)
         {
-            try
+
+            if (disposing)
             {
-                if (_context != null && disposing)
+                if (_context != null)
                 {
                     _context.Dispose();
                 }
             }
-            catch (Exception ex)
-            {
 
-                _logger.LogError("Dispose" + ex.Message);
-            }
-           
         }
 
         /// <summary>Lưu sự thay đổi của dữ liệu</summary>
@@ -375,16 +354,10 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         /// </Modified>
         public void SaveChange()
         {
-            try
-            {
+            
                 _context.SaveChanges();
 
-            }
-            catch (Exception ex)
-            {
-
-                _logger.LogError("SaveChange" + ex.Message);
-            }
+           
         }
     }
 }

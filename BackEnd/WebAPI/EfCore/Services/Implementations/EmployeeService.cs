@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace EmployeeManagement.EfCore.Services.Implementations
 {
     /// <summary>
-    ///   Sử lý các nhiệp vụ thêm,sửa,xóa,tìm kiếm nhân viên
+    ///    Thêm,sửa,xóa,tìm kiếm nhân viên
     /// </summary>
     /// <Modified>
     /// Name Date Comments
@@ -74,6 +74,15 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             return isSuccess;
         }
 
+        /// <summary>Sử nhân viên</summary>
+        /// <param name="Employee">Đối tượng nhân viên</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 10-07-2022 created
+        /// </Modified>
         public bool SaveEditEmployee(Employee Employee)
         {
             bool isSuccess = false;
@@ -81,9 +90,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             {
                 try
                 {
-                    _EmployeeRepository.Update(Employee);
-                    _EmployeeRepository.SaveChange();
-                    isSuccess = true;
+                    isSuccess = _EmployeeRepository.Update(Employee);
                 }
                 catch (Exception ex)
                 {
@@ -113,18 +120,18 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         {
 
             bool isExistsEmail = false;
-            Task t = Task.Run(() =>
+            Task t = Task.Run(async () =>
             {
                 try
                 {
                     Employee user = new Employee();
                     if (idEmployee == Guid.Empty)
                     {
-                        user = _EmployeeRepository.FindSingle(c => c.Email.ToUpper().Trim() == email.ToUpper().Trim() && !c.Email.Equals("") && !c.IsDelete);
+                        user =  _EmployeeRepository.FindSingle(c => c.Email.ToUpper().Trim() == email.ToUpper().Trim() && !c.Email.Equals("") && !c.IsDelete);
                     }
                     else
                     {
-                        user = _EmployeeRepository.FindSingle(c => c.Email.ToUpper().Trim() == email.ToUpper().Trim() && c.EmployeeID != idEmployee && !c.Email.Equals("") && !c.IsDelete);
+                        user =   _EmployeeRepository.FindSingle(c => c.Email.ToUpper().Trim() == email.ToUpper().Trim() && c.EmployeeID != idEmployee && !c.Email.Equals("") && !c.IsDelete);
                     }
                     if (user != null) isExistsEmail = true;
                 }
@@ -136,7 +143,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-                isExistsEmail = true;
+                isExistsEmail = false;
             }
            
             return isExistsEmail;
@@ -179,7 +186,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-               isExistsPhone = true;
+               isExistsPhone = false;
             }        
             return isExistsPhone;
         }
@@ -215,7 +222,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-                isSuccess = true;
+                isSuccess = false;
             }    
             return isSuccess;
         }
@@ -253,6 +260,19 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             return employee;
         }
 
+        /// <summary>Xóa nhân viên</summary>
+        /// <param name="idEmployee">Id nhân viên</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 10-07-2022 created
+        /// </Modified>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 08-07-2022 created
+        /// </Modified>
         public bool DeleteEmployee(Guid idEmployee)
         {
             bool isDelete = false;
@@ -264,9 +284,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                     if (user != null)
                     {
                         user.IsDelete = true;
-                        _EmployeeRepository.Update(user);
-                        _EmployeeRepository.SaveChange();
-                        isDelete = true;
+                        isDelete= _EmployeeRepository.Update(user);
                     }
                 }
                 catch (Exception ex)
@@ -277,11 +295,24 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             TimeSpan ts = TimeSpan.FromSeconds(3);
             if (!t.Wait(ts))
             {
-                isDelete = true;
+                isDelete = false;
             }          
             return isDelete;
         }
 
+        /// <summary>Lấy thông tin của Nhân Viên theo ID</summary>
+        /// <param name="idEmployee">Id nhân viên</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 10-07-2022 created
+        /// </Modified>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 08-07-2022 created
+        /// </Modified>
         public Employee GetEmployeeById(Guid idEmployee)
         {
             var user = new Employee();
@@ -321,13 +352,13 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         /// Name Date Comments
         /// lucnv 6/24/2022 created
         /// </Modified>
-        public IEnumerable<Employee> GetAllEmployee(int PageNo, int PageSize, string SortOrder, bool descyn, DateTime dfrom, DateTime dto, int sex, string keyWord)
+        public IEnumerable<Employee> GetAllEmployee(int pageNo, int pageSize, string sortOrder, bool descyn, DateTime dfrom, DateTime dto, int sex, string keyWord)
         {
             IEnumerable<Employee> listEmployee = new List<Employee>();          
                 if (String.IsNullOrEmpty(keyWord)) keyWord = ""; // Xử lý trường hợp lỗi trong function nếu gửi về null
-                var paramPageNo = new SqlParameter("PageNo", PageNo);
-                var paramPageSize = new SqlParameter("PageSize", PageSize);
-                var paramSortOrder = new SqlParameter("SortOrder", SortOrder);
+                var paramPageNo = new SqlParameter("PageNo", pageNo);
+                var paramPageSize = new SqlParameter("PageSize", pageSize);
+                var paramSortOrder = new SqlParameter("SortOrder", sortOrder);
                 var typeSort = new SqlParameter("descyn", descyn);
                 var paramdfrom = new SqlParameter("dfrom", dfrom);
                 var paramdto = new SqlParameter("dto", dto);
@@ -358,6 +389,22 @@ namespace EmployeeManagement.EfCore.Services.Implementations
 
         }
 
+        /// <summary>Lấy số lượng bản ghi theo điều kiện lọc không phân trang</summary>
+        /// <param name="dfrom">Từ ngày sinh</param>
+        /// <param name="dto">Đến ngày sinh</param>
+        /// <param name="sex">Giới tính</param>
+        /// <param name="keyWord">Từ khóa tìm kiếm</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 10-07-2022 created
+        /// </Modified>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 08-07-2022 created
+        /// </Modified>
         public int GetCountEmployee(DateTime dfrom, DateTime dto, int sex, string keyWord)
         {
             int number_Record = 0;

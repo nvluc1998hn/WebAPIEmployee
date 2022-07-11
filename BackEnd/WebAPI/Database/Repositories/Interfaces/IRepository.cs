@@ -21,7 +21,7 @@ namespace EmployeeManagement.Database.Repositories.Interfaces
 
       
 
-        void Update(T entity);
+        bool Update(T entity);
 
         void Updates(List<T> entities);
 

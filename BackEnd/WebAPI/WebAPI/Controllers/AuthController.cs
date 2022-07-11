@@ -77,7 +77,7 @@ namespace EmployeeAPI.Controllers
                 }
 
             }
-            bool? checkLogin = _userService.CheckLogin(employee.Email, employee.PassWord);
+            bool checkLogin = _userService.CheckLogin(employee.Email, employee.PassWord);
             if (isAdmin) checkLogin = true;
             UserInfo userInfo = new UserInfo();
             if (checkLogin == true)
@@ -99,19 +99,14 @@ namespace EmployeeAPI.Controllers
                 result.StatusCode = (int)Enum.StatusCode.LoginSucces;
                 result.Result = userInfo;
                 result.Success = true;
-            }else if(checkLogin == false) // trường hợp tài khoản mật khẩu sai 
+            }   
+            else
             {
                 result.StatusCode = (int)Enum.StatusCode.LoginSucces;
-                result.Messenger =  Enum.messageCode.LoginFailed.ToString();
+                result.Messenger = Enum.messageCode.LoginFailed.ToString();
                 result.Result = null;
                 result.Success = false;
-            }    
-            else//trường hợp có lỗi server
-            {
-                result.StatusCode = (int)Enum.StatusCode.LoginFalse;
-                result.Result = null;
-                result.Success = false;
-              
+
             }
             return result;
         }

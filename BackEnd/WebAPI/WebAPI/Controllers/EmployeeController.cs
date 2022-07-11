@@ -102,7 +102,6 @@ namespace EmployeeAPI.Controllers
             {
                 messerError = "Số điện thoại đã tồn tại trong hệ thống !";
             }
-            // Gửi về trạng thái là đang thêm mới hay sửa
             bool checkSave = false;
             if (isExistsPhone == false && isExistsEmail == false && messerError.Equals("")) 
             {
@@ -114,9 +113,9 @@ namespace EmployeeAPI.Controllers
                     checkSave = _userService.AddEmployee(employee);
                 }
                 else
-                {
+                 {
                     employee.ModifiedDate = dateTime;
-                    _userService.SaveEditEmployee(employee);
+                    checkSave=  _userService.SaveEditEmployee(employee);
 
                 }
                 if (checkSave)
@@ -172,8 +171,17 @@ namespace EmployeeAPI.Controllers
             }
             else
             {
-        //        _resultResponse.Result = _userService.GetAllEmployee(PageNo, PageSize, SortOrder, descyn, dfrom, dto, sex, keyWord).ToList();
-                _resultResponse.TotalItems = _userService.GetCountEmployee(dfrom, dto, sex, keyWord);
+                try
+                {
+                    _resultResponse.Result = _userService.GetAllEmployee(pageNo, pageSize, sortOrder, descyn, dfrom, dto, sex, keyWord).ToList();
+                    _resultResponse.TotalItems = _userService.GetCountEmployee(dfrom, dto, sex, keyWord);
+                }
+                catch (Exception ex)
+                {
+
+                    _logger.LogError("GetAllEmployee: " + ex.Message);
+                }
+               
                 if (_resultResponse.Result != null)
                 {
                     _resultResponse.Success = true;
@@ -182,6 +190,7 @@ namespace EmployeeAPI.Controllers
                 {
                     _resultResponse.Success = false;
                     _resultResponse.Messenger = error_DisconnectServe;
+                    _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
                 }
             }
             if (_resultResponse.Success)
@@ -213,13 +222,13 @@ namespace EmployeeAPI.Controllers
             {
                 _resultResponse.Result = result;
                 _resultResponse.Success = true;
-                _resultResponse.StatusCode = 200;
+                _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
             }
             else
             {
                 _resultResponse.Result = null;
                 _resultResponse.Success = false;
-                _resultResponse.Messenger = "Nhân Viên không tồn tại trong hệ thống !";
+                _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
 
             }
 
@@ -254,13 +263,13 @@ namespace EmployeeAPI.Controllers
             {
                 _resultResponse.Result = result;
                 _resultResponse.Success = true;
-                _resultResponse.StatusCode = 200;
+                _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
             }
             else
             {
-                _resultResponse.Messenger = "Nhân viên không tồn tại trong hệ thống!";
                 _resultResponse.Result = result;
                 _resultResponse.Success = false;
+                _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
 
             }
             if (!_resultResponse.Success)
