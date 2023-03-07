@@ -9,6 +9,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace EmployeeManagement.Database.Context.Models
 {
+    [Table("Employee")]
     public partial class Employee
     {
         [Key]

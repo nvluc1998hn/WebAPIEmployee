@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using EfCore.ViewModels;
+using EmployeeManagement.Common.Command.ActionCommand;
+using EmployeeManagement.Database.Context.Models;
+using EmployeeManagement.EfCore.Command.ActionCommand;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +15,7 @@ namespace EfCore.Mapper
     {
         public MappingProfile()
         {
-          //  CreateMap<User, UserInfo>().ReverseMap();
+             CreateMap<Employee, InsertEmployeeCommand>();
         }
     }
 }

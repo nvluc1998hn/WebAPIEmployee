@@ -1,0 +1,69 @@
+2022-07-11T08:40:38.4471559+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-07-11T08:40:38.4515011+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-07-11T08:40:38.4526248+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2022-07-11T08:42:27.4279431+07:00 80000005-0007-fc00-b63f-84710c7967bb [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
+2022-07-11T08:48:42.4799831+07:00 80000782-0008-fe00-b63f-84710c7967bb [ERR] CheckExistsEmail: An exception was thrown while attempting to evaluate the LINQ query parameter expression 'value(EmployeeManagement.EfCore.Services.Implementations.EmployeeService+<>c__DisplayClass8_0).email.ToUpper().Trim()'. See the inner exception for more information. (00ef2171)
+2022-07-11T10:13:51.4118447+07:00 8000038a-0001-ff00-b63f-84710c7967bb [ERR] CheckLogin: Cannot access a disposed object.
+Object name: 'IServiceProvider'. (559817b0)
+2022-07-11T14:16:26.0378200+07:00 800003a4-0008-fd00-b63f-84710c7967bb [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+2022-07-11T14:16:26.0564240+07:00 800003a4-0008-fd00-b63f-84710c7967bb [ERR] CheckExistsPhone: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913. (44401edb)
+2022-07-11T14:16:26.0617587+07:00 800003a4-0008-fd00-b63f-84710c7967bb [ERR] An exception occurred in the database while saving changes for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__104_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)" (170f029e)
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__104_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2022-07-11T14:16:26.0771472+07:00 800003a4-0008-fd00-b63f-84710c7967bb [ERR] UpdateA second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913. (6fa32c4d)
+2022-07-11T14:16:36.2590789+07:00 800003a4-0008-fd00-b63f-84710c7967bb [ERR] Failed executing DbCommand ("1"ms) [Parameters=["@__Trim_0='1A@GMAIL.COM' (Size = 4000), @__idEmployee_1='c042d83c-2caa-4e43-a537-074a5b25ca98'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [e].[EmployeeID], [e].[CreateDate], [e].[CreatorAdd], [e].[CreatorEdit], [e].[DateOfBirth], [e].[Email], [e].[FullName], [e].[IsDelete], [e].[ModifiedDate], [e].[PassWord], [e].[Phone], [e].[Sex]
+FROM [Employee] AS [e]
+WHERE (((LTRIM(RTRIM(UPPER([e].[Email]))) = @__Trim_0) AND ([e].[EmployeeID] <> @__idEmployee_1)) AND (([e].[Email] <> N'') OR ([e].[Email] IS NULL))) AND ([e].[IsDelete] = CAST(0 AS bit))" (627a98df)
+2022-07-11T14:16:36.2637897+07:00 800003a4-0008-fd00-b63f-84710c7967bb [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.NullReferenceException: Object reference not set to an instance of an object.
+   at Microsoft.Data.SqlClient.SqlConnection.get_TypeSystem()
+   at Microsoft.Data.SqlClient.SqlDataReader..ctor(SqlCommand command, CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Microsoft.Data.SqlClient.SqlConnection.get_TypeSystem()
+   at Microsoft.Data.SqlClient.SqlDataReader..ctor(SqlCommand command, CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-11T14:16:44.2810771+07:00 800003a4-0008-fd00-b63f-84710c7967bb [ERR] CheckExistsEmail: Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'ApplicationDbContext'. (0096c37c)
+2022-07-11T14:20:12.9490646+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-07-11T14:20:12.9531897+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-07-11T14:20:12.9542633+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2022-07-11T14:21:17.0539051+07:00 800003c7-0006-fd00-b63f-84710c7967bb [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
+2022-07-11T14:39:01.4345802+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-07-11T14:39:01.4387532+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-07-11T14:39:01.4398416+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2022-07-11T14:39:04.9164337+07:00 80000709-000a-fb00-b63f-84710c7967bb [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)

@@ -20,6 +20,6 @@ namespace EmployeeManagement.Database.Context
             optionsBuilder.EnableSensitiveDataLogging();
         }
         public virtual DbSet<Employee> Employee { get; set; }
-
+        public virtual DbSet<Vehicle> Vehicles { get; set; }
     }
 }

@@ -156,3 +156,15 @@ C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\obj\Debug\net6.0\ref
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\obj\Debug\net6.0\EmployeeManagementAPI.pdb
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\obj\Debug\net6.0\EmployeeManagementAPI.genruntimeconfig.cache
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\obj\Debug\net6.0\ref\EmployeeManagementAPI.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\MediatR.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\MediatR.Extensions.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.EmployeeManagementAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.EmployeeManagementAPI.props
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.EmployeeManagementAPI.props
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.EmployeeManagementAPI.props
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

@@ -15,6 +15,7 @@ namespace EmployeeManagement.Database.Repositories.Implementations
         public EmployeeRepository(ApplicationDbContext context, ILogger<Employee> logger) : base(context, logger)
         {
         }
+       
     }
 
 }

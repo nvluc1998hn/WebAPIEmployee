@@ -9,7 +9,7 @@ namespace EmployeeManagement.Database.Repositories.Interfaces
 {
     public interface IEmployeeRepository : IRepository<Employee, Guid>
     {
-
+        
     }
     
 }

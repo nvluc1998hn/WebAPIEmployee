@@ -13,6 +13,10 @@ using EmployeeManagement.Common.Constant;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.Database.Context.Models;
 using Microsoft.AspNetCore.Http;
+using EmployeeManagement.EfCore.Command.ActionCommand;
+using AutoMapper;
+using EmployeeManagement.Common.Command.ActionCommand;
+using MediatR;
 
 namespace EmployeeAPI.Controllers
 {
@@ -30,14 +34,16 @@ namespace EmployeeAPI.Controllers
         Regex regexMail = new Regex(@"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
         private readonly IEmployeeService _userService;
         private readonly ILogger<EmployeeController> _logger;
-        private string error_DisconnectServe = "Có lỗi phát sinh từ server !";
-        private ResultResponse _resultResponse = new ResultResponse();
+        private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService userService, IConfiguration configuration)
+        public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService userService, IConfiguration configuration, IMapper mapper,IMediator mediator)
            : base(logger, configuration)
         {
             _userService = userService;
             _logger = logger;
+            _mapper = mapper;
+            _mediator = mediator;
         }
 
         /// <summary>Thêm sửa nhân viên</summary>
@@ -50,96 +56,85 @@ namespace EmployeeAPI.Controllers
         /// Name Date Comments
         /// lucnv 6/24/2022 created
         /// </Modified>
-        [Authorize]
+    //    [Authorize]
         [HttpPost("SaveEmployee")]
-        public ActionResult<ResultResponse> SaveEmployee([FromBody] Employee employee)
+        public ApiResponse SaveEmployee([FromBody] Employee employee)
         {
-            string messerError = "";
-            bool isExistsEmail = false;
-            bool isExistsPhone = false;
-            DateTime dateTime = DateTime.Now;
-            bool kt = string.IsNullOrEmpty(employee.Email);
-
-
-            if (string.IsNullOrEmpty(messerError) && string.IsNullOrEmpty(employee.FullName))
+            ApiResponse result = null;
+            try
             {
-                messerError = "Nhân viên không được bỏ trống !";
-            }
-            else if (messerError.Equals("") && string.IsNullOrEmpty(employee.Phone))
-            {
-                messerError = "Số điện thoại không được bỏ trống !";
-            }
-            else if (!regexPhone.IsMatch(employee.Phone) && string.IsNullOrEmpty(messerError))
-            {
-                messerError = "Số điện thoại không đúng định dạng !";
-
-            }
-            else if (string.IsNullOrEmpty(messerError) && string.IsNullOrEmpty(employee.PassWord))
-            {
-                messerError = "Mật khẩu không được bỏ trống !";
-            }
-            else if (string.IsNullOrEmpty(messerError) && dateTime.Year - employee.DateOfBirth.Value.Year < 18)
-            {
-                messerError = "Tuổi phải lớn hơn 18 !";
-            }
-            
-            if (messerError.Equals(""))
-            {
-                isExistsEmail = _userService.CheckExistsEmail(employee.Email, employee.EmployeeID);
-
-            }
-            if (isExistsEmail == true)
-            {
-                messerError = "Tài khoản email đã tồn tại trong hệ thống !";
-            }
-            else if (isExistsEmail == false && messerError.Equals(""))
-            {
-                isExistsPhone = _userService.CheckExistsPhone(employee.Phone, employee.EmployeeID);
-
-            }
-            if (isExistsPhone == true)
-            {
-                messerError = "Số điện thoại đã tồn tại trong hệ thống !";
-            }
-            bool checkSave = false;
-            if (isExistsPhone == false && isExistsEmail == false && messerError.Equals("")) 
-            {
-                if (employee.EmployeeID == Guid.Empty)
+                string messerError = "";
+                bool isExistsEmail = false;
+                bool isExistsPhone = false;
+                DateTime dateTime = DateTime.Now;
+                var command = _mapper.Map<Employee, InsertEmployeeCommand>(employee);
+                if (!command.IsValid())
                 {
-                    Guid g = Guid.NewGuid();
-                    employee.CreateDate = dateTime;
-                    employee.EmployeeID = g;
-                    checkSave = _userService.AddEmployee(employee);
-                }
-                else
-                 {
-                    employee.ModifiedDate = dateTime;
-                    checkSave=  _userService.SaveEditEmployee(employee);
 
-                }
-                if (checkSave)
-                {
-                    _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
-                    _resultResponse.Success = true;
+                    var listError = new Dictionary<string, List<string>>();
+                    foreach (var error in command.ValidationResult.Errors)
+                    {
+                        if (listError.ContainsKey(error.PropertyName))
+                        {
+                            listError[error.PropertyName].Add(error.ErrorMessage);
+                        }
+                        else
+                        {
+                            listError.Add(error.PropertyName, new List<string> { error.ErrorMessage });
+                        }
+                    }
+                    result = new ApiInvalidParamResponse(string.Join(",", listError.SelectMany(x => x.Value)));
                 }
                 else
                 {
-                    _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
-                    _resultResponse.Success = false;
-                }
-               
-            }
-            else
-            {
-                _resultResponse.Success = false;
-                _resultResponse.Messenger = messerError;
-            }
+                 //   var result2 = _mediator.Send(command);
+                    bool checkSave = false;
+                    if (isExistsPhone == false && isExistsEmail == false && messerError.Equals(""))
+                    {
+                        if (employee.EmployeeID == Guid.Empty)
+                        {
+                            Guid g = Guid.NewGuid();
+                            employee.CreateDate = dateTime;
+                            employee.EmployeeID = g;
+                            checkSave = _userService.AddEmployee(employee);
+                        }
+                        else
+                        {
+                            employee.ModifiedDate = dateTime;
+                            checkSave = _userService.SaveEditEmployee(employee);
 
-            if (_resultResponse.Success) return _resultResponse;
-            return BadRequest(_resultResponse);
+                        }
+                        if (checkSave)
+                        {
+                            //            _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
+                            //             _resultResponse.Success = true;
+                        }
+                        else
+                        {
+                            //            _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
+                            //             _resultResponse.Success = false;
+                        }
+
+                    }
+                    else
+                    {
+                        //         _resultResponse.Success = false;
+                        //         _resultResponse.Messenger = messerError;
+                    }
+
+                    //        if (_resultResponse.Success) return _resultResponse;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+          
+            return result;
 
         }
-       
+
         /// <summary>Lấy ra danh sách nhân viên có phân trang</summary>
         /// <param name="pageNo">Đang ở trang nào</param>
         /// <param name="pageSize">Số lượnng bản ghi 1 trang</param>
@@ -157,11 +152,11 @@ namespace EmployeeAPI.Controllers
         /// lucnv 6/24/2022 created
         /// </Modified>
         /// 
-        [Authorize]
+        //[Authorize]
         [HttpGet("GetAllEmployee")]
         public ActionResult<ResultResponse> GetAllEmployee(int pageNo, int pageSize, string sortOrder, bool descyn, DateTime dfrom, DateTime dto, int sex, string keyWord)
         {
-
+            ResultResponse _resultResponse = null;
             if (dfrom.Year > 1900 && dto.Year > 1900 && dfrom > dto)
             {
                 _resultResponse.Messenger = "Ngày bắt đầu phải nhỏ hơn ngày kết thúc";
@@ -180,7 +175,7 @@ namespace EmployeeAPI.Controllers
 
                     _logger.LogError("GetAllEmployee: " + ex.Message);
                 }
-               
+
                 if (_resultResponse.Result != null)
                 {
                     _resultResponse.Success = true;
@@ -188,7 +183,6 @@ namespace EmployeeAPI.Controllers
                 else
                 {
                     _resultResponse.Success = false;
-                    _resultResponse.Messenger = error_DisconnectServe;
                     _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
                 }
             }
@@ -200,7 +194,7 @@ namespace EmployeeAPI.Controllers
             return BadRequest(_resultResponse);
 
         }
-       
+
         /// <summary>Xóa nhân viên.</summary>
         /// <param name="idNhanVien">ID của nhân viên.</param>
         /// <returns>
@@ -211,32 +205,32 @@ namespace EmployeeAPI.Controllers
         /// lucnv 6/29/2022 created
         /// </Modified>
         /// 
-        [Authorize]
-        [HttpPost("DeleteEmployee")]
-        public ActionResult<ResultResponse> DeleteEmployee([FromBody] Guid idEmployee)
-        {
+        //[Authorize]
+        //[HttpPost("DeleteEmployee")]
+        //public ActionResult<ResultResponse> DeleteEmployee([FromBody] Guid idEmployee)
+        //{
 
-            var result = _userService.DeleteEmployee(idEmployee);
-            if (result == true)
-            {
-                _resultResponse.Result = result;
-                _resultResponse.Success = true;
-                _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
-            }
-            else
-            {
-                _resultResponse.Result = null;
-                _resultResponse.Success = false;
-                _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
+        //    var result = _userService.DeleteEmployee(idEmployee);
+        //    if (result == true)
+        //    {
+        //        _resultResponse.Result = result;
+        //        _resultResponse.Success = true;
+        //        _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
+        //    }
+        //    else
+        //    {
+        //        _resultResponse.Result = null;
+        //        _resultResponse.Success = false;
+        //        _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
 
-            }
+        //    }
 
-            if (_resultResponse.Success)
-            {
-                return _resultResponse;
-            }
-            return BadRequest(_resultResponse);
-        }
+        //    if (_resultResponse.Success)
+        //    {
+        //        return _resultResponse;
+        //    }
+        //    return BadRequest(_resultResponse);
+        //}
 
         /// <summary>
         ///   <para>
@@ -253,30 +247,30 @@ namespace EmployeeAPI.Controllers
         /// Name Date Comments
         /// lucnv 08-07-2022 created
         /// </Modified>
-        [Authorize]
-        [HttpGet("GetEmployee")]
-        public ActionResult<ResultResponse> GetEmployee(Guid idEmployee)
-        {
-            var result = _userService.GetEmployeeById(idEmployee);
-            if (result != null)
-            {
-                _resultResponse.Result = result;
-                _resultResponse.Success = true;
-                _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
-            }
-            else
-            {
-                _resultResponse.Result = result;
-                _resultResponse.Success = false;
-                _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
+        //[Authorize]
+        //[HttpGet("GetEmployee")]
+        //public ActionResult<ResultResponse> GetEmployee(Guid idEmployee)
+        //{
+        //    var result = _userService.GetEmployeeById(idEmployee);
+        //    if (result != null)
+        //    {
+        //        _resultResponse.Result = result;
+        //        _resultResponse.Success = true;
+        //        _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
+        //    }
+        //    else
+        //    {
+        //        _resultResponse.Result = result;
+        //        _resultResponse.Success = false;
+        //        _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
 
-            }
-            if (!_resultResponse.Success)
-            {
-                return BadRequest(_resultResponse);
-            }
-            return _resultResponse;
-        }
+        //    }
+        //    if (!_resultResponse.Success)
+        //    {
+        //        return BadRequest(_resultResponse);
+        //    }
+        //    return _resultResponse;
+        //}
     }
 }
 

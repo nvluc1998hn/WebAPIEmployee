@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BackEnd\\WebAPI",
+    "\\BackEnd\\WebAPI\\Database",
+    "\\BackEnd\\WebAPI\\Database\\Repositories",
+    "\\BackEnd\\WebAPI\\Database\\Repositories\\Implementations",
+    "\\BackEnd\\WebAPI\\Database\\Repositories\\Interfaces",
+    "\\BackEnd\\WebAPI\\WebAPI"
+  ],
+  "SelectedNode": "\\BackEnd",
+  "PreviewInSolutionExplorer": false
+}

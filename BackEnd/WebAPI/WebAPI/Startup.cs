@@ -1,17 +1,15 @@
-using Autofac;
 using AutoMapper;
 using EfCore.Mapper;
 using EmployeeManagement.Database.Context;
 using EmployeeManagement.Database.Repositories.Implementations;
 using EmployeeManagement.Database.Repositories.Interfaces;
+using EmployeeManagement.EfCore.Command.ActionCommand;
 using EmployeeManagement.EfCore.Services.Implementations;
 using EmployeeManagement.EfCore.Services.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,9 +20,8 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeManagementAPI
 {
@@ -40,6 +37,7 @@ namespace EmployeeManagementAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMediatR(typeof(InsertEmployeeCommand).GetTypeInfo().Assembly);
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(
@@ -110,6 +108,8 @@ namespace EmployeeManagementAPI
           
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddTransient<IEmployeeService, EmployeeService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
