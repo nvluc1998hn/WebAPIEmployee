@@ -168,3 +168,4 @@ C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Swa
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Dapper.dll
