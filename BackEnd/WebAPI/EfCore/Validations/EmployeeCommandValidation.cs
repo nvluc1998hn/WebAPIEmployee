@@ -12,6 +12,7 @@ namespace EmployeeManagement.EfCore.Validations
 {
     public class EmployeeCommandValidation<T> : AbstractValidator<T> where T : EmployeeCommand
     {
+
         protected void ValidatePk()
         {
             RuleFor(c => c.EmployeeID)

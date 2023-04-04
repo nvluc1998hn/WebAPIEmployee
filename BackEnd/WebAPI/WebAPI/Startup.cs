@@ -1,7 +1,8 @@
+using Autofac.Core;
 using AutoMapper;
 using EfCore.Mapper;
 using EmployeeManagement.Database.Context;
-using EmployeeManagement.Database.Repositories.Implementations;
+using EmployeeManagement.Database.Repositories.EmployeeRepository;
 using EmployeeManagement.Database.Repositories.Interfaces;
 using EmployeeManagement.EfCore.Command.ActionCommand;
 using EmployeeManagement.EfCore.Services.Implementations;
@@ -17,7 +18,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -107,8 +107,17 @@ namespace EmployeeManagementAPI
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddSession();
+
+
+
+            services.Scan(scan => scan
+         .FromAssemblyOf<IEmployeeRepository>()
+     .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Repository")).AsImplementedInterfaces().WithTransientLifetime());
+
           
-            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        
+          
             services.AddTransient<IEmployeeService, EmployeeService>();
 
 

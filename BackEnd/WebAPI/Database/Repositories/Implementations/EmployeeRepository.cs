@@ -2,13 +2,10 @@
 using EmployeeManagement.Database.Context;
 using EmployeeManagement.Database.Context.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using EmployeeManagement.Database.Repositories.Implementations;
 
-namespace EmployeeManagement.Database.Repositories.Implementations
+namespace EmployeeManagement.Database.Repositories.EmployeeRepository
 {
     public class EmployeeRepository : Repository<Employee, Guid>, IEmployeeRepository
     {

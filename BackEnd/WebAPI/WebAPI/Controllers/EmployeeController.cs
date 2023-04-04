@@ -106,13 +106,12 @@ namespace EmployeeAPI.Controllers
                         }
                         if (checkSave)
                         {
-                            //            _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.Success;
-                            //             _resultResponse.Success = true;
+                            result = new ApiOkResultResponse();
+                          
                         }
                         else
                         {
-                            //            _resultResponse.StatusCode = (int)EmployeeManagement.Common.Constant.Enum.StatusCode.False;
-                            //             _resultResponse.Success = false;
+                            result = new ApiInvalidParamResponse();
                         }
 
                     }
@@ -121,8 +120,6 @@ namespace EmployeeAPI.Controllers
                         //         _resultResponse.Success = false;
                         //         _resultResponse.Messenger = messerError;
                     }
-
-                    //        if (_resultResponse.Success) return _resultResponse;
                 }
             }
             catch (Exception)

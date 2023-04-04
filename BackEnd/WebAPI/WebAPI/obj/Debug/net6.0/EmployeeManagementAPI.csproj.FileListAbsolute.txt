@@ -169,3 +169,5 @@ C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Med
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Dapper.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\bin\Debug\net6.0\Scrutor.dll

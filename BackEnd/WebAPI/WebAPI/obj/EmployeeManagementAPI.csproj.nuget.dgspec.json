@@ -335,6 +335,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "Scrutor": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
             "Serilog.Extensions.Logging.File": {
               "target": "Package",
               "version": "[3.0.0, )"
