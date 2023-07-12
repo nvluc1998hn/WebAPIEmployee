@@ -1,5 +1,9 @@
 ﻿using EmployeeManagement.Database.Context.DbOptions;
 using EmployeeManagement.Database.Dapper;
+using EmployeeManagement.Database.Dapper.Repositories.Implementations;
+using EmployeeManagement.Database.Dapper.Repositories.Interfaces;
+using EmployeeManagement.Database.Repositories.Implementations;
+using EmployeeManagement.Database.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,11 +42,12 @@ namespace EmployeeManagement.EfCore
                 //có sử dụng dapper hay ko. EnabledDapper=true thì dùng Dapper ngược lại dùng EF
                 if (options.EnabledDapper)
                 {
-             //       services.AddScoped<IUnitOfWork, UnitOfWork>();
+                    services.AddScoped(typeof(IRepositoryAsync<,>), typeof(GenericRepository<,>));
+
                 }
                 else
                 {
-               //     services.AddScoped<IUnitOfWork, EfUnitOfWork>();
+                    services.AddScoped(typeof(IRepositoryAsync<,>), typeof(Repository<,>));
                 }
 
                 services.AddDbContext<TDbContext>((sp, o) =>

@@ -4,6 +4,7 @@ using EfCore.Mapper;
 using EmployeeManagement.Database.Context;
 using EmployeeManagement.Database.Repositories.EmployeeRepository;
 using EmployeeManagement.Database.Repositories.Interfaces;
+using EmployeeManagement.EfCore;
 using EmployeeManagement.EfCore.Command.ActionCommand;
 using EmployeeManagement.EfCore.Services.Implementations;
 using EmployeeManagement.EfCore.Services.Interfaces;
@@ -107,20 +108,10 @@ namespace EmployeeManagementAPI
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddSession();
-
-
-
-            services.Scan(scan => scan
-         .FromAssemblyOf<IEmployeeRepository>()
-     .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Repository")).AsImplementedInterfaces().WithTransientLifetime());
-
-          
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-        
-          
+         
+           
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();   
             services.AddTransient<IEmployeeService, EmployeeService>();
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
