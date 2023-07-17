@@ -1,0 +1,6 @@
+2023-07-17T14:07:15.6784730+07:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2023-07-17T14:07:15.6887357+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-07-17T14:07:15.6900494+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-07-17T14:07:15.6911769+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-07-17T14:07:40.3935597+07:00 0HMS6IHPRK0KR:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-07-17T14:07:41.2397789+07:00 0HMS6IHPRK0KR:00000003 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)

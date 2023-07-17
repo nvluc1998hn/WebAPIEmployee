@@ -84,7 +84,6 @@ namespace EmployeeAPI.Controllers
             {
                 Employee inforEmployee = new Employee();
                 inforEmployee = _userService.GetEmployeeByUserName(employee.Email);
-                var token = SaveSession();
                 userInfo.AccessToken = SaveSession();
                 userInfo.FullName = inforEmployee.FullName;
                 if (isAdmin)
