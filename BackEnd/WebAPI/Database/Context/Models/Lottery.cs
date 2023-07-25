@@ -23,7 +23,7 @@ namespace EmployeeManagement.Database.Context.Models
 
         public int? TypeLottery { get; set; }
 
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         public Guid? CreatedByUser { get; set; }
 

@@ -108,10 +108,23 @@ namespace EmployeeManagementAPI
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddSession();
-         
-           
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();   
-            services.AddTransient<IEmployeeService, EmployeeService>();
+
+
+            // Service
+            services.Scan(scan => scan
+             .FromAssemblyOf<IEmployeeService>()
+                  .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Service")))
+                     .AsImplementedInterfaces()
+                     .WithScopedLifetime());
+
+            
+            // Repository
+            services.Scan(scan => scan
+             .FromAssemblyOf<IEmployeeRepository>()
+                  .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Repository")))
+                     .AsImplementedInterfaces()
+                     .WithScopedLifetime());
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -21,5 +21,6 @@ namespace EmployeeManagement.Database.Context
         }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Vehicle> Vehicles { get; set; }
+        public virtual DbSet<Lottery> Lotterys { get; set; }
     }
 }

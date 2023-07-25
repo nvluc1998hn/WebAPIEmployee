@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
@@ -65,12 +66,37 @@ namespace EmployeeManagement.Common.Constant
         }
     }
 
+    public class ApiNoContentResponse : ApiResponse
+    {
+        public ApiNoContentResponse(string messageCode, string usermessage = null, string internalmessage = null)
+        : base(StatusCodes.Status204NoContent, null,  internalmessage)
+        {
+
+        }
+    }
+
     public class ApiInvalidParamResponse : ApiResponse
     {
         public ApiInvalidParamResponse(string userMessage = null, string internalmessage = null) : base(StatusCodes.Status400BadRequest,null, userMessage)
         {
 
         }
+    }
+
+    public class ApiBadRequestResponse : ApiResponse
+    {
+        public IEnumerable<string> Errors { get; }
+
+        public ApiBadRequestResponse(string usermessage, string internalmessage = null) : base(StatusCodes.Status400BadRequest, null, internalmessage)
+        {
+
+        }
+
+        public ApiBadRequestResponse(object data, string usermessage = null, string internalmessage = null) : base(StatusCodes.Status400BadRequest, data, internalmessage)
+        {
+
+        }
+
     }
 
 
