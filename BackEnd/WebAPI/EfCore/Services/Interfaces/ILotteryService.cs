@@ -14,7 +14,9 @@ namespace EmployeeManagement.EfCore.Services.Interfaces
 
        bool UpdateLottery(Lottery lottery);
 
-       List<Lottery> GetListData(LotteryRequest request);
+       bool DeleteLottery(Lottery lottery);
+
+        List<Lottery> GetListData(LotteryRequest request);
 
        
     }

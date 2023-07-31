@@ -95,5 +95,21 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             return listData;
         }
 
+        public bool DeleteLottery(Lottery lottery)
+        {
+            bool isSuccess = false;
+            try
+            {
+                _lotteryRepository.Remove(lottery.LotteryID);
+                isSuccess = true;
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError("AddEmployee: " + ex.Message);
+                isSuccess = false;
+            }
+            return isSuccess;
+        }
     }
 }

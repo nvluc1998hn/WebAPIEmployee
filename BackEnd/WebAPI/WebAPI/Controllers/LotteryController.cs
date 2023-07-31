@@ -112,5 +112,32 @@ namespace EmployeeManagementAPI.Controllers
 
         }
 
+        [HttpPost("delete")]
+        public ApiResponse DeleteLottery([FromBody] Lottery data)
+        {
+            ApiResponse res;
+            try
+            {
+                var isSuccess = _lotteryService.DeleteLottery(data);
+                if (isSuccess)
+                {
+                    res = new ApiOkResultResponse(isSuccess);
+                }
+                else
+                {
+                    res = new ApiBadRequestResponse("Có lỗi xảy ra");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                res = new ApiBadRequestResponse(ex.Message);
+
+            }
+
+            return res;
+
+        }
+
     }
 }

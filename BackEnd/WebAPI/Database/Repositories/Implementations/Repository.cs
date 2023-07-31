@@ -195,12 +195,15 @@ namespace EmployeeManagement.Database.Repositories.Implementations
             try
             {
                 _context.Set<T>().Remove(entity);
+                _context.SaveChanges();
             }
             catch (Exception ex)
             {
                 _logger.LogError("Remove" + ex.Message);
             }
         }
+
+     
 
         /// <summary>Lấy dữ liệu của 1 bản ghi</summary>
         /// <param name="id">The identifier.</param>
