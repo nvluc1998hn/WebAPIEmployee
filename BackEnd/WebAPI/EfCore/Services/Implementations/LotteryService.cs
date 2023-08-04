@@ -82,7 +82,15 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                     {
                         ok = x.NumberLottery!.ToLower().Contains(request.Keyword.ToLower());
                     }
-                    ok = x.CreatedDate.Date == request.FromDate.Date;
+                    if (ok)
+                    {
+                        ok = x.CreatedDate.Date == request.FromDate.Date;
+                    }
+                    if (ok)
+                    {
+                        // Kiểm tra kiểu lô hay đề
+                        ok = x.TypeLottery == request.TypeLottery;
+                    }
                     return ok;
                 }).ToList();
             }

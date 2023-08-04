@@ -11,5 +11,8 @@ namespace EmployeeManagement.EfCore.ViewModels.Request
         public DateTime FromDate { get;set; }
 
         public string Keyword { get; set; }
+
+        // 0 lô 1 đề
+        public int TypeLottery { get; set; }
     }
 }
