@@ -2,6 +2,8 @@ using Autofac.Core;
 using AutoMapper;
 using EfCore.Mapper;
 using EmployeeManagement.Database.Context;
+using EmployeeManagement.Database.Dapper;
+using EmployeeManagement.Database.Dapper.Repositories.Interfaces;
 using EmployeeManagement.Database.Repositories.EmployeeRepository;
 using EmployeeManagement.Database.Repositories.Interfaces;
 using EmployeeManagement.EfCore;
@@ -19,6 +21,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -109,6 +112,8 @@ namespace EmployeeManagementAPI
             services.AddSingleton(mapper);
             services.AddSession();
 
+            services.AddEfCoreSqlServer<ApplicationDbContext>();
+
 
             // Service
             services.Scan(scan => scan
@@ -117,14 +122,15 @@ namespace EmployeeManagementAPI
                      .AsImplementedInterfaces()
                      .WithScopedLifetime());
 
-            
+
             // Repository
             services.Scan(scan => scan
              .FromAssemblyOf<IEmployeeRepository>()
                   .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Repository")))
                      .AsImplementedInterfaces()
                      .WithScopedLifetime());
-
+   
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

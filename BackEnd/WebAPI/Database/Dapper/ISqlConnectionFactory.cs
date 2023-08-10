@@ -71,12 +71,10 @@ namespace EmployeeManagement.Database.Dapper
                     _connString = _dbOptions.ConnString;
                     break;
             }
-            //chưa tìm ra nguyên nhân
-            //if (_connection == null || _connection.State != ConnectionState.Open)
-            //{
+            
             _connection = new SqlConnection(_connString);
             _connection.Open();
-            //}
+
             return _connection;
         }
 

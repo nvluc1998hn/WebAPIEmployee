@@ -1718,6 +1718,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.6",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.6",
+          "Scrutor": "4.2.1",
           "Serilog.Extensions.Logging.File": "3.0.0"
         },
         "compile": {

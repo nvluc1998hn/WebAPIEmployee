@@ -22,7 +22,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         private readonly IConfiguration _configuration;
         private readonly ILogger<LotteryService> _logger;
 
-        public LotteryService(IConfiguration configuration, IMapper mapper, ILotteryRepository lotteryRepository, ApplicationDbContext applicationDbContext, ILogger<LotteryService> logger)
+        public LotteryService(IConfiguration configuration, IMapper mapper, ILotteryRepository lotteryRepository, ILogger<LotteryService> logger)
         {
 
             _configuration = configuration;

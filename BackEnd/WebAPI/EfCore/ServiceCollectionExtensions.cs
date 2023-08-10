@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.Database.Context.DbOptions;
+﻿using EmployeeManagement.Database;
+using EmployeeManagement.Database.Context.DbOptions;
 using EmployeeManagement.Database.Dapper;
 using EmployeeManagement.Database.Dapper.Repositories.Implementations;
 using EmployeeManagement.Database.Dapper.Repositories.Interfaces;
@@ -21,8 +22,8 @@ namespace EmployeeManagement.EfCore
 
         public static IServiceCollection AddEfCoreSqlServer<TDbContext>(this IServiceCollection services) where TDbContext : DbContext
         {
-            //services.AddServiceByIntefaceInAssembly<DbOptions>(typeof(IRepositoryAsync<>));
-            //services.AddServiceByIntefaceInAssembly<DbOptions>(typeof(IQueryRepository<>));
+            // Chỗ này dki dapper
+            services.AddServiceByIntefaceInAssembly<DbOptions>(typeof(IRepositoryAsync<,>));
 
             var svcProvider = services.BuildServiceProvider();
             var config = svcProvider.GetRequiredService<IConfiguration>();
@@ -66,18 +67,6 @@ namespace EmployeeManagement.EfCore
             }
             else
             {
-                //services.AddScoped<IUnitOfWork, EfUnitOfWork>();
-                //services.AddDbContext<ReportServer1Context>(o => o.UseSqlServer(options.ConnString1));
-                //services.AddDbContext<ReportServer2Context>(o => o.UseSqlServer(options.ConnString2));
-                //services.AddDbContext<ReportServer3Context>(o => o.UseSqlServer(options.ConnString3));
-                //services.AddDbContext<ReportServer4Context>(o => o.UseSqlServer(options.ConnString4));
-                //services.AddDbContext<ReportServer5Context>(o => o.UseSqlServer(options.ConnString5));
-                //services.AddDbContext<ReportServer6Context>(o => o.UseSqlServer(options.ConnString6));
-                //services.AddDbContext<ReportServer100Context>(o => o.UseSqlServer(options.ConnString100));
-                //services.AddDbContext<TDbContext>((sp, o) =>
-                //{
-                //    o.UseInMemoryDatabase("DefaultMainDb");
-                //});
             }
 
             services.AddScoped<DbContext>(resolver => resolver.GetService<TDbContext>());

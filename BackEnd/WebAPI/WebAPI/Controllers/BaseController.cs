@@ -45,6 +45,7 @@ namespace EmployeeAPI.Controllers
                 .AddSecurityKey(JwtSecurityKey.Create(_configuration["Jwt:Key"].ToString()))
                 .AddSubject(_configuration["Jwt:Issuer"].ToString())
                 .AddIssuer(_configuration["Jwt:Issuer"].ToString())
+                .AddExpiry(3600)
                 .Build();
 
             return token;
