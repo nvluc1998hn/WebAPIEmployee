@@ -1,0 +1,88 @@
+2023-08-17T16:16:35.4721155+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-08-17T16:16:35.4829504+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-08-17T16:16:35.4879697+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-08-17T16:16:35.4888695+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-08-17T16:17:12.3365565+07:00 0HMSV0AJSHQRN:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-08-17T16:17:13.2079225+07:00 0HMSV0AJSHQRN:00000003 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
+2023-08-17T17:09:27.1154166+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-08-17T17:09:27.1318537+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-08-17T17:09:27.1331356+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-08-17T17:09:27.1341578+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-08-17T17:36:42.6195695+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-08-17T17:36:42.6341479+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-08-17T17:36:42.6352771+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-08-17T17:36:42.6363952+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-08-17T17:37:49.9113886+07:00 0HMSV1NCHL7R3:00000004 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-08-17T17:37:53.9760470+07:00 0HMSV1NCHL7R3:00000004 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
+2023-08-17T17:37:58.4209504+07:00 0HMSV1NCHL7R3:00000004 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: The required column 'LotteryID' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidOperationException: The required column 'LotteryID' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-17T17:38:06.8657125+07:00 0HMSV1NCHL7R3:00000004 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-17T17:40:07.8842520+07:00 0HMSV1NCHL7R3:00000005 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: The required column 'CreatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidOperationException: The required column 'CreatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-17T17:40:14.4253844+07:00 0HMSV1NCHL7R3:00000005 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-17T17:42:36.2851221+07:00 0HMSV1NCHL7R3:00000006 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: The required column 'CreatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidOperationException: The required column 'CreatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-17T17:42:41.9061645+07:00 0HMSV1NCHL7R3:00000006 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-17T17:43:21.3575382+07:00 0HMSV1NCHL7R3:00000007 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: The required column 'NumberLottery' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidOperationException: The required column 'NumberLottery' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-17T17:43:26.3900065+07:00 0HMSV1NCHL7R3:00000007 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)

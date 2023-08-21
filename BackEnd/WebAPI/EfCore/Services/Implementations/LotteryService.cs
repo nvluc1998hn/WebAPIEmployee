@@ -5,10 +5,14 @@ using EmployeeManagement.Database.Repositories.EmployeeRepository;
 using EmployeeManagement.Database.Repositories.Interfaces;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.EfCore.ViewModels.Request;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,14 +25,17 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
         private readonly ILogger<LotteryService> _logger;
+        private readonly ApplicationDbContext _db;
 
-        public LotteryService(IConfiguration configuration, IMapper mapper, ILotteryRepository lotteryRepository, ILogger<LotteryService> logger)
+
+        public LotteryService(IConfiguration configuration, IMapper mapper, ILotteryRepository lotteryRepository, ILogger<LotteryService> logger, ApplicationDbContext db)
         {
 
             _configuration = configuration;
             _mapper = mapper;
             _lotteryRepository = lotteryRepository;
             _logger = logger;
+            _db = db;
         }
 
         public bool AddLottery(Lottery lottery)
@@ -118,6 +125,16 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 isSuccess = false;
             }
             return isSuccess;
+        }
+
+        public List<Lottery> GetListDataGroup(LotteryRequest request)
+        {
+            var paramDate = new SqlParameter("Date", request.FromDate);
+            var paramTypeLottery = new SqlParameter("TypeLottery", request.TypeLottery);
+
+           var dataResult =  _db.Lotterys.FromSqlRaw("EXEC GetDataLotteryGroup @Date,@TypeLottery",
+                         paramDate, paramTypeLottery);
+            throw new NotImplementedException();
         }
     }
 }

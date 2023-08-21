@@ -41,14 +41,22 @@ namespace EmployeeAPI.Controllers
 
         private string GenerateJsonWebToken()
         {
-            var token = new JwtTokenBuilder()
-                .AddSecurityKey(JwtSecurityKey.Create(_configuration["Jwt:Key"].ToString()))
-                .AddSubject(_configuration["Jwt:Issuer"].ToString())
-                .AddIssuer(_configuration["Jwt:Issuer"].ToString())
-                .AddExpiry(3600)
-                .Build();
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier,"Admin"),
+                new Claim(ClaimTypes.Role,"Admin")
 
-            return token;
+            };
+            var token = new JwtSecurityToken(_configuration["Jwt:Issuer"],
+                _configuration["Jwt:Audience"],
+                claims,
+                expires: DateTime.Now.AddMinutes(15),
+                signingCredentials: credentials);
+
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
         #endregion
     }

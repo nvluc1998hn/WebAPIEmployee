@@ -18,6 +18,6 @@ namespace EmployeeManagement.EfCore.Services.Interfaces
 
         List<Lottery> GetListData(LotteryRequest request);
 
-       
+        List<Lottery> GetListDataGroup(LotteryRequest request);
     }
 }
