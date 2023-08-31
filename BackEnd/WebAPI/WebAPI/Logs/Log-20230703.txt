@@ -1,8 +1,0 @@
-2023-07-03T21:06:06.3372699+07:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
-2023-07-03T21:06:06.3475382+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
-2023-07-03T21:06:06.3488203+07:00  [INF] Hosting environment: "Development" (c3307c92)
-2023-07-03T21:06:06.3498446+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
-2023-07-03T21:11:57.1713040+07:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
-2023-07-03T21:11:57.1870794+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
-2023-07-03T21:11:57.1882014+07:00  [INF] Hosting environment: "Development" (c3307c92)
-2023-07-03T21:11:57.1890845+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)

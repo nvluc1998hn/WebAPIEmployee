@@ -13,15 +13,18 @@ namespace EmployeeManagement.Database.Context
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
+            
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();
+            
         }
         public virtual DbSet<Employee> Employee { get; set; }
-        public virtual DbSet<Vehicle> Vehicles { get; set; }
         public virtual DbSet<Lottery> Lotterys { get; set; }
+        public virtual DbSet<Agency> Agencys { get; set; }
         public virtual DbSet<LotteryPrice> LotteryPrices { get; set; }
+        
+        
     }
 }

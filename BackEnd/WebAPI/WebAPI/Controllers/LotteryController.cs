@@ -28,9 +28,7 @@ namespace EmployeeManagementAPI.Controllers
         [HttpPost("get")]
         public ApiResponse GetData([FromBody] LotteryRequest request)
         {
-
-            ApiResponse res;
-            
+            ApiResponse res;       
             try
             {
                 var data = _lotteryService.GetListData(request);

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using EmployeeManagement.Common.Attributes;
 
 namespace EmployeeManagement.Database.Context.Models
 {
@@ -17,7 +16,6 @@ namespace EmployeeManagement.Database.Context.Models
         public Guid EmployeeID { get; set; }
 
         [NotNull]
-        [StringLength(150)]
         public string FullName { get; set; }
 
         [NotNull]
@@ -26,11 +24,9 @@ namespace EmployeeManagement.Database.Context.Models
         public string Email { get; set; }
 
         [NotNull]
-        [StringLength(20)]
         public string Phone { get; set; }
 
         [NotNull]
-        [StringLength(500)]
         public string PassWord { get; set; }
 
         [NotNull]

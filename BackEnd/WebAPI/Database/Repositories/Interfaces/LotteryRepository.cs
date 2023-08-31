@@ -10,5 +10,6 @@ namespace EmployeeManagement.Database.Repositories.Interfaces
 {
     public interface ILotteryRepository: IRepository<Lottery,Guid>
     {
+
     }
 }

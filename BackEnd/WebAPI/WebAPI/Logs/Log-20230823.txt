@@ -1,0 +1,552 @@
+2023-08-23T17:03:57.3307892+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-08-23T17:03:57.3413738+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-08-23T17:03:57.3427507+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-08-23T17:03:57.3436957+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-08-23T17:06:24.8479918+07:00 0HMT3O120KJKU:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-08-23T17:06:25.7208452+07:00 0HMT3O120KJKU:00000003 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
+2023-08-23T17:07:40.0413510+07:00 0HMT3O120KJKR:00000005 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:07:50.2529244+07:00 0HMT3O120KJKR:00000006 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: The required column 'UpdatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidOperationException: The required column 'UpdatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:07:58.5106451+07:00 0HMT3O120KJKR:00000006 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: The required column 'UpdatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidOperationException: The required column 'UpdatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.VisualStudio.Debugger.IEnumerableVisualizer.IEnumerableObjectHandler.InitializeDataSource()
+   at Microsoft.VisualStudio.Debugger.IEnumerableVisualizer.IEnumerableVisualizerSource.TransferData(Object obj, Stream fromVisualizer, Stream toVisualizer)
+   at Microsoft.VisualStudio.DebuggerVisualizers.DebuggeeSide.Impl.ClrCustomVisualizerDebuggeeHost.TransferData(Object visualizedObject, Byte[] uiSideData)
+2023-08-23T17:08:18.8573737+07:00 0HMT3O120KJKR:00000006 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:08:42.4945907+07:00 0HMT3O120KJKR:00000007 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: The required column 'UpdatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidOperationException: The required column 'UpdatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:09:08.9241715+07:00 0HMT3O120KJKR:00000007 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidOperationException: The required column 'UpdatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidOperationException: The required column 'UpdatedByUser' was not present in the results of a 'FromSql' operation.
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:09:57.0649914+07:00 0HMT3O120KJKR:00000007 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:13:53.0840348+07:00 0HMT3O120KJKV:00000004 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:14:02.8963622+07:00 0HMT3O120KJKV:00000005 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:14:55.8859717+07:00 0HMT3O120KJKV:00000005 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:14:58.7000363+07:00 0HMT3O120KJKV:00000006 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:14:59.4366463+07:00 0HMT3O120KJKV:00000007 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:15:00.2449957+07:00 0HMT3O120KJKV:00000008 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:15:03.3295686+07:00 0HMT3O120KJKV:00000009 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:15:38.2275665+07:00 0HMT3O120KJKV:0000000A [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:15:52.2989986+07:00 0HMT3O120KJKV:0000000A [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:15:54.7383606+07:00 0HMT3O120KJKV:0000000A [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 137
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (54d6ad98)
+2023-08-23T17:19:19.2746695+07:00 0HMT3O120KJL0:00000004 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:19:38.4987870+07:00 0HMT3O120KJL0:00000005 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:21:05.4814878+07:00 0HMT3O120KJKV:00000012 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:21:19.5626761+07:00 0HMT3O120KJKV:00000012 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:21:39.8727590+07:00 0HMT3O120KJKV:00000013 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:21:51.5460584+07:00 0HMT3O120KJKV:00000013 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:23:21.8856693+07:00 0HMT3O120KJKV:00000013 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:23:28.1687280+07:00 0HMT3O120KJKV:00000014 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Guid'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Guid()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:23:32.2710569+07:00 0HMT3O120KJKV:00000014 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:24:15.7539686+07:00 0HMT3O120KJKV:00000015 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_String()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_String()
+   at lambda_method117(Closure , QueryContext , DbDataReader , Int32[] )
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:24:23.8219054+07:00 0HMT3O120KJKV:00000015 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:25:30.3641860+07:00 0HMT3O120KJKV:00000016 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:25:33.6638043+07:00 0HMT3O120KJKV:00000016 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:27:48.2975643+07:00 0HMT3O120KJKV:00000017 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:28:06.4182104+07:00 0HMT3O120KJKV:00000017 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:28:15.3469079+07:00 0HMT3O120KJKV:00000018 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:28:35.0518076+07:00 0HMT3O120KJKV:00000018 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:28:50.6553060+07:00 0HMT3O120KJKV:00000018 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:28:58.1893034+07:00 0HMT3O120KJKV:00000018 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:36:13.4173082+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-08-23T17:36:13.4330355+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-08-23T17:36:13.4341025+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-08-23T17:36:13.4350783+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-08-23T17:36:20.8082692+07:00 0HMT3OJ33N32F:00000004 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-08-23T17:36:32.4953669+07:00 0HMT3OJ33N32F:00000004 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
+2023-08-23T17:36:43.3889769+07:00 0HMT3OJ33N32F:00000004 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:36:55.3338246+07:00 0HMT3OJ33N32F:00000004 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:36:58.9095968+07:00 0HMT3OJ33N32F:00000004 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:37:17.6111446+07:00 0HMT3OJ33N32F:00000004 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:37:19.8425857+07:00 0HMT3OJ33N32F:00000004 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:37:37.2847207+07:00 0HMT3OJ33N32F:00000004 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:38:49.2588490+07:00 0HMT3OJ33N32F:00000004 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Linq.SystemCore_EnumerableDebugView`1.get_Items()
+2023-08-23T17:40:03.4817460+07:00 0HMT3OJ33N32F:00000004 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T17:40:11.0552336+07:00 0HMT3OJ33N32F:00000005 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+2023-08-23T17:40:55.3115500+07:00 0HMT3OJ33N32F:00000005 [ERR] System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (4fa318de)
+2023-08-23T17:46:45.4231112+07:00 0HMT3OJ33N32G:00000002 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+2023-08-23T17:46:45.4476177+07:00 0HMT3OJ33N32G:00000002 [ERR] System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (4fa318de)
+2023-08-23T17:46:53.2367572+07:00 0HMT3OJ33N32G:00000003 [ERR] An exception occurred while iterating over the results of a query for context type '"EmployeeManagement.Database.Context.ApplicationDbContext"'."
+""System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+2023-08-23T17:48:56.9516573+07:00 0HMT3OJ33N32G:00000003 [ERR] System.ArgumentException: An item with the same key has already been added. Key: NumberLottery
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.BuildIndexMap(IReadOnlyList`1 columnNames, DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (4fa318de)
+2023-08-23T21:25:28.3993047+07:00 0HMT3OJ33N32H:00000002 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request)
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 65 (656dce84)
+2023-08-23T22:14:43.1092827+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-08-23T22:14:43.1237678+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-08-23T22:14:43.1251728+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-08-23T22:14:43.1260763+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-08-23T22:14:46.0041500+07:00 0HMT3TEMTKRKL:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-08-23T22:14:46.9030354+07:00 0HMT3TEMTKRKL:00000003 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
