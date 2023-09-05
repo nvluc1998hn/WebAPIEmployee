@@ -17,24 +17,17 @@ namespace EmployeeManagement.EfCore.Services.Implementations
 {
     public class AgencyService: BaseService<Agency, Guid>,IAgencyService
     {
-        private readonly IAgencyRepository _agencyRepository;
         private readonly IMapper _mapper;
-        private readonly IConfiguration _configuration;
         private readonly ILogger<LotteryService> _logger;
 
         public AgencyService(IConfiguration configuration, IMapper mapper, IRepository<Agency, Guid> repository, ApplicationDbContext db) : base(configuration, mapper, repository, db)
         {
         }
 
-
-        public bool DeleteAgency(Agency lottery)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Agency> GetListData(string name)
         {
-            var listData = _agencyRepository.GetAll().ToList();
+            var listData = _repository.GetAll().ToList();
+            
             try
             {
                 if (name != "all")
@@ -42,6 +35,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                     listData = listData.Where(c => c.NameAgency.ToUpper().Contains(name.ToUpper().Trim())).ToList();
                 }
             }
+            
             catch (Exception ex)
             {
 
@@ -49,11 +43,6 @@ namespace EmployeeManagement.EfCore.Services.Implementations
 
             }
             return listData;
-        }
-
-        public bool UpdateAgency(Agency lottery)
-        {
-            throw new NotImplementedException();
         }
     }
 }

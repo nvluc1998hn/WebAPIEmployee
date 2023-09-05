@@ -1,0 +1,48 @@
+2023-09-04T09:08:39.4386266+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-09-04T09:08:39.4581875+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-09-04T09:08:39.4595564+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-09-04T09:08:39.4607423+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-09-04T09:08:42.9950262+07:00 0HMTCTFDGDJ97:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-09-04T09:08:43.9313137+07:00 0HMTCTFDGDJ99:00000003 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
+2023-09-04T09:12:42.9575482+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-09-04T09:12:42.9748174+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-09-04T09:12:42.9761816+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-09-04T09:12:43.0068828+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-09-04T09:12:54.6185765+07:00 0HMTCTHM5GIJ5:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-09-04T09:12:55.4866482+07:00 0HMTCTHM5GIJ3:00000003 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
+2023-09-04T09:42:10.1030261+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-09-04T09:42:10.1182045+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-09-04T09:42:10.1196474+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-09-04T09:42:10.1209689+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-09-04T09:43:12.6076734+07:00 0HMTCU24OH8JM:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-09-04T09:43:13.5180882+07:00 0HMTCU24OH8JM:00000003 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
+2023-09-04T15:56:00.7283554+07:00 0HMTCU24OH8K1:0000000D [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 167
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 63 (6e6b52b7)
+2023-09-04T15:57:08.9882076+07:00 0HMTCU24OH8K1:0000000F [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 167
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 63 (6e6b52b7)
+2023-09-04T15:58:48.2653120+07:00 0HMTCU24OH8K1:00000011 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 167
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 63 (6e6b52b7)
+2023-09-04T15:59:20.3626656+07:00 0HMTCU24OH8K1:0000001A [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 167
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 63 (6e6b52b7)
+2023-09-04T15:59:28.8622351+07:00 0HMTCU24OH8K1:0000001C [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 167
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 63 (6e6b52b7)
+2023-09-04T15:59:44.3731222+07:00 0HMTCU24OH8K1:0000001E [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 167
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 63 (6e6b52b7)
+2023-09-04T15:59:57.8291812+07:00 0HMTCU24OH8K1:00000020 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 167
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 63 (6e6b52b7)
+2023-09-04T17:41:27.3358879+07:00 0HMTCU24OH8K6:00000003 [ERR] System.NotImplementedException: The method or operation is not implemented.
+   at EmployeeManagement.EfCore.Services.Implementations.LotteryService.GetListDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\Services\Implementations\LotteryService.cs:line 167
+   at EmployeeManagementAPI.Controllers.LotteryController.GetDataGroup(LotteryRequest request) in C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI\Controllers\LotteryController.cs:line 63 (6e6b52b7)
+2023-09-04T17:42:52.8796881+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-09-04T17:42:52.8941859+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-09-04T17:42:52.8955573+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-09-04T17:42:52.8968862+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
+2023-09-04T17:42:56.5420519+07:00 0HMTD6EOJCQJS:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-09-04T17:42:59.9986569+07:00 0HMTD6EOJCQJT:00000003 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)

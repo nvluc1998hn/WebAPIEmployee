@@ -21,7 +21,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
     {
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
-        private readonly IRepository<T, Id> _repository;
+        protected readonly IRepository<T, Id> _repository;
 
         public BaseService(IConfiguration configuration, IMapper mapper, IRepository<T, Id> repository, ApplicationDbContext db)
         {
@@ -53,14 +53,39 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             return isSuccess;
         }
 
-        //public bool Delete(T lottery)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public bool Delete(T data)
+        {
+            bool isSuccess = false;
+            try
+            {
+                PropertyInfo primaryKeyProperty = typeof(T).GetProperties()
+               .FirstOrDefault(prop => Attribute.IsDefined(prop, typeof(KeyAttribute)));
 
-        //public bool Update(T data)
-        //{
-        //    throw new NotImplementedException();
-        //}
+                _repository.Remove(data);
+                isSuccess = true;
+            }
+            catch (Exception ex)
+            {
+
+                isSuccess = false;
+            }
+            return isSuccess;
+        }
+
+        public bool Update(T data)
+        {
+            bool isSuccess = false;
+            try
+            {
+                var isUpdate = _repository.Update(data);
+                isSuccess = isUpdate;
+            }
+            catch (Exception ex)
+            {
+
+                isSuccess = false;
+            }
+            return isSuccess;
+        }
     }
 }

@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics.CodeAnalysis;
-using EmployeeManagement.Common.Attributes;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeManagement.Database.Context.Models
 {
@@ -21,13 +22,7 @@ namespace EmployeeManagement.Database.Context.Models
 
         public int? TypeLottery { get; set; }
 
-        // giá lô
-        public int? PriceAmountLot { get; set; }
-
-        public int? PaymentAmoutLot { get; set; }
-
-        // giá đề
-        public int? PriceAmountLopic { get; set; }
+        public Guid FK_AgencyId { get; set; }
 
         public DateTime CreatedDate { get; set; }
 

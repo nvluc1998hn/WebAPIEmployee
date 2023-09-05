@@ -26,6 +26,7 @@
  </ItemGroup>
  <ItemGroup>
    <Folder Include="Command\QueryCommand\" />
+   <Folder Include="ViewModels\Response\Lottery\" />
  </ItemGroup>
 	
 </Project>

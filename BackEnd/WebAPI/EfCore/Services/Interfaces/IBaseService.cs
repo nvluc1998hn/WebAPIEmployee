@@ -11,9 +11,9 @@ namespace EmployeeManagement.EfCore.Services.Interfaces
     {
         bool Add(T data);
 
-        //bool Update(T data);
+        bool Update(T data);
 
-        //bool Delete(T lottery);
+        bool Delete(T data);
 
     }
 }

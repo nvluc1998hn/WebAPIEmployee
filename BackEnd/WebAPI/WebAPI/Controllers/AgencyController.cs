@@ -80,33 +80,58 @@ namespace EmployeeManagementAPI.Controllers
             return res;
         }
 
-        //[HttpPost("update")]
-        //public ApiResponse UpdateLottery([FromBody] Agency data)
-        //{
-        //    ApiResponse res;
-        //    try
-        //    {
-        //        data.UpdatedDate = DateTime.Now;
-        //        var isSuccess = _agencyService.UpdateAgency(data);
-        //        if (isSuccess)
-        //        {
-        //            res = new ApiOkResultResponse(isSuccess);
-        //        }
-        //        else
-        //        {
-        //            res = new ApiBadRequestResponse("Có lỗi xảy ra");
+        [HttpPost("update")]
+        public ApiResponse UpdateLottery([FromBody] Agency data)
+        {
+            ApiResponse res;
+            try
+            {
+                data.UpdatedDate = DateTime.Now;
+                var isSuccess = _agencyService.Update(data);
+                if (isSuccess)
+                {
+                    res = new ApiOkResultResponse(isSuccess);
+                }
+                else
+                {
+                    res = new ApiBadRequestResponse("Có lỗi xảy ra");
 
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        res = new ApiBadRequestResponse(ex.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                res = new ApiBadRequestResponse(ex.Message);
 
-        //    }
+            }
+            return res;
+        }
 
-        //    return res;
+        [HttpPost("delete")]
+        public ApiResponse DeleteLottery([FromBody] Agency data)
+        {
+            ApiResponse res;
+            try
+            {
+                var isSuccess = _agencyService.Delete(data);
+                if (isSuccess)
+                {
+                    res = new ApiOkResultResponse(isSuccess);
+                }
+                else
+                {
+                    res = new ApiBadRequestResponse("Có lỗi xảy ra");
 
-        //}
+                }
+            }
+            catch (Exception ex)
+            {
+                res = new ApiBadRequestResponse(ex.Message);
+
+            }
+
+            return res;
+
+        }
 
     }
 }

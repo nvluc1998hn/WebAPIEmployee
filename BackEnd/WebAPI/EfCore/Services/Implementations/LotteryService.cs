@@ -5,6 +5,7 @@ using EmployeeManagement.Database.Repositories.EmployeeRepository;
 using EmployeeManagement.Database.Repositories.Interfaces;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.EfCore.ViewModels.Request;
+using EmployeeManagement.EfCore.ViewModels.Response;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -22,13 +23,18 @@ namespace EmployeeManagement.EfCore.Services.Implementations
     public class LotteryService : ILotteryService
     {
         private readonly ILotteryRepository _lotteryRepository;
+        private readonly IAgencyRepository _agencyRepository;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
         private readonly ILogger<LotteryService> _logger;
         private readonly ApplicationDbContext _db;
 
 
-        public LotteryService(IConfiguration configuration, IMapper mapper, ILotteryRepository lotteryRepository, ILogger<LotteryService> logger, ApplicationDbContext db)
+        public LotteryService(IConfiguration configuration, IMapper mapper,
+            ILotteryRepository lotteryRepository, 
+            ILogger<LotteryService> logger,
+            ApplicationDbContext db, 
+            IAgencyRepository agencyRepository)
         {
 
             _configuration = configuration;
@@ -36,6 +42,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             _lotteryRepository = lotteryRepository;
             _logger = logger;
             _db = db;
+            _agencyRepository = agencyRepository;
         }
 
         public bool AddLottery(Lottery lottery)
@@ -44,7 +51,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             try
             {
                var idInsert =  _lotteryRepository.Insert(lottery, nameof(Lottery.LotteryID));
-                if (idInsert != null)
+                if (idInsert != Guid.Empty)
                 {
                     isSuccess =true;
                 }
@@ -76,9 +83,10 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             return isSuccess;
         }
 
-        public List<Lottery> GetListData(LotteryRequest request)
+        public List<LotteryViewModel> GetListData(LotteryRequest request)
         {
             var listData = _lotteryRepository.GetAll().ToList();
+            var result = new List<LotteryViewModel>();  
             try
             {
                 request.Keyword = request.Keyword?.Trim();
@@ -98,8 +106,30 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                         // Kiểm tra kiểu lô hay đề
                         ok = x.TypeLottery == request.TypeLottery;
                     }
+                    if (ok)
+                    {
+                        // Kiểm tra kiểu lô hay đề
+                        ok = x.FK_AgencyId == request.FK_AgencyId;
+                    }
                     return ok;
                 }).ToList();
+
+                result = _mapper.Map<List<Lottery>, List<LotteryViewModel>>(listData);
+                var dataAgency = _agencyRepository.GetAll();
+                var dicAgency = new Dictionary<Guid,Agency>();
+                if(dataAgency != null )
+                {
+                    dicAgency = dataAgency.ToDictionary(c => c.AgencyId, c => c);
+                }
+                foreach(var item in result)
+                {
+                    if(dicAgency.TryGetValue(item.FK_AgencyId,out Agency value))
+                    {
+                        item.PriceAmountLot = value.PriceAmountLot;
+                        item.PaymentAmoutLot = value.PaymentAmoutLot;
+                        item.PaymentAmountLopic = value.PaymentAmountLopic;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -107,7 +137,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 _logger.LogError("GetListData: " + ex.Message);
               
             }
-            return listData;
+            return result;
         }
 
         public bool DeleteLottery(Lottery lottery)
@@ -134,7 +164,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
 
            var dataResult =  _db.Lotterys.FromSqlRaw("EXEC GetDataLotteryGroup @Date,@TypeLottery",
                          paramDate, paramTypeLottery);
-            throw new NotImplementedException();
+           return dataResult.ToList();
         }
     }
 }

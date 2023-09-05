@@ -1,5 +1,6 @@
 ﻿using EmployeeManagement.Database.Context.Models;
 using EmployeeManagement.EfCore.ViewModels.Request;
+using EmployeeManagement.EfCore.ViewModels.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace EmployeeManagement.EfCore.Services.Interfaces
 
        bool DeleteLottery(Lottery lottery);
 
-        List<Lottery> GetListData(LotteryRequest request);
+        List<LotteryViewModel> GetListData(LotteryRequest request);
 
         List<Lottery> GetListDataGroup(LotteryRequest request);
     }

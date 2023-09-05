@@ -12,6 +12,8 @@ namespace EmployeeManagement.EfCore.ViewModels.Request
 
         public string Keyword { get; set; }
 
+        public Guid FK_AgencyId { get; set; }
+
         // 0 lô 1 đề
         public int TypeLottery { get; set; }
     }
