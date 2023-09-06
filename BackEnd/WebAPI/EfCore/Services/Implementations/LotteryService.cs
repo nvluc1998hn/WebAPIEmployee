@@ -161,9 +161,10 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         {
             var paramDate = new SqlParameter("Date", request.FromDate);
             var paramTypeLottery = new SqlParameter("TypeLottery", request.TypeLottery);
+            var agencyId = new SqlParameter("FK_AgencyId", request.FK_AgencyId);
 
-           var dataResult =  _db.Lotterys.FromSqlRaw("EXEC GetDataLotteryGroup @Date,@TypeLottery",
-                         paramDate, paramTypeLottery);
+            var dataResult =  _db.Lotterys.FromSqlRaw("EXEC GetDataLotteryGroup @Date,@TypeLottery,@FK_AgencyId",
+                         paramDate, paramTypeLottery, agencyId);
            return dataResult.ToList();
         }
     }

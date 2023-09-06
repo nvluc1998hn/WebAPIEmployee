@@ -1,2 +1,0 @@
-2023-07-13T10:02:03.8871991+07:00 0HMS2NKC5CV49:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
-2023-07-13T10:02:04.8126676+07:00 0HMS2NKC5CV49:00000003 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development. (4007092b)
