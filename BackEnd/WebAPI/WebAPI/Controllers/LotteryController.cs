@@ -8,6 +8,7 @@ using System;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.EfCore.ViewModels.Request;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 
 namespace EmployeeManagementAPI.Controllers
 {
@@ -105,6 +106,33 @@ namespace EmployeeManagementAPI.Controllers
             catch (Exception ex)
             {
                 res= new ApiBadRequestResponse(ex.Message);
+
+            }
+
+            return res;
+
+        }
+
+        [HttpPost("insert-list")]
+        public ApiResponse SaveListLottery([FromBody] ListLotteryRequest data)
+        {
+            ApiResponse res;
+            try
+            {
+                var isSuccess = _lotteryService.AddListLottery(data.lotteries);
+                if (isSuccess)
+                {
+                    res = new ApiOkResultResponse(isSuccess);
+                }
+                else
+                {
+                    res = new ApiBadRequestResponse("Có lỗi xảy ra");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                res = new ApiBadRequestResponse(ex.Message);
 
             }
 

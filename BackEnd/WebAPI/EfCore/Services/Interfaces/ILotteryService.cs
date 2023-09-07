@@ -17,8 +17,10 @@ namespace EmployeeManagement.EfCore.Services.Interfaces
 
        bool DeleteLottery(Lottery lottery);
 
-        List<LotteryViewModel> GetListData(LotteryRequest request);
+       List<LotteryViewModel> GetListData(LotteryRequest request);
 
-        List<Lottery> GetListDataGroup(LotteryRequest request);
+       List<Lottery> GetListDataGroup(LotteryRequest request);
+
+       bool AddListLottery(List<Lottery> listData);
     }
 }

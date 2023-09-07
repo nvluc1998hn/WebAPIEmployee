@@ -167,5 +167,39 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                          paramDate, paramTypeLottery, agencyId);
            return dataResult.ToList();
         }
+
+        public  bool AddListLottery(List<Lottery> listData)
+        {
+            bool isSuccess = false;
+            try
+            {
+                string cmd = $"DELETE FROM Lottery";
+                _db.Database.ExecuteSqlRaw(cmd);
+
+                if(listData.Count > 0 )
+                {
+                    foreach(var item in listData)
+                    {
+                        item.CreatedDate = DateTime.Now;
+                        item.LotteryID = Guid.NewGuid();
+                    }
+                    _db.Lotterys.AddRangeAsync(listData);
+
+                    var checkSave = _db.SaveChanges();
+
+                    if(checkSave > 0){
+                        isSuccess = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError("AddEmployee: " + ex.Message);
+                isSuccess = false;
+            }
+            return isSuccess;
+        }
     }
 }
