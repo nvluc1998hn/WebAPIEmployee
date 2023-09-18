@@ -99,10 +99,6 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                     }
                     if (ok)
                     {
-                        ok = x.CreatedDate.Date == request.FromDate.Date;
-                    }
-                    if (ok)
-                    {
                         // Kiểm tra kiểu lô hay đề
                         ok = x.TypeLottery == request.TypeLottery;
                     }
@@ -173,7 +169,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             bool isSuccess = false;
             try
             {
-                string cmd = $"DELETE FROM Lottery";
+                string cmd = $"DELETE FROM Lottery WHERE TypeLottery = {listData[0].TypeLottery}";
                 _db.Database.ExecuteSqlRaw(cmd);
 
                 if(listData.Count > 0 )
