@@ -1,0 +1,4 @@
+2023-10-04T15:12:34.8201062+07:00  [INF] Now listening on: "http://localhost:44308" (d826f4b8)
+2023-10-04T15:12:34.8327984+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-10-04T15:12:34.8406267+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-10-04T15:12:34.8419535+07:00  [INF] Content root path: "C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\WebAPI" (b5d60022)
