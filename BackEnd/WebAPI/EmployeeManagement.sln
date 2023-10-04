@@ -14,6 +14,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Common",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Database", "Database\EmployeeManagement.Database.csproj", "{D3FD7D37-7BCD-4350-8F61-9426695A565D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{932F75C7-D58B-47D5-B67E-7F88FD753B0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Common", "Base.Common\Base.Common.csproj", "{867C8273-95E1-4299-B64F-D2FBBF434C3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,9 +40,16 @@ Global
 		{D3FD7D37-7BCD-4350-8F61-9426695A565D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3FD7D37-7BCD-4350-8F61-9426695A565D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3FD7D37-7BCD-4350-8F61-9426695A565D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{867C8273-95E1-4299-B64F-D2FBBF434C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867C8273-95E1-4299-B64F-D2FBBF434C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867C8273-95E1-4299-B64F-D2FBBF434C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867C8273-95E1-4299-B64F-D2FBBF434C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{867C8273-95E1-4299-B64F-D2FBBF434C3B} = {932F75C7-D58B-47D5-B67E-7F88FD753B0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FB78B92-0881-4EEC-95ED-122F95091601}

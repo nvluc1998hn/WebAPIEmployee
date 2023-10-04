@@ -2,13 +2,10 @@ using Autofac.Core;
 using AutoMapper;
 using EfCore.Mapper;
 using EmployeeManagement.Database.Context;
-using EmployeeManagement.Database.Dapper;
-using EmployeeManagement.Database.Dapper.Repositories.Interfaces;
-using EmployeeManagement.Database.Repositories.EmployeeRepository;
 using EmployeeManagement.Database.Repositories.Interfaces;
 using EmployeeManagement.EfCore;
 using EmployeeManagement.EfCore.Command.ActionCommand;
-using EmployeeManagement.EfCore.Services.Implementations;
+using Base.Common;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -41,7 +38,7 @@ namespace EmployeeManagementAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            
             services.AddMediatR(typeof(InsertEmployeeCommand).GetTypeInfo().Assembly);
             services.AddCors(options =>
             {
@@ -111,9 +108,8 @@ namespace EmployeeManagementAPI
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddSession();
-
             services.AddEfCoreSqlServer<ApplicationDbContext>();
-
+            services.AddServiceCommon();
 
             // Service
             services.Scan(scan => scan

@@ -75,17 +75,6 @@
           }
         }
       },
-      "MediatR.Extensions/0.6.0": {
-        "dependencies": {
-          "MediatR": "11.1.0"
-        },
-        "runtime": {
-          "lib/net45/MediatR.Extensions.dll": {
-            "assemblyVersion": "0.6.0.0",
-            "fileVersion": "0.6.0.0"
-          }
-        }
-      },
       "Microsoft.AspNetCore.Cryptography.Internal/2.2.0": {},
       "Microsoft.AspNetCore.DataProtection/2.2.0": {
         "dependencies": {
@@ -860,7 +849,6 @@
       },
       "EmployeeManagement.Common/1.0.0": {
         "dependencies": {
-          "MediatR.Extensions": "0.6.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.IdentityModel.Tokens": "6.20.0",
@@ -934,13 +922,6 @@
       "sha512": "sha512-NsRvOxthhkYml4DcBMyJsmym8C4MchioH7wxKVPEg7plFj9Euh/i4IcmZ3Gvgx6+K8obeuhPeJdoBl56wnuo3A==",
       "path": "mediatr.contracts/1.0.1",
       "hashPath": "mediatr.contracts.1.0.1.nupkg.sha512"
-    },
-    "MediatR.Extensions/0.6.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-YIFb8hW1JBTAV2teZrUfB+u3S5+900s/IiHJMDdVmkHjmpG4V29iRK8RAtcsOHDZ6xSVowFCm8D8+6mQbSwhgA==",
-      "path": "mediatr.extensions/0.6.0",
-      "hashPath": "mediatr.extensions.0.6.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/2.2.0": {
       "type": "package",

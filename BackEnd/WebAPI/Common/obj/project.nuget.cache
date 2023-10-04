@@ -1,12 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "etulI0+fWLLDSOP/uV6l7Ebb7jQCxNwEJSStOoXaYcvjHHar7f028POs5/A79qbrkL7FsMB686zV7wO1HYKgwA==",
+  "dgSpecHash": "BLUzGP2NuDKRIQNJk18bqps9JUs1qffCS95NFNJx8jx2Ye7kbK3IqW5KiD7dhBqgR4/5e4ej50/gi0F0i3l1Tw==",
   "success": true,
   "projectFilePath": "C:\\Users\\lucnv\\Desktop\\WebAPIEmployee\\BackEnd\\WebAPI\\Common\\EmployeeManagement.Common.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lucnv\\.nuget\\packages\\commonservicelocator\\1.3.0\\commonservicelocator.1.3.0.nupkg.sha512",
-    "C:\\Users\\lucnv\\.nuget\\packages\\mediatr\\1.0.0\\mediatr.1.0.0.nupkg.sha512",
-    "C:\\Users\\lucnv\\.nuget\\packages\\mediatr.extensions\\0.6.0\\mediatr.extensions.0.6.0.nupkg.sha512",
     "C:\\Users\\lucnv\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\lucnv\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\lucnv\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -24,36 +21,5 @@
     "C:\\Users\\lucnv\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "C:\\Users\\lucnv\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'CommonServiceLocator 1.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "CommonServiceLocator",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'MediatR 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "MediatR",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'MediatR.Extensions 0.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "MediatR.Extensions",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
