@@ -82,7 +82,8 @@ namespace Base.Common.Cache.MemCache
 
         public bool HasCache(string key)
         {
-            throw new NotImplementedException();
+            object value;
+            return _memoryCache.TryGetValue(key.ToUpper(), out value);
         }
 
         public T Hget<T>(string key, string field)
@@ -102,7 +103,7 @@ namespace Base.Common.Cache.MemCache
 
         public void Remove(string key)
         {
-            throw new NotImplementedException();
+            _memoryCache.Remove(key.ToUpper());
         }
 
         public void RemoveByPattern(string pattern, int offset = 5000)

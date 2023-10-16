@@ -36,3 +36,5 @@ C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\obj\Debug\net6.0\ref
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\obj\Debug\net6.0\EmployeeManagement.EfCore.pdb
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\obj\Debug\net6.0\EmployeeManagement.EfCore.genruntimeconfig.cache
 C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\obj\Debug\net6.0\ref\EmployeeManagement.EfCore.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\bin\Debug\net6.0\Base.Common.dll
+C:\Users\lucnv\Desktop\WebAPIEmployee\BackEnd\WebAPI\EfCore\bin\Debug\net6.0\Base.Common.pdb

@@ -1813,7 +1813,8 @@
           "Microsoft.Extensions.Caching.StackExchangeRedis": "7.0.11",
           "Microsoft.Extensions.Configuration": "7.0.0",
           "Microsoft.Extensions.Configuration.Binder": "7.0.4",
-          "Microsoft.Extensions.DependencyInjection": "7.0.0"
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
           "bin/placeholder/Base.Common.dll": {}
@@ -1863,6 +1864,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "11.0.1",
+          "Base.Common": "1.0.0",
           "EmployeeManagement.Common": "1.0.0",
           "EmployeeManagement.Database": "1.0.0",
           "FluentValidation": "11.5.1",

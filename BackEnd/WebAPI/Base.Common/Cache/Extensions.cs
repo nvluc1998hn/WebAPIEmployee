@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using StackExchange.Redis;
 using System.Net;
 using Base.Common.Cache.MemCache;
+using Base.Common.Cache.Redis.Interface;
 
 namespace Base.Common.Cache
 {
@@ -38,8 +39,8 @@ namespace Base.Common.Cache
                         //ConnectTimeout = redisOptions?.ConnectTimeout ?? 5
                     };
                 });
-                //services.AddSingleton<IRedisConnectionWrapper, RedisConnectionWrapper>();
-                //services.AddSingleton<ICacheService, RedisCacheService>();
+                services.AddSingleton<IRedisConnectionWrapper, RedisConnectionWrapper>();
+                services.AddSingleton<ICacheService, RedisCacheService>();
             }
             else
             {
