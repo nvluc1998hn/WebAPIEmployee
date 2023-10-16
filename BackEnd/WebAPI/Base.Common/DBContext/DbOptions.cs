@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.Database.Context.DbOptions
+namespace Base.Common.DBContext
 {
     public class DbOptions
     {

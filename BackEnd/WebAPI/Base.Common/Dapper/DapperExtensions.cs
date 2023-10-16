@@ -1,6 +1,6 @@
-﻿using Dapper;
-using EmployeeManagement.Common.Enums;
-using EmployeeManagement.Database.Context.DbOptions;
+﻿using Base.Common.DBContext;
+using Base.Common.Enum;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.Database.Dapper
+namespace Base.Common.Dapper
 {
     public static class DapperExtensions
     {
@@ -236,6 +236,5 @@ namespace EmployeeManagement.Database.Dapper
             return await con.ExecuteAsync(sql, param);
         }
     }
-
 }
 

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.Database.Dapper.SimpleCRUD
+namespace Base.Common.Dapper.SimpleCRUD
 {
     /// <summary>
     /// Main class for Dapper.SimpleCRUD extensions

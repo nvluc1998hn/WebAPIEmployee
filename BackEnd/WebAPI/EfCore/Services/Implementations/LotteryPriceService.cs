@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using EmployeeManagement.Database.Context.Models;
-using EmployeeManagement.Database.Dapper.Repositories.Interfaces;
-using EmployeeManagement.Database.Repositories.Implementations;
 using EmployeeManagement.Database.Repositories.Interfaces;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Dapper.SqlMapper;
 
 namespace EmployeeManagement.EfCore.Services.Implementations
 {

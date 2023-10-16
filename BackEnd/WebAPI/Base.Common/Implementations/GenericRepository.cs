@@ -1,21 +1,22 @@
-﻿using EmployeeManagement.Common.Enums;
-using EmployeeManagement.Database.Dapper.Repositories.Interfaces;
-using EmployeeManagement.Database.Dapper.SimpleCRUD;
-using System;
+﻿using Base.Common.Enum;
+using Dapper;
+using Base.Common.Interfaces;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Base.Common.Dapper;
+using Base.Common.Dapper.SimpleCRUD;
 
-namespace EmployeeManagement.Database.Dapper.Repositories.Implementations
+namespace Base.Common.Implementations
 {
     public class GenericRepository<TEntity, TId> : IRepositoryAsync<TEntity, TId> where TEntity : class
     {
         private readonly ISqlConnectionFactory _sqlConnectionFactory;
         private DatabaseNames _databaseNames = DatabaseNames.Default;
-        
+
         public GenericRepository(ISqlConnectionFactory sqlConnectionFactory, DatabaseNames databaseNames)
         {
             _sqlConnectionFactory = sqlConnectionFactory;
@@ -57,7 +58,7 @@ namespace EmployeeManagement.Database.Dapper.Repositories.Implementations
             return result;
         }
 
-     
+
 
         public IEnumerable<T> QueryDapperStoreProc<T>(string store, object param = null)
         {
@@ -206,7 +207,7 @@ namespace EmployeeManagement.Database.Dapper.Repositories.Implementations
 
             await conn.UpdateListAsync<TEntity>(conditions, parameters, transaction, commandTimeout);
 
-          
+
             return entities;
         }
 

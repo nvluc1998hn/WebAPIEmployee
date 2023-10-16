@@ -1,9 +1,11 @@
-﻿using Dapper;
-using EmployeeManagement.Common.Attributes;
+﻿using Base.Common.Attributes;
+using Dapper;
 using Microsoft.CSharp.RuntimeBinder;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Diagnostics;
@@ -13,7 +15,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.Database.Dapper.SimpleCRUD
+namespace Base.Common.Dapper.SimpleCRUD
 {
     /// <summary>
     /// Main class for Dapper.SimpleCRUD extensions
@@ -808,7 +810,7 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
 
                     if (property.GetCustomAttributes(true).Any(attr =>
                         attr.GetType().Name == typeof(IgnoreInsertAttribute).Name ||
-                        attr.GetType().Name == typeof(Common.Attributes.NotMappedAttribute).Name ||
+                        attr.GetType().Name == typeof(NotMappedAttribute).Name ||
                         attr.GetType().Name == typeof(ReadOnlyAttribute).Name && IsReadOnly(property))
                     )
                         continue;
@@ -906,14 +908,14 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
                 {
                     var property = propertyInfos.ElementAt(i);
 
-                    if (property.GetCustomAttributes(true).Any(attr => attr.GetType().Name == typeof(IgnoreSelectAttribute).Name || attr.GetType().Name == typeof(Common.Attributes.NotMappedAttribute).Name))
+                    if (property.GetCustomAttributes(true).Any(attr => attr.GetType().Name == typeof(IgnoreSelectAttribute).Name || attr.GetType().Name == typeof(NotMappedAttribute).Name))
                         continue;
 
                     if (addedAny)
                         sb.Append(",");
                     sb.Append(GetColumnName(property));
                     //if there is a custom column name add an "as customcolumnname" to the item so it maps properly
-                    if (property.GetCustomAttributes(true).SingleOrDefault(attr => attr.GetType().Name == typeof(Common.Attributes.ColumnAttribute).Name) != null)
+                    if (property.GetCustomAttributes(true).SingleOrDefault(attr => attr.GetType().Name == typeof(ColumnAttribute).Name) != null)
                         sb.Append(" as " + Encapsulate(property.Name));
                     addedAny = true;
                 }
@@ -932,7 +934,7 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
 
                     if (property.GetCustomAttributes(true).Any(attr =>
                         attr.GetType().Name == typeof(IgnoreInsertAttribute).Name ||
-                        attr.GetType().Name == typeof(Common.Attributes.NotMappedAttribute).Name ||
+                        attr.GetType().Name == typeof(NotMappedAttribute).Name ||
                         attr.GetType().Name == typeof(ReadOnlyAttribute).Name && IsReadOnly(property)))
                         continue;
 
@@ -1036,7 +1038,7 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
                     //    continue;
                     if (property.GetCustomAttributes(true).Any(attr =>
                         attr.GetType().Name == typeof(IgnoreInsertAttribute).Name ||
-                        attr.GetType().Name == typeof(Common.Attributes.NotMappedAttribute).Name ||
+                        attr.GetType().Name == typeof(NotMappedAttribute).Name ||
                         attr.GetType().Name == typeof(ReadOnlyAttribute).Name && IsReadOnly(property))
                     )
                         continue;
@@ -1072,7 +1074,7 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
                 //    continue;
                 if (property.GetCustomAttributes(true).Any(attr =>
                     attr.GetType().Name == typeof(IgnoreInsertAttribute).Name ||
-                    attr.GetType().Name == typeof(Common.Attributes.NotMappedAttribute).Name ||
+                    attr.GetType().Name == typeof(NotMappedAttribute).Name ||
                     attr.GetType().Name == typeof(ReadOnlyAttribute).Name && IsReadOnly(property))
                 )
                     continue;
@@ -1134,7 +1136,7 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
                     //    continue;
                     if (property.GetCustomAttributes(true).Any(attr =>
                         attr.GetType().Name == typeof(IgnoreInsertAttribute).Name ||
-                        attr.GetType().Name == typeof(Common.Attributes.NotMappedAttribute).Name ||
+                        attr.GetType().Name == typeof(NotMappedAttribute).Name ||
                         attr.GetType().Name == typeof(ReadOnlyAttribute).Name && IsReadOnly(property)))
                         continue;
 
@@ -1220,7 +1222,7 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
             //remove ones with IgnoreUpdate attribute
             updateableProperties = updateableProperties.Where(p => p.GetCustomAttributes(true).Any(attr => attr.GetType().Name == typeof(IgnoreUpdateAttribute).Name) == false);
             //remove ones that are not mapped
-            updateableProperties = updateableProperties.Where(p => p.GetCustomAttributes(true).Any(attr => attr.GetType().Name == typeof(Common.Attributes.NotMappedAttribute).Name) == false);
+            updateableProperties = updateableProperties.Where(p => p.GetCustomAttributes(true).Any(attr => attr.GetType().Name == typeof(NotMappedAttribute).Name) == false);
 
             return updateableProperties;
         }
@@ -1333,7 +1335,7 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
             {
                 var tableName = Encapsulate(type.Name);
 
-                var tableattr = type.GetCustomAttributes(true).SingleOrDefault(attr => attr.GetType().Name == typeof(Common.Attributes.TableAttribute).Name) as dynamic;
+                var tableattr = type.GetCustomAttributes(true).SingleOrDefault(attr => attr.GetType().Name == typeof(TableAttribute).Name) as dynamic;
                 if (tableattr != null)
                 {
                     tableName = Encapsulate(tableattr.Name);
@@ -1361,7 +1363,7 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
             {
                 var columnName = Encapsulate(propertyInfo.Name);
 
-                var columnattr = propertyInfo.GetCustomAttributes(true).SingleOrDefault(attr => attr.GetType().Name == typeof(Common.Attributes.ColumnAttribute).Name) as dynamic;
+                var columnattr = propertyInfo.GetCustomAttributes(true).SingleOrDefault(attr => attr.GetType().Name == typeof(ColumnAttribute).Name) as dynamic;
                 if (columnattr != null)
                 {
                     columnName = Encapsulate(columnattr.Name);
@@ -1389,14 +1391,14 @@ namespace EmployeeManagement.Database.Dapper.SimpleCRUD
                 {
                     var property = propertyInfos.ElementAt(i);
 
-                    if (property.GetCustomAttributes(true).Any(attr => attr.GetType().Name == typeof(IgnoreSelectAttribute).Name || attr.GetType().Name == typeof(Common.Attributes.NotMappedAttribute).Name))
+                    if (property.GetCustomAttributes(true).Any(attr => attr.GetType().Name == typeof(IgnoreSelectAttribute).Name || attr.GetType().Name == typeof(NotMappedAttribute).Name))
                         continue;
 
                     if (addedAny)
                         sb.Append(",");
                     sb.Append(tableName + "." + GetColumnName(property));
                     //if there is a custom column name add an "as customcolumnname" to the item so it maps properly
-                    if (property.GetCustomAttributes(true).SingleOrDefault(attr => attr.GetType().Name == typeof(Common.Attributes.ColumnAttribute).Name) != null)
+                    if (property.GetCustomAttributes(true).SingleOrDefault(attr => attr.GetType().Name == typeof(ColumnAttribute).Name) != null)
                         sb.Append(" as " + Encapsulate(property.Name));
                     addedAny = true;
                 }
