@@ -1,5 +1,0 @@
-C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Employee.Database.csproj.AssemblyReference.cache
-C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Employee.Database.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Employee.Database.AssemblyInfoInputs.cache
-C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Employee.Database.AssemblyInfo.cs
-C:\Users\lucnv\Desktop\BackEnd\MockProject\BackEnd\WebAPI\Database\obj\Debug\net5.0\Employee.Database.csproj.CoreCompileInputs.cache
