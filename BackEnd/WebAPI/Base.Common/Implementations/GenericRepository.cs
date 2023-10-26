@@ -12,15 +12,21 @@ using Base.Common.Dapper.SimpleCRUD;
 
 namespace Base.Common.Implementations
 {
+    /// <summary>Thư viện dapper</summary>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    /// <typeparam name="TId">The type of the identifier.</typeparam>
+    /// <Modified>
+    /// Name Date Comments
+    /// lucnv 26/10/2023 created
+    /// </Modified>
     public class GenericRepository<TEntity, TId> : IRepositoryAsync<TEntity, TId> where TEntity : class
     {
         private readonly ISqlConnectionFactory _sqlConnectionFactory;
         private DatabaseNames _databaseNames = DatabaseNames.Default;
 
-        public GenericRepository(ISqlConnectionFactory sqlConnectionFactory, DatabaseNames databaseNames)
+        public GenericRepository(ISqlConnectionFactory sqlConnectionFactory)
         {
             _sqlConnectionFactory = sqlConnectionFactory;
-            _databaseNames = databaseNames;
         }
         #region Method Not Async
         public TEntity GetById(TId id)

@@ -111,20 +111,7 @@ namespace EmployeeManagementAPI
             services.AddEfCoreSqlServer<ApplicationDbContext>();
             services.AddServiceCommon();
 
-            // Service
-            services.Scan(scan => scan
-             .FromAssemblyOf<IEmployeeService>()
-                  .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Service")))
-                     .AsImplementedInterfaces()
-                     .WithScopedLifetime());
-
-
-            // Repository
-            services.Scan(scan => scan
-             .FromAssemblyOf<IEmployeeRepository>()
-                  .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Repository")))
-                     .AsImplementedInterfaces()
-                     .WithScopedLifetime());
+         
    
             
         }

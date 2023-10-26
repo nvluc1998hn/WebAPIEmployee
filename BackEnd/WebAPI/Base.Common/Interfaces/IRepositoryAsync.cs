@@ -7,6 +7,14 @@ using System.Threading.Tasks;
 
 namespace Base.Common.Interfaces
 {
+
+    /// <summary>Thư viện dapper</summary>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    /// <typeparam name="TId">The type of the identifier.</typeparam>
+    /// <Modified>
+    /// Name Date Comments
+    /// lucnv 26/10/2023 created
+    /// </Modified>
     public interface IRepositoryAsync<TEntity, TId> where TEntity : class
     {
         TEntity GetById(TId id);

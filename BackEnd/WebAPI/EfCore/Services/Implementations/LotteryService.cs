@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Base.Common.Cache;
+using Base.Common.Interfaces;
 using EmployeeManagement.Database.Context;
 using EmployeeManagement.Database.Context.Models;
 using EmployeeManagement.Database.Repositories.EmployeeRepository;
@@ -24,6 +25,8 @@ namespace EmployeeManagement.EfCore.Services.Implementations
     public class LotteryService : ILotteryService
     {
         private readonly ILotteryRepository _lotteryRepository;
+        private readonly ILotteryRepository2 _lotteryRepository2;
+
         private readonly IAgencyRepository _agencyRepository;
         private readonly ICacheService _cacheService;
         private readonly IMapper _mapper;
@@ -35,6 +38,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         public LotteryService(IConfiguration configuration, IMapper mapper,
             ILotteryRepository lotteryRepository, 
             ILogger<LotteryService> logger,
+            ILotteryRepository2 lotteryRepository2,
             ApplicationDbContext db,
             ICacheService cacheService,
             IAgencyRepository agencyRepository)
@@ -42,6 +46,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
 
             _configuration = configuration;
             _mapper = mapper;
+            _lotteryRepository2 = lotteryRepository2;
             _lotteryRepository = lotteryRepository;
             _logger = logger;
             _db = db;
@@ -95,6 +100,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             {
                 var x = 1;
             }
+            var testData = _lotteryRepository2.GetList();
             var listData = _lotteryRepository.GetAll().ToList();
             var result = new List<LotteryViewModel>();  
             try

@@ -4,6 +4,8 @@ using Base.Common.Implementations;
 using Base.Common.Interfaces;
 using EmployeeManagement.Database;
 using EmployeeManagement.Database.Repositories.Implementations;
+using EmployeeManagement.Database.Repositories.Interfaces;
+using EmployeeManagement.EfCore.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,8 +45,26 @@ namespace EmployeeManagement.EfCore
                 }
                 else
                 {
-                    services.AddScoped(typeof(IRepositoryAsync<,>), typeof(Repository<,>));
+                    services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+
+                  
                 }
+
+                // Service
+                services.Scan(scan => scan
+                 .FromAssemblyOf<IEmployeeService>()
+                      .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Service")))
+                         .AsImplementedInterfaces()
+                         .WithScopedLifetime());
+
+
+                // Repository
+                services.Scan(scan => scan
+                 .FromAssemblyOf<IEmployeeRepository>()
+                      .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Repository")))
+                         .AsImplementedInterfaces()
+                         .WithScopedLifetime());
+
 
                 services.AddDbContext<TDbContext>((sp, o) =>
                 {
