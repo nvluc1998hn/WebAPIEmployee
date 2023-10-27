@@ -20,11 +20,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Base.Common", "Base.Common\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{62F0F681-2646-4782-A2A9-660BAD7B6D07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManagement.Common", "VehicleManagement.Common\VehicleManagement.Common.csproj", "{DA5E772E-C05E-4426-8B83-E9A8EE3F93F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleManagement.Common", "VehicleManagement.Common\VehicleManagement.Common.csproj", "{DA5E772E-C05E-4426-8B83-E9A8EE3F93F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManagement.Database", "VehicleManagement.Database\VehicleManagement.Database.csproj", "{D45B23AB-44CE-442F-899C-857000B578E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleManagement.Database", "VehicleManagement.Database\VehicleManagement.Database.csproj", "{D45B23AB-44CE-442F-899C-857000B578E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManagement.EfCore", "VehicleManagement.EfCore\VehicleManagement.EfCore.csproj", "{28CE0EF6-5A9B-4EAA-B17E-FFE8491E5484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleManagement.EfCore", "VehicleManagement.EfCore\VehicleManagement.EfCore.csproj", "{28CE0EF6-5A9B-4EAA-B17E-FFE8491E5484}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GRPC", "GRPC", "{34EEA1E7-7402-4420-B6EE-A40D6B4AC973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcService", "GrpcService\GrpcService.csproj", "{2E09D29B-39DA-4BCE-882F-9F20277E742E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +68,10 @@ Global
 		{28CE0EF6-5A9B-4EAA-B17E-FFE8491E5484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28CE0EF6-5A9B-4EAA-B17E-FFE8491E5484}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28CE0EF6-5A9B-4EAA-B17E-FFE8491E5484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E09D29B-39DA-4BCE-882F-9F20277E742E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E09D29B-39DA-4BCE-882F-9F20277E742E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E09D29B-39DA-4BCE-882F-9F20277E742E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E09D29B-39DA-4BCE-882F-9F20277E742E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +81,7 @@ Global
 		{DA5E772E-C05E-4426-8B83-E9A8EE3F93F8} = {62F0F681-2646-4782-A2A9-660BAD7B6D07}
 		{D45B23AB-44CE-442F-899C-857000B578E7} = {62F0F681-2646-4782-A2A9-660BAD7B6D07}
 		{28CE0EF6-5A9B-4EAA-B17E-FFE8491E5484} = {62F0F681-2646-4782-A2A9-660BAD7B6D07}
+		{2E09D29B-39DA-4BCE-882F-9F20277E742E} = {34EEA1E7-7402-4420-B6EE-A40D6B4AC973}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FB78B92-0881-4EEC-95ED-122F95091601}

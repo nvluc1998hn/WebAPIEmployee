@@ -9,6 +9,9 @@ using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.EfCore.ViewModels.Request;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
+using Grpc.Net.Client;
+using GrpcService.Protos;
+using System.Threading.Tasks;
 
 namespace EmployeeManagementAPI.Controllers
 {
@@ -27,11 +30,19 @@ namespace EmployeeManagementAPI.Controllers
         }
 
         [HttpPost("get")]
-        public ApiResponse GetData([FromBody] LotteryRequest request)
+        public async Task<ApiResponse> GetData([FromBody] LotteryRequest request)
         {
             ApiResponse res;       
             try
             {
+                var channel = GrpcChannel.ForAddress("http://localhost:5080");
+                var client = new Product.ProductClient(channel);
+                var product = new GetProductDetail
+                {
+                    ProductId = 3
+                };
+                var serverReply = await client.GetProductsInformationAsync(product);
+
                 var data = _lotteryService.GetListData(request);
                 if(data?.Count > 0)
                 {

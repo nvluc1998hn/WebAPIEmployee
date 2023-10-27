@@ -5,8 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\product.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="Protos\product.proto">
+      <GrpcServices>Server</GrpcServices>
+    </ApplicationDefinition>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="FluentValidation" Version="11.5.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
@@ -28,6 +39,9 @@
  <ItemGroup>
    <Folder Include="Command\QueryCommand\" />
    <Folder Include="ViewModels\Response\Lottery\" />
+ </ItemGroup>
+ <ItemGroup>
+   <Protobuf Include="Protos\product.proto" GrpcServices="Client" />
  </ItemGroup>
 	
 </Project>
