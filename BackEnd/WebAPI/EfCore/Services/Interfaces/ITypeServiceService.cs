@@ -8,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.EfCore.Services.Interfaces
 {
-    public interface IAgencyService :IBaseService<Agency, Guid>
+    /// <summary>Loại dịch vụ</summary>
+    /// <Modified>
+    /// Name Date Comments
+    /// lucnv 06/01/2024 created
+    /// </Modified>
+    public interface ITypeServiceService:IBaseCRUDService<TypeService, TypeServiceRequestSearch, TypeService, Guid>
     {
-        List<Agency> GetListData(string name);
+
     }
 }

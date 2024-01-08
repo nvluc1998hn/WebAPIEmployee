@@ -5,6 +5,7 @@ using Base.Common.Interfaces;
 using EmployeeManagement.Database;
 using EmployeeManagement.Database.Repositories.Implementations;
 using EmployeeManagement.Database.Repositories.Interfaces;
+using EmployeeManagement.EfCore.Services.Implementations;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,7 @@ namespace EmployeeManagement.EfCore
 
                   
                 }
+
 
                 // Service
                 services.Scan(scan => scan

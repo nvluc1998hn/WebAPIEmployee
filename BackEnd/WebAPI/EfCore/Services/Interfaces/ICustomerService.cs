@@ -1,4 +1,5 @@
 ﻿using EmployeeManagement.Database.Context.Models;
+using EmployeeManagement.EfCore.ViewModels.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,8 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.EfCore.Services.Interfaces
 {
-    public interface IBaseService<T, Id> where T : class
+    public interface ICustomerService: IBaseCRUDService<Customer,CustomerRequestSearch ,Customer, Guid>
     {
-        bool Add(T data);
-
-        bool Update(T data);
-
-        bool Delete(T data);
 
     }
 }

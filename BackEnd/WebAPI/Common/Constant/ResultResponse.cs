@@ -60,9 +60,17 @@ namespace EmployeeManagement.Common.Constant
 
     public class ApiOkResultResponse : ApiResponse
     {
-        public ApiOkResultResponse(object data = null) : base(StatusCodes.Status200OK, data)
+        public ApiOkResultResponse(object data = null, string userMessage = null, string internalMessage = null) : base(StatusCodes.Status200OK, data, userMessage)
         {
 
+        }
+    }
+
+    public class ApiNoDataResponse : ApiResponse
+    {
+        public ApiNoDataResponse(string userMessage = null, string internalMessage = null)
+        : base(StatusCodes.Status204NoContent, null, userMessage ?? "Không có dữ liệu")
+        {
         }
     }
 
@@ -97,6 +105,13 @@ namespace EmployeeManagement.Common.Constant
 
         }
 
+    }
+
+    public class ApiCatchResponse : ApiResponse
+    {
+        public ApiCatchResponse(Exception e, string userMessage = null) : base(StatusCodes.Status500InternalServerError, null, null)
+        {
+        }
     }
 
 

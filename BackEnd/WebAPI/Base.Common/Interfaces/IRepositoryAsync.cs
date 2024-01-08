@@ -59,6 +59,11 @@ namespace Base.Common.Interfaces
         Task<IEnumerable<TEntity>> GetListAsyncWithJoinConditions(string conditions, string orderBy, object parameters = null, IDbTransaction transaction = null, int? commandTimeout = null);
 
         Task<TEntity> AddAsync(TEntity entity);
+        
         Task<List<TEntity>> AddAsync(List<TEntity> entities);
+
+        Task<TEntity> UpdateAsync(TEntity entity);
+
+        Task<TEntity> DeleteAsync(TEntity entity);
     }
 }

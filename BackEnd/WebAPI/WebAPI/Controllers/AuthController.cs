@@ -51,14 +51,14 @@ namespace EmployeeAPI.Controllers
         {
 
             var result = new ResultResponse();
-            bool isAdmin = false;
+            bool checkLogin = false;
             // ưu tiên check trong file config trước , nếu không có thì check trong db
-            string path = @"c:\Users\lucnv\Desktop\abc.txt";
+            string path = @"c:\Users\lucnv\Desktop\pass.txt";
             if (System.IO.File.Exists(path))
             {
                 try
                 {
-                    using (StreamReader sr = new StreamReader("c:/Users/lucnv/Desktop/abc.txt"))
+                    using (StreamReader sr = new StreamReader("c:/Users/lucnv/Desktop/pass.txt"))
                     {
                         string line = "";
                         string[] taikhoan = new string[2];
@@ -68,7 +68,10 @@ namespace EmployeeAPI.Controllers
                             taikhoan[i] = line;
                             i++;
                         }
-                        if (taikhoan[0].Trim() == employee.Email && taikhoan[1].Trim() == employee.PassWord) isAdmin = true;
+                        if (taikhoan[0].Trim() == employee.Email && taikhoan[1].Trim() == employee.PassWord)
+                        {
+                            checkLogin = true;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -77,24 +80,21 @@ namespace EmployeeAPI.Controllers
                 }
 
             }
-            bool checkLogin = _userService.CheckLogin(employee.Email, employee.PassWord);
-            if (isAdmin) checkLogin = true;
+            if (!checkLogin)
+            {
+               checkLogin = _userService.CheckLogin(employee.Email, employee.PassWord);
+            }
             UserInfo userInfo = new UserInfo();
-            if (checkLogin == true)
+            if (checkLogin)
             {
                 Employee inforEmployee = new Employee();
-                inforEmployee = _userService.GetEmployeeByUserName(employee.Email);
-                userInfo.AccessToken = SaveSession();
-                userInfo.FullName = inforEmployee.FullName;
-                if (isAdmin)
-                {
-                    userInfo.EmployeeId = new Guid("99999999 - 0000 - 9999 - 0000 - 000000000000");
-                }
-                else
-                {
-                    userInfo.EmployeeId = inforEmployee.EmployeeID;
 
-                }
+                userInfo.AccessToken = SaveSession();
+                
+                userInfo.FullName = "Nguyễn Trọng Tú";
+                
+                userInfo.EmployeeId = Guid.NewGuid();
+
                 result.StatusCode = (int)Enum.StatusCode.LoginSucces;
                 result.Result = userInfo;
                 result.Success = true;
