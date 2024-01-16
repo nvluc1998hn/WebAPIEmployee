@@ -1,4 +1,4 @@
-﻿using Base.Common.Models;
+﻿using EmployeeManagement.Database.Context.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.EfCore.ViewModels.Request
 {
-    public class CustomerRequestSearch: BaseRequestModel
+    public class ListCustomerServiceRequest
     {
-        public int? Month { get; set; }
+        public List<CustomerService2> lsDataRequest { get;set; }
     }
 }

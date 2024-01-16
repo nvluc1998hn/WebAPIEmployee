@@ -36,11 +36,13 @@ namespace Base.Common.Interfaces
 
         Task<IEnumerable<TEntity>> GetListAsync();
 
+        Task<IEnumerable<TEntity>> GetListAsync(string conditions, string orderBy, object parameters = null, IDbTransaction transaction = null, int? commandTimeout = null);
+
+
         Task<IEnumerable<TEntity>> GetListAsync(object whereConditions, IDbTransaction transaction = null, int? commandTimeout = null);
 
         Task<IEnumerable<TEntity>> GetTopListAsync(int number, object whereConditions, IDbTransaction transaction = null, int? commandTimeout = null);
 
-        Task<IEnumerable<TEntity>> GetListAsync(string conditions, string orderBy, object parameters = null, IDbTransaction transaction = null, int? commandTimeout = null);
 
         Task<TEntity> GetByIdAsync(TId id);
 
@@ -64,6 +66,19 @@ namespace Base.Common.Interfaces
 
         Task<TEntity> UpdateAsync(TEntity entity);
 
+        Task<List<TEntity>> UpdateListAsync(List<TEntity> entities, string conditions, object parameters = null, IDbTransaction transaction = null, int? commandTimeout = null);
+
+
+        Task<List<TEntity>> UpdateAsync(List<TEntity> entities);
+
         Task<TEntity> DeleteAsync(TEntity entity);
+
+        Task<List<TEntity>> DeleteAsync(List<TEntity> entity);
+
+        Task<TEntity> DeleteListAsync(TEntity entity, object whereConditions, IDbTransaction transaction = null, int? commandTimeout = null);
+
+        Task<TEntity> DeleteListAsync(TEntity entity, string conditions, object parameters = null, IDbTransaction transaction = null, int? commandTimeout = null);
+
+
     }
 }

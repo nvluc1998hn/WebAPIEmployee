@@ -392,6 +392,7 @@ namespace Base.Common.Dapper.SimpleCRUD
                 Trace.WriteLine(string.Format("Insert: {0}", sb));
             if (keytype == typeof(Guid) || keyHasPredefinedValue)
             {
+                var kt = sb.ToString();
                 await connection.ExecuteAsync(sb.ToString(), entityToInsert, transaction, commandTimeout);
                 return (TKey)idProps.First().GetValue(entityToInsert, null);
             }
@@ -467,6 +468,7 @@ namespace Base.Common.Dapper.SimpleCRUD
                 }
                 sb.AppendFormat(" {0}", string.Join(", ", values));
                 sb.Append(" SELECT * FROM #RowsInserted; DROP TABLE #RowsInserted;");
+                var kt = sb.ToString();
                 var rows = await connection.QueryAsync(sb.ToString());
                 List<TKey> lstIds = new List<TKey>();
                 if (idType == typeof(TKey))

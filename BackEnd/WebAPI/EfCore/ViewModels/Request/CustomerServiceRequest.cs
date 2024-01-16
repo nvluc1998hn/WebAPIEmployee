@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.EfCore.ViewModels.Request
 {
-    public class CustomerRequestSearch: BaseRequestModel
+    public class CustomerServiceRequest: BaseRequestModel
     {
-        public int? Month { get; set; }
+
     }
 }

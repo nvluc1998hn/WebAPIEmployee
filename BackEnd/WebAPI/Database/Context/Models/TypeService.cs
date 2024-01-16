@@ -19,7 +19,10 @@ namespace EmployeeManagement.Database.Context.Models
 
         public string TypeServiceName { get; set; }
 
-        public double Price { get; set; }   
+        public double Price { get; set; }
+
+        public bool? IsDeleted { get; set; }
+
 
         public DateTime DateApply { get; set; }  
     }

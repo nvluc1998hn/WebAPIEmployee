@@ -15,6 +15,7 @@ namespace EmployeeManagement.EfCore.Services.Interfaces
     /// </Modified>
     public interface ITypeServiceService:IBaseCRUDService<TypeService, TypeServiceRequestSearch, TypeService, Guid>
     {
-
+        
+        public Task<Dictionary<Guid, TypeService>> GetListTypeServiceById(List<Guid> Ids);
     }
 }

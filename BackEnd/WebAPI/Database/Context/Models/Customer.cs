@@ -24,8 +24,11 @@ namespace EmployeeManagement.Database.Context.Models
 
         public string Address { get; set; }
 
+        public bool? IsDeleted { get; set; }
+
+
         [NotNull]
-        public DateTime? DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
       
     }

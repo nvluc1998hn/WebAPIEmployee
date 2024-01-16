@@ -1,5 +1,4 @@
-﻿using Base.Common.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.EfCore.ViewModels.Request
 {
-    public class CustomerRequestSearch: BaseRequestModel
+    public class CustomerServiceDeleteRequest
     {
-        public int? Month { get; set; }
+       public Guid CustomerId { get; set; }
+
+       public DateTime InvoiDate { get; set; }
+
+            
     }
 }

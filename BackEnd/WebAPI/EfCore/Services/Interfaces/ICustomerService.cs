@@ -10,6 +10,6 @@ namespace EmployeeManagement.EfCore.Services.Interfaces
 {
     public interface ICustomerService: IBaseCRUDService<Customer,CustomerRequestSearch ,Customer, Guid>
     {
-
+        public Task<Dictionary<Guid, string>> GetListCustomerById(List<Guid> id);
     }
 }

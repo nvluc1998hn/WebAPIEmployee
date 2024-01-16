@@ -24,8 +24,5 @@ namespace EmployeeManagement.Database.Context
         public virtual DbSet<Lottery> Lotterys { get; set; }
         public virtual DbSet<Agency> Agencys { get; set; }
         public virtual DbSet<LotteryPrice> LotteryPrices { get; set; }
-        
-        public virtual DbSet<Customer> Customers { get; set; }
-        
     }
 }

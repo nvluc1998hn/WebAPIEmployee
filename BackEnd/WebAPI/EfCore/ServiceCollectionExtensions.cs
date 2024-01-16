@@ -47,10 +47,7 @@ namespace EmployeeManagement.EfCore
                 else
                 {
                     services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
-
-                  
                 }
-
 
                 // Service
                 services.Scan(scan => scan

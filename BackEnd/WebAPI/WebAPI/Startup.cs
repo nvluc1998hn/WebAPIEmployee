@@ -111,11 +111,6 @@ namespace EmployeeManagementAPI
             services.AddSession();
             services.AddEfCoreSqlServer<ApplicationDbContext>();
             services.AddServiceCommon();
-
-
-
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

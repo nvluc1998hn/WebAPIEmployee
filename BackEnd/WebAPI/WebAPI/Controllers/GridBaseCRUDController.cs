@@ -28,6 +28,7 @@ namespace EmployeeManagementAPI.Controllers
             ApiResponse res;
             try
             {
+                        request.CreatedDate = DateTime.Now;
                         var handleRes = await _service.Add(request);
                         if (handleRes.Success)
                         {
@@ -61,7 +62,7 @@ namespace EmployeeManagementAPI.Controllers
                 var handleRes = await _service.Update(request);
                 if (handleRes.Success)
                 {
-                    res = new ApiOkResultResponse(handleRes.Success, "Thêm mới thành công");
+                    res = new ApiOkResultResponse(handleRes.Success, "Sửa thành công");
                 }
                 else
                 {
@@ -89,7 +90,7 @@ namespace EmployeeManagementAPI.Controllers
                 var handleRes = await _service.Delete(request);
                 if (handleRes.Success)
                 {
-                    res = new ApiOkResultResponse(handleRes.Success, "Thêm mới thành công");
+                    res = new ApiOkResultResponse(handleRes.Success, "Xóa thành công");
                 }
                 else
                 {

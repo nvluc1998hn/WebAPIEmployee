@@ -8,9 +8,8 @@ namespace Base.Common.Models
 {
     public class BaseModel
     {
-        public bool IsDeleted { get;set; }
 
-        public DateTime CreatedDate { get; set; }
+        public virtual DateTime CreatedDate { get; set; }
 
         public Guid? CreatedByUser { get; set; }
 

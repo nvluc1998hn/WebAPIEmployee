@@ -326,6 +326,11 @@ namespace Base.Common.Implementations
             return result;
         }
 
+        public Task<List<TEntity>> DeleteAsync(List<TEntity> entity)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion Method Async
     }
 }
