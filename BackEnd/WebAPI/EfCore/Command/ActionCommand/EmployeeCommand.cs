@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.EfCore.Validations;
+﻿using Base.Common.Command;
+using EmployeeManagement.EfCore.Validations;
 using FluentValidation;
 using System;
 

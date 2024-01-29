@@ -1,20 +1,17 @@
 ﻿using Autofac.Core;
 using AutoMapper;
 using Base.Common.Cache.Redis.Interface;
+using Base.Common.Constant;
 using Base.Common.Models;
-using EmployeeManagement.Common.Constant;
-using EmployeeManagement.EfCore.Event;
-using EmployeeManagement.EfCore.Services.Interfaces;
+using Base.Common.Service.Interfaces;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Threading.Tasks;
 
-namespace EmployeeManagementAPI.Controllers
+namespace Base.Common.Controllers
 {
 
     [ApiController]

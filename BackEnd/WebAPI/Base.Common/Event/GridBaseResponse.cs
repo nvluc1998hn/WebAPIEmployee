@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.EfCore.Event
+namespace Base.Common.Event
 {
     public class GridBaseResponse
     {

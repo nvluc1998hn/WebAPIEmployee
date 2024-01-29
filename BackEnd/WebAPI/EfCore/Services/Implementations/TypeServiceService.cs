@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using Base.Common.Event;
 using Base.Common.Interfaces;
-using EmployeeManagement.Common.Event;
+using Base.Common.Services.Implementations;
 using EmployeeManagement.Database.Context.Models;
-using EmployeeManagement.EfCore.Event;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.EfCore.ViewModels.Request;
 using System;
@@ -20,8 +20,6 @@ namespace EmployeeManagement.EfCore.Services.Implementations
     /// Name Date Comments
     /// lucnv 11/01/2024 created
     /// </Modified>
-    /// <seealso cref="EmployeeManagement.EfCore.Services.Implementations.BaseCRUDService&lt;EmployeeManagement.Database.Context.Models.TypeService, EmployeeManagement.EfCore.ViewModels.Request.TypeServiceRequestSearch, EmployeeManagement.Database.Context.Models.TypeService, System.Guid&gt;" />
-    /// <seealso cref="EmployeeManagement.EfCore.Services.Interfaces.ITypeServiceService" />
     public class TypeServiceService : BaseCRUDService<TypeService,TypeServiceRequestSearch, TypeService, Guid>, ITypeServiceService
     {
         public TypeServiceService(IServiceProvider serviceProvider) : base(serviceProvider)

@@ -1,10 +1,10 @@
 ﻿
-using EmployeeManagement.Common.Event;
+using Base.Common.Event;
 using FluentValidation.Results;
 using MediatR;
 using System.Collections.Generic;
 
-namespace EmployeeManagement.Common.Command
+namespace Base.Common.Command
 {
     /// <summary> Handle request trả về dạng List </summary>
     /// Author: trinhtx

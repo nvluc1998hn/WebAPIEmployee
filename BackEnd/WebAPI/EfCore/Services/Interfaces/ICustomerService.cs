@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.Database.Context.Models;
+﻿using Base.Common.Service.Interfaces;
+using EmployeeManagement.Database.Context.Models;
 using EmployeeManagement.EfCore.ViewModels.Request;
 using System;
 using System.Collections.Generic;

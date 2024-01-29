@@ -1,14 +1,9 @@
 ﻿using AutoMapper;
 using Base.Common.Cache.Redis.Interface;
+using Base.Common.Event;
 using Base.Common.Interfaces;
 using Base.Common.Models;
-using EmployeeManagement.Common.Event;
-using EmployeeManagement.Database.Context;
-using EmployeeManagement.Database.Context.Models;
-using EmployeeManagement.Database.Repositories.Implementations;
-using EmployeeManagement.Database.Repositories.Interfaces;
-using EmployeeManagement.EfCore.Event;
-using EmployeeManagement.EfCore.Services.Interfaces;
+using Base.Common.Service.Interfaces;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,7 +16,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.EfCore.Services.Implementations
+namespace Base.Common.Services.Implementations
 {
     /// <summary>
     /// CRUD

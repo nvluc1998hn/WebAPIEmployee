@@ -1,4 +1,5 @@
 ﻿using Base.Common.Respone;
+using Base.Common.Service.Interfaces;
 using EmployeeManagement.Database.Context.Models;
 using EmployeeManagement.EfCore.ViewModels.Request;
 using EmployeeManagement.EfCore.ViewModels.Response;

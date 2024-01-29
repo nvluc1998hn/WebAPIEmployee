@@ -1,15 +1,16 @@
 ﻿using Autofac.Core;
 using Base.Common.Models;
-using EmployeeManagement.Common.Constant;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Threading.Tasks;
 using System;
 using Microsoft.Extensions.DependencyInjection;
-using EmployeeManagement.EfCore.Services.Interfaces;
 using AutoMapper;
 using Azure;
+using Base.Common.Controllers;
+using Base.Common.Service.Interfaces;
+using Base.Common.Constant;
 
 namespace EmployeeManagementAPI.Controllers
 {

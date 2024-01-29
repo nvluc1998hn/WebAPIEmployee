@@ -1,9 +1,9 @@
-﻿using EmployeeManagement.Common.Constant;
+﻿using Base.Common.Constant;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 
-namespace EmployeeManagementAPI.Controllers
+namespace Base.Common.Controllers
 {
 
     [Produces("application/json")]

@@ -1,5 +1,5 @@
-﻿using EmployeeManagement.Common.Command.ActionCommand;
-using EmployeeManagement.Common.Event;
+﻿using Base.Common.Event;
+using EmployeeManagement.Common.Command.ActionCommand;
 using MediatR;
 using System;
 using System.Collections.Generic;

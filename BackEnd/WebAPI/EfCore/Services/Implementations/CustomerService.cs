@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using Base.Common.Event;
 using Base.Common.Interfaces;
-using EmployeeManagement.Common.Event;
+using Base.Common.Services.Implementations;
 using EmployeeManagement.Database.Context.Models;
-using EmployeeManagement.EfCore.Event;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.EfCore.ViewModels.Request;
 using System;

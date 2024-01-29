@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.EfCore.Services.Interfaces
+namespace Base.Common.Service.Interfaces
 {
     public interface IBaseService<TEntity, TKey>  where TEntity : class
     {

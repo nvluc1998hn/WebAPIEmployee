@@ -1,9 +1,6 @@
 ﻿using Base.Common.Interfaces;
 using Base.Common.Models;
-using EmployeeManagement.Common.Event;
-using EmployeeManagement.Database.Repositories.Interfaces;
-using EmployeeManagement.EfCore.Event;
-using EmployeeManagement.EfCore.Services.Interfaces;
+using Base.Common.Service.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.EfCore.Services.Implementations
+namespace Base.Common.Services.Implementations
 {
 
     public class GridBaseService<TEntity, TId>  : IBaseService<TEntity, TId> where TEntity : class
