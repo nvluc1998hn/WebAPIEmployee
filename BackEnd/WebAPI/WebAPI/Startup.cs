@@ -24,6 +24,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using EmployeeManagement.EfCore.Services.Implementations;
+using Base.Mongo;
 
 namespace EmployeeManagementAPI
 {
@@ -111,6 +112,7 @@ namespace EmployeeManagementAPI
             services.AddSession();
             services.AddEfCoreSqlServer<ApplicationDbContext>();
             services.AddServiceCommon();
+            services.AddMongoDb();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

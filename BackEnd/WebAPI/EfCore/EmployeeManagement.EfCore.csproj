@@ -33,6 +33,7 @@
  </ItemGroup>
  <ItemGroup>
    <ProjectReference Include="..\Base.Common\Base.Common.csproj" />
+   <ProjectReference Include="..\Base.Mongo\Base.Mongo.csproj" />
    <ProjectReference Include="..\Common\EmployeeManagement.Common.csproj" />
    <ProjectReference Include="..\Database\EmployeeManagement.Database.csproj" />
  </ItemGroup>

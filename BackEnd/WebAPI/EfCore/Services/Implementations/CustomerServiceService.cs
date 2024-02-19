@@ -94,13 +94,6 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             returnType.Status = false;
             try
             {
-                if(listDataInsert?.Count > 0) {
-
-                    foreach(var item in listDataInsert)
-                    {
-                        item.CreatedDate = DateTime.Now;
-                    }
-                }
                 var dataInsert = await  _repository.AddAsync(listDataInsert);
                 if(dataInsert != null)
                 {

@@ -38,7 +38,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
 
                 if (dataSQl?.Count() > 0)
                 {
-                    listResult = dataSQl.ToDictionary(c => c.CustomerId, c => c.FullName);
+                    listResult = dataSQl.ToDictionary(c => c.Id, c => c.FullName);
                 }
             }
             catch (Exception ex)

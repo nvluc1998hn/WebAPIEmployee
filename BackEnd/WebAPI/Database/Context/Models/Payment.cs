@@ -19,7 +19,7 @@ namespace EmployeeManagement.Database.Context.Models
     /// </Modified>
     /// <seealso cref="Base.Common.Models.BaseModel" />
     [Table("Payment")]
-    public class Payment : BaseModel
+    public class Payment : BaseModel<Guid>
     {
         [Key]
         [NotNull]
@@ -30,5 +30,9 @@ namespace EmployeeManagement.Database.Context.Models
         public string Description { get;set; }
 
         public DateTime DatePayment { get; set; }
+
+        [NotMapped]
+        [Column("PaymentId")]
+        public override Guid Id { get; set; }
     }
 }

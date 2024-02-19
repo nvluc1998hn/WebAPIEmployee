@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Base.Common.Cache.Redis.Interface;
 using Base.Common.Event;
+using Base.Common.Helper;
 using Base.Common.Interfaces;
 using Base.Common.Models;
 using Base.Common.Service.Interfaces;
@@ -13,8 +14,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
 namespace Base.Common.Services.Implementations
 {
@@ -28,11 +31,12 @@ namespace Base.Common.Services.Implementations
     /// Name Date Comments
     /// lucnv 07/01/2024 created
     /// </Modified>
-    public class BaseCRUDService<TRequest, TRquestSearch, TResponse, Id> : IBaseCRUDService<TRequest, TRquestSearch, TResponse, Id> where TRequest : BaseModel
+    public class BaseCRUDService<TRequest, TRquestSearch, TResponse, Id> : IBaseCRUDService<TRequest, TRquestSearch, TResponse, Id> 
     {
         private readonly IMapper _mapper;
         protected readonly IRepositoryAsync<TRequest, Id> _repository;
-        protected readonly IServiceCache _serviceCache;    
+        protected readonly IServiceCache _serviceCache;
+        protected readonly ILogger<BaseCRUDService<TRequest, TRquestSearch, TResponse, Id>> _logger;
 
         public BaseCRUDService(IServiceProvider provider)
         {
@@ -40,6 +44,7 @@ namespace Base.Common.Services.Implementations
             _mapper = provider.GetService<IMapper>();
             _repository = provider.GetService<IRepositoryAsync<TRequest, Id>>();
             _serviceCache = provider.GetService<IServiceCache>();
+            _logger = provider.GetService<ILogger<BaseCRUDService<TRequest, TRquestSearch, TResponse, Id>>>();
         }
 
         public async Task<HandleResult> Add(TRequest data)
@@ -57,7 +62,7 @@ namespace Base.Common.Services.Implementations
             }
             catch (Exception ex)
             {
-                throw ex;
+                _logger.LogError($"Lỗi {MethodHelper.GetNameAsync()}: {ex}");
             }
             return result;
         }
@@ -75,8 +80,7 @@ namespace Base.Common.Services.Implementations
             }
             catch (Exception ex)
             {
-                throw ex;
-
+                _logger.LogError($"Lỗi {MethodHelper.GetNameAsync()}: {ex}");
             }
             return result;
         }
@@ -93,7 +97,7 @@ namespace Base.Common.Services.Implementations
             }
             catch (Exception ex)
             {
-                throw ex;
+                _logger.LogError($"Lỗi {MethodHelper.GetNameAsync()}: {ex}");
             }
             return result;
         }

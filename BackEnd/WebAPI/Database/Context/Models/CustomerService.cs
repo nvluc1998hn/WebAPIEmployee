@@ -18,7 +18,7 @@ namespace EmployeeManagement.Database.Context.Models
     /// lucnv 09/01/2024 created
     /// </Modified>
     [Table("CustomerService")]
-    public class CustomerService2:BaseModel
+    public class CustomerService2:BaseModel<string>
     {
         [Key]
         [Column("CustomerId", Order = 0)]
@@ -28,9 +28,13 @@ namespace EmployeeManagement.Database.Context.Models
         [Key]
         [Column("TypeServiceId", Order = 1)]
         public Guid TypeServiceId { get; set; }
-
+        
         [Key]
         [Column("InvoiceDate", Order = 2)]
         public DateTime InvoiceDate { get; set; }
+
+        [NotMapped]
+        public override string Id => $"{CustomerId}_{TypeServiceId}_{InvoiceDate.ToString("yyyyMMdd")}";
+
     }
 }

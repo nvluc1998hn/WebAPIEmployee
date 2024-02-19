@@ -28,9 +28,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleManagement.EfCore", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GRPC", "GRPC", "{34EEA1E7-7402-4420-B6EE-A40D6B4AC973}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcService", "GrpcService\GrpcService.csproj", "{2E09D29B-39DA-4BCE-882F-9F20277E742E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcService", "GrpcService\GrpcService.csproj", "{2E09D29B-39DA-4BCE-882F-9F20277E742E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManagementAPI", "VehicleManagementAPI\VehicleManagementAPI.csproj", "{221D0AF2-6E94-4505-A621-8E1DEA52C8A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleManagementAPI", "VehicleManagementAPI\VehicleManagementAPI.csproj", "{221D0AF2-6E94-4505-A621-8E1DEA52C8A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Mongo", "Base.Mongo\Base.Mongo.csproj", "{90F8B57E-BAB4-4500-ABA5-F2F469AC1919}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +80,10 @@ Global
 		{221D0AF2-6E94-4505-A621-8E1DEA52C8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{221D0AF2-6E94-4505-A621-8E1DEA52C8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{221D0AF2-6E94-4505-A621-8E1DEA52C8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F8B57E-BAB4-4500-ABA5-F2F469AC1919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F8B57E-BAB4-4500-ABA5-F2F469AC1919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F8B57E-BAB4-4500-ABA5-F2F469AC1919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F8B57E-BAB4-4500-ABA5-F2F469AC1919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{28CE0EF6-5A9B-4EAA-B17E-FFE8491E5484} = {62F0F681-2646-4782-A2A9-660BAD7B6D07}
 		{2E09D29B-39DA-4BCE-882F-9F20277E742E} = {34EEA1E7-7402-4420-B6EE-A40D6B4AC973}
 		{221D0AF2-6E94-4505-A621-8E1DEA52C8A5} = {62F0F681-2646-4782-A2A9-660BAD7B6D07}
+		{90F8B57E-BAB4-4500-ABA5-F2F469AC1919} = {932F75C7-D58B-47D5-B67E-7F88FD753B0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FB78B92-0881-4EEC-95ED-122F95091601}

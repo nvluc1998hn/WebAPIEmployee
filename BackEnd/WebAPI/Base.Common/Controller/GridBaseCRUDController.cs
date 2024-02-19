@@ -15,7 +15,7 @@ using Base.Common.Constant;
 namespace EmployeeManagementAPI.Controllers
 {
     [ApiController]
-    public class GridBaseCRUDController<TRequest, TRquestSearch, TResponse, IService> : GridBaseController<TRquestSearch, TResponse, IService>  where TRequest : BaseModel where IService: IBaseCRUDService<TRequest, TRquestSearch, TResponse, Guid>
+    public class GridBaseCRUDController<TRequest, TRquestSearch, TResponse, IService> : GridBaseController<TRquestSearch, TResponse, IService>  where IService: IBaseCRUDService<TRequest, TRquestSearch, TResponse, Guid>
     {
         public GridBaseCRUDController(IServiceProvider provider):base(provider)
         {
@@ -29,7 +29,6 @@ namespace EmployeeManagementAPI.Controllers
             ApiResponse res;
             try
             {
-                        request.CreatedDate = DateTime.Now;
                         var handleRes = await _service.Add(request);
                         if (handleRes.Success)
                         {

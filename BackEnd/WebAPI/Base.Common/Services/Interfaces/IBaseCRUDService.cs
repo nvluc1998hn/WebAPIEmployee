@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Base.Common.Service.Interfaces
 {
-    public interface IBaseCRUDService<TRequest, TRquestSearch, TResponse, Id> : IGridBaseService<TRquestSearch, TResponse> where TRequest : BaseModel
+    public interface IBaseCRUDService<TRequest, TRquestSearch, TResponse, Id> : IGridBaseService<TRquestSearch, TResponse> 
     {
         Task<HandleResult> Add(TRequest data);
 

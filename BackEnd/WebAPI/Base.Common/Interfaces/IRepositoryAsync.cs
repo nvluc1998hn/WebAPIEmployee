@@ -15,7 +15,7 @@ namespace Base.Common.Interfaces
     /// Name Date Comments
     /// lucnv 26/10/2023 created
     /// </Modified>
-    public interface IRepositoryAsync<TEntity, TId> where TEntity : class
+    public interface IRepositoryAsync<TEntity, TId> 
     {
         TEntity GetById(TId id);
 

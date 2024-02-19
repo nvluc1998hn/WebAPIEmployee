@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace EmployeeManagement.Database.Context.Models
 {
     [Table("Customer")]
-    public class Customer : BaseModel
+    public class Customer : BaseModel<Guid>
     {
         [Key]
         [NotNull]
@@ -30,6 +30,8 @@ namespace EmployeeManagement.Database.Context.Models
         [NotNull]
         public DateTime DateOfBirth { get; set; }
 
-      
+        [NotMapped]
+        [Column("CustomerId")]
+        public override Guid Id { get; set; }
     }
 }

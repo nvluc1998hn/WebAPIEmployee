@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace EmployeeManagement.Database.Context.Models
 {
     [Table("TypeService")]
-    public class TypeService:BaseModel
+    public class TypeService:BaseModel<Guid>
     {
         [Key]
         [NotNull]
@@ -23,7 +23,10 @@ namespace EmployeeManagement.Database.Context.Models
 
         public bool? IsDeleted { get; set; }
 
+        public DateTime DateApply { get; set; }
 
-        public DateTime DateApply { get; set; }  
+        [NotMapped]
+        [Column("TypeServiceId")]
+        public override Guid Id { get; set; }
     }
 }
