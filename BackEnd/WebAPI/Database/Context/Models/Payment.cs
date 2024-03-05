@@ -1,4 +1,5 @@
 ﻿using Base.Common.Models;
+using Base.Domain.Models.EntityBase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

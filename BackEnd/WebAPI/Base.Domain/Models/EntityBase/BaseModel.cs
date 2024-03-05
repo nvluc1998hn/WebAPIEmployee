@@ -1,13 +1,11 @@
-﻿using Base.Common.Helper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Base.Common.Models
+namespace Base.Domain.Models.EntityBase
 {
     public abstract class BaseModel<TypeKey>
     {
@@ -22,7 +20,7 @@ namespace Base.Common.Models
 
         public Guid? UpdatedByUser { get; set; }
 
-        public DateTime? UpdatedDate { get; set; } 
+        public DateTime? UpdatedDate { get; set; }
 
         [Key] public virtual TypeKey Id { get; set; }
 

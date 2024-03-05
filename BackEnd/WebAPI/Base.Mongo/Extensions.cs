@@ -1,16 +1,12 @@
 ﻿using Base.Mongo.Repository;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Bson.Serialization.Serializers;
-using MongoDB.Bson.Serialization;
-using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 using MongoDB.Driver;
+using Newtonsoft.Json;
+using Serilog;
+using MongoDB.Bson.IO;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 
 namespace Base.Mongo
 {
@@ -31,7 +27,7 @@ namespace Base.Mongo
                 services.AddSingleton(options);
 
                 // Log thông tin option
-                Log.Logger.Warning($"Extensions.AddMongoDb(), MongoDbOptions: {JsonConvert.SerializeObject(options)}");
+                Log.Logger.Warning($"Extensions.AddMongoDb(), MongoDbOptions: {Newtonsoft.Json.JsonConvert.SerializeObject(options)}");
 
                 if (!options.Enabled) return services;
 

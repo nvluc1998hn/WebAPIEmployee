@@ -1,4 +1,4 @@
-﻿using Base.Common.Models;
+﻿using Base.Domain.Models.EntityBase;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;

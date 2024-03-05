@@ -5,6 +5,8 @@ using Base.Common.Helper;
 using Base.Common.Interfaces;
 using Base.Common.Models;
 using Base.Common.Service.Interfaces;
+using Base.Domain.Models.EntityBase;
+using Base.Mongo.Repository;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,20 +24,23 @@ using static Dapper.SqlMapper;
 namespace Base.Common.Services.Implementations
 {
     /// <summary>
-    /// CRUD
+    /// Base thêm sửa xóa
     /// </summary>
-    /// <typeparam name="TRequest">The type of the request.</typeparam>
-    /// <typeparam name="TResponse">The type of the response.</typeparam>
-    /// <typeparam name="Id">The type of the d.</typeparam>
+    /// <typeparam name="TRequest">Entity gốc</typeparam>
+    /// <typeparam name="TRquestSearch">Entity search</typeparam>
+    /// <typeparam name="TResponse">Kết quả trả về</typeparam>
+    /// <typeparam name="Id">Kiểu dữ liệu của Id</typeparam>
     /// <Modified>
     /// Name Date Comments
-    /// lucnv 07/01/2024 created
+    /// lucnv 05/03/2024 created
     /// </Modified>
-    public class BaseCRUDService<TRequest, TRquestSearch, TResponse, Id> : IBaseCRUDService<TRequest, TRquestSearch, TResponse, Id> 
+    /// <seealso cref="Base.Common.Service.Interfaces.IBaseCRUDService&lt;TRequest, TRquestSearch, TResponse, Id&gt;" />
+    public class BaseCRUDService<TRequest, TRquestSearch, TResponse, Id> : IBaseCRUDService<TRequest, TRquestSearch, TResponse, Id> where TRequest : BaseModel<Id>
     {
         private readonly IMapper _mapper;
         protected readonly IRepositoryAsync<TRequest, Id> _repository;
         protected readonly IServiceCache _serviceCache;
+        protected readonly IMongoBaseRepository<TRequest, Id> _mongoRepository;
         protected readonly ILogger<BaseCRUDService<TRequest, TRquestSearch, TResponse, Id>> _logger;
 
         public BaseCRUDService(IServiceProvider provider)
@@ -43,6 +48,7 @@ namespace Base.Common.Services.Implementations
 
             _mapper = provider.GetService<IMapper>();
             _repository = provider.GetService<IRepositoryAsync<TRequest, Id>>();
+            _mongoRepository = provider.GetService<IMongoBaseRepository<TRequest, Id>>();
             _serviceCache = provider.GetService<IServiceCache>();
             _logger = provider.GetService<ILogger<BaseCRUDService<TRequest, TRquestSearch, TResponse, Id>>>();
         }
@@ -56,7 +62,8 @@ namespace Base.Common.Services.Implementations
                 
                 var dataInsert = await _repository.AddAsync(data);
                 if (dataInsert != null)
-                {
+                {   
+                    await _mongoRepository.InsertAsync(data);
                     result.Success = true;
                 }
             }
@@ -76,7 +83,12 @@ namespace Base.Common.Services.Implementations
             {
                 var dataUpdate = await _repository.UpdateAsync(data);
                 result.Success = dataUpdate != null;
-                result.Data = dataUpdate;
+                if (result.Success)
+                {
+                    result.Data = dataUpdate;
+                    await _mongoRepository.UpdateAsync(data);
+
+                }
             }
             catch (Exception ex)
             {
@@ -88,12 +100,17 @@ namespace Base.Common.Services.Implementations
         public async Task<HandleResult> Delete(TRequest data)
         {
             var result = new HandleResult();
-            result.Success = false; try
+            result.Success = false;
+            try
             {
  
                 var dataDelete = await _repository.DeleteAsync(data);
                 result.Success = dataDelete != null;
-                result.Data = result;
+                if (result.Success)
+                {
+                    result.Data = result;
+                    await _mongoRepository.DeleteAsync(data);
+                }
             }
             catch (Exception ex)
             {
@@ -102,6 +119,15 @@ namespace Base.Common.Services.Implementations
             return result;
         }
 
+        /// <summary>
+        /// Lấy dữ liệu grid phân trang
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// lucnv 05/03/2024 created
+        /// </Modified>
         public virtual Task<HandleResult<GridBaseResponse<TResponse>>> GetPage(TRquestSearch request)
         {
             throw new NotImplementedException();

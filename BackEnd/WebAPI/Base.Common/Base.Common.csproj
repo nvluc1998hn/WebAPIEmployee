@@ -30,4 +30,8 @@
     <Folder Include="TelegramBot\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Base.Mongo\Base.Mongo.csproj" />
+  </ItemGroup>
+
 </Project>

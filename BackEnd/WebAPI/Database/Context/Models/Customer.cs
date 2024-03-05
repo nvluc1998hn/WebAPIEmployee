@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Base.Domain.Models.EntityBase;
 using System.Text;
 using System.Threading.Tasks;
 
