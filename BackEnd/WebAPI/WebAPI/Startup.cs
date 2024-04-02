@@ -25,6 +25,9 @@ using System.Reflection;
 using System.Text;
 using EmployeeManagement.EfCore.Services.Implementations;
 using Base.Mongo;
+using Microsoft.AspNetCore.Components.Web;
+using Serilog;
+using EventBusRabbitMQ;
 
 namespace EmployeeManagementAPI
 {
@@ -53,6 +56,7 @@ namespace EmployeeManagementAPI
                     });
             });
             
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WebMockDB")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -113,6 +117,10 @@ namespace EmployeeManagementAPI
             services.AddEfCoreSqlServer<ApplicationDbContext>();
             services.AddServiceCommon();
             services.AddMongoDb();
+
+            // RabbitMQ
+            services.AddBusRabbitMq();
+            services.AddSubscriberMessageRabbitMq();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -124,6 +132,8 @@ namespace EmployeeManagementAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EmployeeManagementAPI v1"));
             }
+
+
             var path = Directory.GetCurrentDirectory();
             logger.AddFile($"{path}\\Logs\\Log.txt");
 
@@ -148,5 +158,7 @@ namespace EmployeeManagementAPI
                 endpoints.MapControllers();
             });
         }
+
+
     }
 }

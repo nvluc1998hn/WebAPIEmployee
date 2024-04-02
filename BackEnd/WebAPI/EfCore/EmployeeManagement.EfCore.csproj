@@ -36,6 +36,7 @@
    <ProjectReference Include="..\Base.Mongo\Base.Mongo.csproj" />
    <ProjectReference Include="..\Common\EmployeeManagement.Common.csproj" />
    <ProjectReference Include="..\Database\EmployeeManagement.Database.csproj" />
+   <ProjectReference Include="..\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
  </ItemGroup>
  <ItemGroup>
    <Folder Include="Command\QueryCommand\" />

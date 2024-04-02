@@ -7,11 +7,13 @@ using EmployeeManagement.Database.Context.Models;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.EfCore.ViewModels.Request;
 using EmployeeManagement.EfCore.ViewModels.Response;
+using EventBusRabbitMQ.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
 namespace EmployeeManagement.EfCore.Services.Implementations
 {
@@ -27,6 +29,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
         public ReturnType returnType =new ReturnType();
         public readonly ICustomerService _customerService;
         public readonly ITypeServiceService _typeServiceService;
+       
 
         public CustomerServiceService(IServiceProvider provider, ICustomerService customerService, ITypeServiceService typeServiceService) : base(provider)
         {
@@ -41,6 +44,15 @@ namespace EmployeeManagement.EfCore.Services.Implementations
 
             try
             {
+                // Test rabbitMQ
+
+                //var func = (List<CustomerService2> entities) =>
+                //{
+
+                //};
+
+                //RabbitMqSyncDataHelper.SubscribeSyncInstance(func);
+
                 var dataMap = new List<CustomerServiceViewModel>();
 
                 string conditions = $" WHERE InvoiceDate BETWEEN '{DatetimeHelper.ToSqlDatetime((DateTime)request.FromDate)}' AND '{DatetimeHelper.ToSqlDatetime((DateTime)request.ToDate)}' ";

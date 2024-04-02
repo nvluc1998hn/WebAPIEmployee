@@ -38,6 +38,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             _EmployeeRepository = employeeRepository;
             _db = applicationDbContext;
             _logger = logger;
+           
         }
 
         /// <summary>Thêm mới nhân viên.</summary>
