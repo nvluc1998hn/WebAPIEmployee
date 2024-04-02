@@ -5,6 +5,7 @@ using Base.Common.Services.Implementations;
 using EmployeeManagement.Database.Context.Models;
 using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.EfCore.ViewModels.Request;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,8 +42,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
             }
             catch (Exception ex)
             {
-
-                throw;
+                _logger.LogError($"TypeServiceService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
             }
             return listResult;
         }
@@ -66,12 +66,10 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 res.Success = true;
                 res.Data.Items = res.Data.Items.OrderByDescending(res => res.DateApply).ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                _logger.LogError($"TypeServiceService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
             }
-
             return res;
         }
     }

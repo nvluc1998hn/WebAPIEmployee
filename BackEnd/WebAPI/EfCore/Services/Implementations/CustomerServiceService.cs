@@ -8,6 +8,7 @@ using EmployeeManagement.EfCore.Services.Interfaces;
 using EmployeeManagement.EfCore.ViewModels.Request;
 using EmployeeManagement.EfCore.ViewModels.Response;
 using EventBusRabbitMQ.Helper;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,10 +92,9 @@ namespace EmployeeManagement.EfCore.Services.Implementations
 
                 res.Success = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                _logger.LogError($"CustomerServiceService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
             }
 
             return res;
@@ -112,10 +112,9 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                     returnType.Status = true;   
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                _logger.LogError($"CustomerServiceService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
             }
             return returnType;
 
@@ -140,10 +139,9 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                     returnType.Status = true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                _logger.LogError($"CustomerServiceService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
             }
             return returnType;
 
@@ -163,10 +161,9 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                     }
                 }   
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                _logger.LogError($"CustomerServiceService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
             }
             return returnType;
         }
@@ -186,10 +183,9 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                _logger.LogError($"CustomerServiceService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
             }
             return returnType;
         }
@@ -205,7 +201,7 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                    
                     listByUser = listByUser.Where(c => c.InvoiceDate.Date == rq.InvoiDate.Date).ToList();
                   
-                    if(listByUser.Count() > 0)
+                    if(listByUser.Any())
                     {
                         foreach (var item in listByUser)
                         {
@@ -215,10 +211,8 @@ namespace EmployeeManagement.EfCore.Services.Implementations
                     }
                 }
             }
-            catch (Exception)
-            {
-
-                throw;
+            catch (Exception ex) { 
+                _logger.LogError($"CustomerServiceService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
             }
             return returnType;
         }

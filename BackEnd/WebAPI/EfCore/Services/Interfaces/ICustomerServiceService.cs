@@ -28,7 +28,6 @@ namespace EmployeeManagement.EfCore.Services.Interfaces
 
         Task<ReturnType> DeleteMulti(CustomerServiceDeleteRequest request);
 
-
         Task<ReturnType> DeletCustomerService(CustomerService2 customerService);
 
 
