@@ -5,13 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Scrutor" Version="4.2.1" />
-    <PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
+    <PackageReference Include="Scrutor" Version="4.2.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Base.Common\Base.Common.csproj" />
-    <ProjectReference Include="..\Base.Domain\Base.Domain.csproj" />
     <ProjectReference Include="..\Common\EmployeeManagement.Common.csproj" />
   </ItemGroup>
 
