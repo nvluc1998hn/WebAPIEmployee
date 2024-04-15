@@ -15,4 +15,6 @@ namespace Base.Common.Cache.Redis.Interface
         /// <summary> Kiểm tra thời gian còn lại của cache </summary>
         TimeSpan? KeyTimeToLive(string key);
     }
+    public interface IInstanceCache : ICacheService
+    { }
 }

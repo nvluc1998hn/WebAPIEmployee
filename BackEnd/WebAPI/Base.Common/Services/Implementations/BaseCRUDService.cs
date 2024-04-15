@@ -34,7 +34,6 @@ namespace Base.Common.Services.Implementations
     /// Name Date Comments
     /// lucnv 05/03/2024 created
     /// </Modified>
-    /// <seealso cref="Base.Common.Service.Interfaces.IBaseCRUDService&lt;TRequest, TRquestSearch, TResponse, Id&gt;" />
     public class BaseCRUDService<TRequest, TRquestSearch, TResponse, Id> : IBaseCRUDService<TRequest, TRquestSearch, TResponse, Id> where TRequest : BaseModel<Id>
     {
         private readonly IMapper _mapper;

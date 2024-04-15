@@ -28,6 +28,8 @@ using Base.Mongo;
 using Microsoft.AspNetCore.Components.Web;
 using Serilog;
 using EventBusRabbitMQ;
+using EmployeeManagement.EfCore.ViewModels.Request;
+using Google.Protobuf.WellKnownTypes;
 
 namespace EmployeeManagementAPI
 {
@@ -118,6 +120,7 @@ namespace EmployeeManagementAPI
             services.AddServiceCommon();
             services.AddMongoDb();
 
+
             // RabbitMQ
             services.AddBusRabbitMq();
             services.AddSubscriberMessageRabbitMq();
@@ -140,6 +143,7 @@ namespace EmployeeManagementAPI
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
+            app.UseMiddleware<CreateSession>();
 
             app.UseRouting();
 
