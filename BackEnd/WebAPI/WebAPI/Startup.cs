@@ -1,12 +1,9 @@
-using Autofac.Core;
 using AutoMapper;
 using EfCore.Mapper;
 using EmployeeManagement.Database.Context;
-using EmployeeManagement.Database.Repositories.Interfaces;
 using EmployeeManagement.EfCore;
 using EmployeeManagement.EfCore.Command.ActionCommand;
 using Base.Common;
-using EmployeeManagement.EfCore.Services.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -18,18 +15,15 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using EmployeeManagement.EfCore.Services.Implementations;
 using Base.Mongo;
-using Microsoft.AspNetCore.Components.Web;
-using Serilog;
 using EventBusRabbitMQ;
 using EmployeeManagement.EfCore.ViewModels.Request;
-using Google.Protobuf.WellKnownTypes;
+using Base.Common.Cache;
+using EmployeeManagement.Database;
 
 namespace EmployeeManagementAPI
 {
@@ -116,6 +110,8 @@ namespace EmployeeManagementAPI
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddSession();
+            services.AddServices();
+            services.AddRepositories();
             services.AddEfCoreSqlServer<ApplicationDbContext>();
             services.AddServiceCommon();
             services.AddMongoDb();

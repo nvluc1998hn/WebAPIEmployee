@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Admin.Application.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace Admin.Application.ViewModels.Respond
 {
     public class LoginViewModel
     {
+        [JsonProperty("0")]
+        public LoginStatus Status { set; get; }
+
         [JsonProperty("1")]
         public int CompanyId { set; get; }
 

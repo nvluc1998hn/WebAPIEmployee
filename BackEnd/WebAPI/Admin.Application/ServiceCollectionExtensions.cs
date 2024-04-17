@@ -1,26 +1,20 @@
-﻿using Base.Common.Dapper;
-using Base.Common.DBContext;
-using Base.Common.Implementations;
-using Base.Common.Interfaces;
-using EmployeeManagement.Database;
-using EmployeeManagement.Database.Repositories.Implementations;
-using EmployeeManagement.Database.Repositories.Interfaces;
-using EmployeeManagement.EfCore.Services.Implementations;
-using EmployeeManagement.EfCore.Services.Interfaces;
+﻿using Admin.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EmployeeManagement.EfCore
+namespace Admin.Application
 {
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.Scan(scan => scan
-            .FromAssemblyOf<ICustomerService>()
+            .FromAssemblyOf<IAdminUserService>()
                  .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Service")))
                     .AsImplementedInterfaces()
                     .WithScopedLifetime());
@@ -34,6 +28,5 @@ namespace EmployeeManagement.EfCore
 
             return services;
         }
-
     }
 }

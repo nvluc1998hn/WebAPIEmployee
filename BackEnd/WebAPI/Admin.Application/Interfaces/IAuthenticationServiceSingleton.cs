@@ -15,5 +15,7 @@ namespace Admin.Application.Interfaces
         /// <summary> Tạo phiên đăng nhập mới theo user đã xác thực </summary>
         Task<LoginViewModel> CreateLoginSession(Guid userId, Guid? loginUserId = null);
 
+        /// <summary> Tạo token </summary>
+        string CreateAccessToken(Guid userId, int xnCode, string customerCode = null, Guid? loginUserId = null);
     }
 }

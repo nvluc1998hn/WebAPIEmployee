@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Admin.Domain.Entities
 {
-    public class AdminUser: BaseModel<string>
+    public class AdminUser: BaseModel<Guid>
     {
         [Key]
         [Column("PK_UserID")]

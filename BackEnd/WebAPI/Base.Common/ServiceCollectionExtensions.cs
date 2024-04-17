@@ -17,7 +17,6 @@ namespace Base.Common
         public static IServiceCollection AddServiceCommon(this IServiceCollection services)
         {
             services.AddRedisServices();
-        
             return services;
         }
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Base.Common.Interfaces
 {
 
-    /// <summary>Thư viện dapper</summary>
+    /// <summary>Thư viện Dapper</summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
     /// <typeparam name="TId">The type of the identifier.</typeparam>
     /// <Modified>
