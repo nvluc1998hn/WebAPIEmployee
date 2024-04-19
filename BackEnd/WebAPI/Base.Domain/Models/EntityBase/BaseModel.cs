@@ -14,9 +14,9 @@ namespace Base.Domain.Models.EntityBase
             CreatedDate = DateTime.Now;
         }
 
-        public DateTime CreatedDate { get; set; }
+        public Guid CreatedByUser { get; set; }
 
-        public Guid? CreatedByUser { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         public Guid? UpdatedByUser { get; set; }
 

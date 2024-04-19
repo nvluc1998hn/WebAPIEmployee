@@ -41,10 +41,13 @@ namespace Base.Common.Controllers
             try
             {
                 var respone = await _service.GetPage(request);
+
                 if (respone.Success || respone.Data?.Items?.Count > 0)
                 {
                     if (respone.Data.Items?.Count > 0)
                     {
+                        respone.Data.TotalItems = respone.Data.Items.Count;
+
                         res = new ApiOkResultResponse(respone.Data, "Lấy dữ liệu thành công", respone.InternalMessage ?? "Lấy dữ liệu thành công");
                     }
                     else

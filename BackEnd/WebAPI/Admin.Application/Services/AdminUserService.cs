@@ -2,8 +2,10 @@
 using Admin.Application.ViewModels.Request;
 using Admin.Application.ViewModels.Response;
 using Admin.Domain.Entities;
+using Base.Common.Event;
 using Base.Common.Service.Interfaces;
 using Base.Common.Services.Implementations;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,24 @@ namespace Admin.Application.Services
         public AdminUserService(IServiceProvider provider) : base(provider)
         {
 
+        }
+
+        public override async Task<HandleResult<GridBaseResponse<AdminUserViewModel>>> GetPage(AdminUserRequestSearchModel request)
+        {
+            var res = new HandleResult<GridBaseResponse<AdminUserViewModel>>() { Data = new(), Message = "Lấy dữ liệu không thành công" };
+
+            try
+            {
+                var result = await _repository.GetListAsync();
+                var dataMap = await MapDBData(result.ToList());
+                res.Success = true;
+                res.Data.Items = dataMap.ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"CustomerService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
+            }
+            return res;
         }
     }
 }

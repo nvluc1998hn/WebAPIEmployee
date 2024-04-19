@@ -8,6 +8,7 @@ using Admin.Application;
 using Admin.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Admin.Application.Mapper;
 
 namespace AdminAPI
 {
@@ -26,12 +27,9 @@ namespace AdminAPI
             services.AddControllers();
             services.AddSession();
             services.AddMvc();
-            //var mapperConfig = new MapperConfiguration(mc =>
-            //{
-            //    mc.AddProfile(new MappingProfile());
-            //});
-            // IMapper mapper = mapperConfig.CreateMapper();
-            // services.AddSingleton(mapper);
+
+            services.AddAutoMapperSetup();
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WebMockDB")));
 
             services.AddSession();

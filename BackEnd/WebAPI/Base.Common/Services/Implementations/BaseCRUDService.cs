@@ -36,7 +36,7 @@ namespace Base.Common.Services.Implementations
     /// </Modified>
     public class BaseCRUDService<TRequest, TRquestSearch, TResponse, Id> : IBaseCRUDService<TRequest, TRquestSearch, TResponse, Id> where TRequest : BaseModel<Id>
     {
-        private readonly IMapper _mapper;
+        private readonly   IMapper _mapper;
         protected readonly IRepositoryAsync<TRequest, Id> _repository;
         protected readonly IServiceCache _serviceCache;
         protected readonly IMongoBaseRepository<TRequest, Id> _mongoRepository;
@@ -116,6 +116,15 @@ namespace Base.Common.Services.Implementations
                 _logger.LogError($"Lỗi {MethodHelper.GetNameAsync()}: {ex}");
             }
             return result;
+        }
+
+        /// <summary> Biến đổi dữ liệu từ DB sang model dữ liệu trả về client </summary>
+        /// <param name="dbItems"> Dữ liệu lấy ra từ DB theo điều kiện lọc của SetConditions </param>
+        /// <param name="request"> Request </param>
+        protected virtual async Task<IEnumerable<TResponse>> MapDBData(IEnumerable<TRequest> dbItems)
+        {
+            await Task.Delay(0);
+            return _mapper.Map<IEnumerable<TResponse>>(dbItems);
         }
 
         /// <summary>

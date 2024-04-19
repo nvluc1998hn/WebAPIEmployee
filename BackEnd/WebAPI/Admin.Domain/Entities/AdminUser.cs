@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 
 namespace Admin.Domain.Entities
 {
+    [Table("AdminUsersLogin")]
     public class AdminUser: BaseModel<Guid>
     {
         [Key]
+        [NotMapped]
         [Column("PK_UserID")]
-        public Guid PK_UserID { get; set; }
+        public override Guid Id { get; set; }
+
         public int FK_CompanyID { get; set; }
 
         public string Username { get; set; }
@@ -21,21 +24,6 @@ namespace Admin.Domain.Entities
         public string Password { get; set; }
 
         public string Fullname { get; set; }
-
-        [Base.Common.Attributes.IgnoreUpdate]
-        public Guid CreatedByUser { get; set; }
-
-        [Base.Common.Attributes.IgnoreUpdate]
-        public  DateTime CreatedDate { get; set; }
-
-        [Base.Common.Attributes.IgnoreInsert]
-        public Guid? UpdatedByUser { get; set; }
-
-        [Base.Common.Attributes.IgnoreInsert]
-        public  DateTime? UpdatedDate { get; set; }
-
-
-
     }
 
 }
