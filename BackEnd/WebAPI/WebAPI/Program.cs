@@ -17,7 +17,6 @@ namespace EmployeeManagementAPI
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-         //   var tokenService = host.Services.GetRequiredService<ICustomerServiceService>();
             host.Run();
         }
 

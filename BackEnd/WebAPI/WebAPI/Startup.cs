@@ -24,6 +24,7 @@ using EventBusRabbitMQ;
 using EmployeeManagement.EfCore.ViewModels.Request;
 using Base.Common.Cache;
 using EmployeeManagement.Database;
+using KafkaBase;
 
 namespace EmployeeManagementAPI
 {
@@ -118,6 +119,7 @@ namespace EmployeeManagementAPI
 
 
             // RabbitMQ
+            services.AddKafKa();
             services.AddBusRabbitMq();
             services.AddSubscriberMessageRabbitMq();
         }

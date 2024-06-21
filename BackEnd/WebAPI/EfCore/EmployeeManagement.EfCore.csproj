@@ -30,6 +30,7 @@
      <PrivateAssets>all</PrivateAssets>
      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
    </PackageReference>
+   <PackageReference Include="Quartz" Version="3.9.0" />
  </ItemGroup>
  <ItemGroup>
    <ProjectReference Include="..\Base.Common\Base.Common.csproj" />
