@@ -34,7 +34,6 @@
  </ItemGroup>
  <ItemGroup>
    <ProjectReference Include="..\Base.Common\Base.Common.csproj" />
-   <ProjectReference Include="..\Database\EmployeeManagement.Database.csproj" />
    <ProjectReference Include="..\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
  </ItemGroup>
  <ItemGroup>

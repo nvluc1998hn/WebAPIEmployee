@@ -46,14 +46,15 @@ namespace Base.Common.Services.Implementations
         {
 
             _mapper = provider.GetService<IMapper>();
-            _repository = provider.GetService<IRepositoryAsync<TRequest, Id>>();
             _mongoRepository = provider.GetService<IMongoBaseRepository<TRequest, Id>>();
             _serviceCache = provider.GetService<IServiceCache>();
+            _repository = provider.GetService<IRepositoryAsync<TRequest, Id>>();
             _logger = provider.GetService<ILogger<BaseCRUDService<TRequest, TRquestSearch, TResponse, Id>>>();
         }
 
         public async Task<HandleResult> Add(TRequest data)
         {
+            
             var result = new HandleResult();
             result.Success = false;
             try

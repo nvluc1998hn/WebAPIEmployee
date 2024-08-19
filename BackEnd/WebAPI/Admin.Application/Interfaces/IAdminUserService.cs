@@ -10,8 +10,15 @@ using System.Threading.Tasks;
 
 namespace Admin.Application.Interfaces
 {
+    /// <summary>
+    /// Thông tin người dùng
+    /// </summary>
+    /// <Modified>
+    /// Name Date Comments
+    /// lucnv 08/08/2024 created
     public interface IAdminUserService : IBaseCRUDService<AdminUser, AdminUserRequestSearchModel, AdminUserViewModel, Guid>
     {
+        Task<AdminUser> GetUserByUsername(string username);
 
     }
 }

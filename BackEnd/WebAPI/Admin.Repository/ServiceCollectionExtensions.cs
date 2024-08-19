@@ -16,7 +16,7 @@ namespace Admin.Repository
             .FromAssemblyOf<IAdminUserRepository>()
                  .AddClasses(classes => classes.Where(type => type.Name.EndsWith("Repository")))
                     .AsImplementedInterfaces()
-                    .WithScopedLifetime());
+                    .WithTransientLifetime());
             return services;
         }
     }

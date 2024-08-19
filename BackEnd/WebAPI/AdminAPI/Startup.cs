@@ -9,6 +9,7 @@ using Admin.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Admin.Application.Mapper;
+using System;
 
 namespace AdminAPI
 {
@@ -24,46 +25,20 @@ namespace AdminAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddMediatR(configuration =>
+            {
+                configuration.RegisterServicesFromAssemblies(typeof(Program).Assembly);
+            });
             services.AddControllers();
             services.AddSession();
-            services.AddMvc();
-
             services.AddAutoMapperSetup();
-
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WebMockDB")));
-
             services.AddSession();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Admin.API", Version = "v1" });
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Description = "Please Authorization",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer"
-                });
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            },
-                            Scheme = "oauth2",
-                            Name = "Bearer",
-                            In = ParameterLocation.Header,
-                        },
-                        new List<string>()
-                    }
-                });
-            });
-            services.AddServices();
             services.AddRepositories();
+            services.AddServices();
+            services.AddMvcCore().AddApiExplorer();
+            services.AddServiceCommon();
             services.AddEfCoreSqlServer<ApplicationDbContext>();
             services.AddResponseCompression();
         }
@@ -75,7 +50,15 @@ namespace AdminAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Admin.API v1"));
+                app.UseSwaggerUI(options =>
+                {
+                    // Đặt Swagger endpoint cho mỗi phiên bản API (nếu có)
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Admin API");
+
+                    // Tùy chọn: Đặt DefaultModelsExpandDepth để giao diện gọn gàng hơn
+                    options.DefaultModelsExpandDepth(-1);
+
+                });
             }
 
             app.UseHttpsRedirection();
@@ -91,6 +74,7 @@ namespace AdminAPI
                .AllowCredentials());
 
             app.UseAuthorization();
+            app.UseServiceCommon();
 
             app.UseSession();
 

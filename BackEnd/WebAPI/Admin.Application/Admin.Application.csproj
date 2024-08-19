@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Admin.Domain\Admin.Domain.csproj" />
+    <ProjectReference Include="..\Utilities\Utilities.csproj" />
   </ItemGroup>
 
 </Project>

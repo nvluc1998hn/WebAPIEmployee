@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Admin.Application.ViewModels.Request
 {
-    public class LoginRequest
+    public class AuthenRequest
     {
+        public Guid UserId { get; set; }
         public string UserName { get; set; }
-
-        public string Password { get; set; }
-
-        public string IPClient { get; set; }
+        public Guid LoginUserId { get; set; }
+        public Guid SessionKey { get; set; }
+        public string Token { get; set; }
     }
 }

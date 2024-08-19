@@ -1,4 +1,5 @@
-﻿using Base.Common.Enum;
+﻿using Base.Common.Constant;
+using Base.Common.Enum;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -96,6 +97,20 @@ namespace Base.Common.Respone
                 StatusCodes.Status500InternalServerError => "An unhandled error occurred",
                 _ => null,
             };
+        }
+    }
+
+    public class ApiResponse : ApiResponse<object>
+    {
+        public ApiResponse(int statusCode, object data = null, string userMessage = null, string internalMessage = null, ResponseCodeEnums responseCode = ResponseCodeEnums.Success, string messageCode = null) : base(statusCode, data, userMessage, internalMessage, responseCode, messageCode)
+        {
+        }
+    }
+
+    public class ApiForbidResponse : ApiResponse
+    {
+        public ApiForbidResponse(string userMessage = null, string internalMessage = null) : base(StatusCodes.Status403Forbidden, null,null, internalMessage ?? "Không có quyền", ResponseCodeEnums.UnAuthorize)
+        {
         }
     }
 }

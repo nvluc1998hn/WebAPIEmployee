@@ -28,18 +28,16 @@ namespace Base.Common.Jwt.Service
 
         private readonly JwtSecurityTokenHandler _jwtSecurityTokenHandler = new();
         private JwtOptions Options { get; }
-        private readonly IInstanceCache _cache;
         private readonly SigningCredentials _signingCredentials;
         private readonly TokenValidationParameters _tokenValidationParameters;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly string ServerIP = "192.168.1.1";
+        public static string ServerIP = "localhost";
 
-        public JwtService(JwtOptions options, IInstanceCache cache, IHttpContextAccessor httpContextAccessor)
+        public JwtService(JwtOptions options, IHttpContextAccessor httpContextAccessor)
         {
             Options = options;
             _httpContextAccessor = httpContextAccessor;
 
-            _cache = cache;
 
             var issuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Options.SecretKey));
 
@@ -47,6 +45,7 @@ namespace Base.Common.Jwt.Service
 
             _tokenValidationParameters = new TokenValidationParameters
             {
+                ValidIssuer= ServerIP,
                 IssuerSigningKey = issuerSigningKey,
                 ValidateAudience = Options.ValidateAudience,
                 ValidAudience = Options.ValidAudience,
@@ -56,7 +55,7 @@ namespace Base.Common.Jwt.Service
             _jwtSecurityTokenHandler.InboundClaimTypeMap.Clear();
         }
 
-        public JsonWebToken CreateToken(Guid userId, int xnCode, string customerCode = null, Guid? loginUserId = null)
+        public JsonWebToken CreateToken(Guid userId)
         {
             JsonWebToken? token = null;
 
@@ -79,17 +78,11 @@ namespace Base.Common.Jwt.Service
                         new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new (JwtRegisteredClaimNames.Iat, now.ToTimestamp().ToString()),
                         new (JwtRegisteredClaimNames.Sub, userId.ToString()),
-                        new (JwtClaimsTypes.XnCode,xnCode.ToString()),
-                        new (JwtClaimsTypes.CustomerCode, customerCode)
                     };
 
-                    if (loginUserId.HasValue && !Guid.Empty.Equals(loginUserId) && !userId.Equals(loginUserId))
-                    {
-                        claims.Add(new(JwtClaimsTypes.LoginUserId, loginUserId.ToString()));
-                    }
                     var jwt = new JwtSecurityToken(
                         issuer: ServerIP,
-                    claims: claims,
+                        claims: claims,
                         expires: expires,
                         signingCredentials: _signingCredentials
                     );
@@ -125,17 +118,6 @@ namespace Base.Common.Jwt.Service
             return Convert.ToBase64String(randomNumber);
         }
 
-        public async Task DeactivateAsync(string token)
-        {
-            await Task.Delay(0);
-            _cache.Remove(GetKey(token));
-        }
-
-        public async Task<bool> IsCurrentActiveToken() => await IsActiveAsync(GetContextToken());
-
-
-        public async Task DeactivateCurrentAsync() => await DeactivateAsync(GetContextToken());
-
         public JsonWebTokenPayload GetTokenPayload(string accessToken)
         {
             JsonWebTokenPayload payload = null;
@@ -164,13 +146,6 @@ namespace Base.Common.Jwt.Service
             }
 
             return payload;
-        }
-
-        public Task<bool> IsActiveAsync(string token)
-        {
-            var cached = _cache.Get<string>(GetKey(token));
-
-            return Task.FromResult(string.IsNullOrEmpty(cached));
         }
 
         public async Task<bool> ValidateToken(HttpContext context = null)
@@ -225,28 +200,27 @@ namespace Base.Common.Jwt.Service
                             httpClient.DefaultRequestHeaders.Remove("Authorization");
                             httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
 
-                            // var url = Singleton<UserCrossServiceManager>.Instance.GetApiUrl(CrossServiceUrlKeyNames.Authen);
-
-                            var url = "duong dan login";
+                            var url = "http://localhost:5000/authentication/login";
 
                             // Lấy body theo url 
-                            var content = await httpClient.GetStringAsync(url);
+                            //var content = await httpClient.GetStringAsync(url);
 
-                            var dictUserAuthen = JsonConvert.DeserializeObject<Dictionary<Guid, UserAuthenModel>>(content);
+                            //var dictUserAuthen = JsonConvert.DeserializeObject<Dictionary<Guid, UserAuthenModel>>(content);
 
-                            if (dictUserAuthen?.Count > 0)
-                            {
-                                foreach (var user in dictUserAuthen)
-                                {
-                                    httpContext.Items[user.Key] = user.Value;
-                                }
+                            //if (dictUserAuthen?.Count > 0)
+                            //{
+                            //    foreach (var user in dictUserAuthen)
+                            //    {
+                            //        httpContext.Items[user.Key] = user.Value;
+                            //    }
 
-                                valid = true;
-                            }
-                            else
-                            {
-                                Log.Logger.Fatal($"Không lấy được thông tin user với token: {token}");
-                            }
+                            //    valid = true;
+                            //}
+                            //else
+                            //{
+                            //    Log.Logger.Fatal($"Không lấy được thông tin user với token: {token}");
+                            //}
+                            valid = true;
                         }
                     }
                 }
@@ -263,24 +237,5 @@ namespace Base.Common.Jwt.Service
             return valid;
         }
 
-        private string GetContextToken()
-        {
-            var httpContext = _httpContextAccessor.HttpContext;
-
-            if (httpContext.Request.Path.StartsWithSegments("/signalr"))
-            {
-                var accessToken = httpContext.Request.Query["access_token"];
-
-                return accessToken;
-            }
-
-            var authorizationHeader = httpContext.Request.Headers["authorization"];
-
-            return string.IsNullOrEmpty(authorizationHeader)
-                ? string.Empty
-                : authorizationHeader.Single().Split(' ').Last();
-        }
-
-        private static string GetKey(string token) => $"tokens:{token}".ToUpper();
     }
 }

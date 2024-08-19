@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Base.Common\Base.Common.csproj" />
-    <ProjectReference Include="..\Common\EmployeeManagement.Common.csproj" />
   </ItemGroup>
 
 </Project>

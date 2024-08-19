@@ -10,10 +10,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\VehicleManagement.Common\VehicleManagement.Common.csproj" />
-    <ProjectReference Include="..\VehicleManagement.Database\VehicleManagement.Database.csproj" />
-    <ProjectReference Include="..\VehicleManagement.EfCore\VehicleManagement.EfCore.csproj" />
-  </ItemGroup>
-
 </Project>

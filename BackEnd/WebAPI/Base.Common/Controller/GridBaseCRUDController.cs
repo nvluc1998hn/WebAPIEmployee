@@ -11,13 +11,16 @@ using Azure;
 using Base.Common.Controllers;
 using Base.Common.Service.Interfaces;
 using Base.Common.Constant;
+using Base.Common.Grid;
 
 namespace EmployeeManagementAPI.Controllers
 {
     [ApiController]
-    public class GridBaseCRUDController<TRequest, TRquestSearch, TResponse, IService> : GridBaseController<TRquestSearch, TResponse, IService>  where IService: IBaseCRUDService<TRequest, TRquestSearch, TResponse, Guid>
+    public abstract class GridBaseCRUDController<TRequest, TRquestSearch, TResponse, IService> : GridBaseController<TRquestSearch, TResponse, IService>  where IService: IBaseCRUDService<TRequest, TRquestSearch, TResponse, Guid>
     {
-        public GridBaseCRUDController(IServiceProvider provider):base(provider)
+        protected abstract GridPermissions Permissions { get; }
+
+        protected GridBaseCRUDController(IServiceProvider provider):base(provider)
         {
 
         }
@@ -29,6 +32,7 @@ namespace EmployeeManagementAPI.Controllers
             ApiResponse res;
             try
             {
+                        ProcessRequest(request);
                         var handleRes = await _service.Add(request);
                         if (handleRes.Success)
                         {
@@ -48,6 +52,10 @@ namespace EmployeeManagementAPI.Controllers
             return res;
         }
         
+        public virtual TRequest ProcessRequest(TRequest request)
+        {
+            return request;
+        }
       
 
         /// <summary> Sửa </summary>
@@ -58,7 +66,7 @@ namespace EmployeeManagementAPI.Controllers
 
             try
             {
-
+                ProcessRequest(request);
                 var handleRes = await _service.Update(request);
                 if (handleRes.Success)
                 {
@@ -86,7 +94,7 @@ namespace EmployeeManagementAPI.Controllers
 
             try
             {
-
+                ProcessRequest(request);
                 var handleRes = await _service.Delete(request);
                 if (handleRes.Success)
                 {

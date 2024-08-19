@@ -82,18 +82,10 @@ namespace Base.Common.Cache
                 //Đăng kí sử dụng DapperExtensions
                 DapperExtensions.Initialize(options);
 
-                //có sử dụng dapper hay ko. EnabledDapper=true thì dùng Dapper ngược lại dùng EF
                 if (options.EnabledDapper)
                 {
                     services.AddScoped(typeof(IRepositoryAsync<,>), typeof(GenericRepository<,>));
-
                 }
-                else
-                {
-                   // Bỏ dùng linq
-                  //  services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
-                }
-
 
                 services.AddDbContext<TDbContext>((sp, o) =>
                 {

@@ -9,21 +9,27 @@ using System.Threading.Tasks;
 
 namespace Admin.Domain.Entities
 {
-    [Table("AdminUsersLogin")]
+    [Table("AdminUser")]
     public class AdminUser: BaseModel<Guid>
     {
         [Key]
-        [NotMapped]
         [Column("PK_UserID")]
         public override Guid Id { get; set; }
 
-        public int FK_CompanyID { get; set; }
+        public int FK_Agency { get; set; }
 
         public string Username { get; set; }
 
+        public byte UserType { get; set; }
+
         public string Password { get; set; }
 
+        public string PhoneNumber { get; set; }
+
         public string Fullname { get; set; }
+
+        public bool IsLock { get; set; }
+
     }
 
 }

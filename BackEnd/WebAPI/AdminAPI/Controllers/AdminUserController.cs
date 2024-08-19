@@ -2,8 +2,11 @@
 using Admin.Application.ViewModels.Request;
 using Admin.Application.ViewModels.Response;
 using Admin.Domain.Entities;
+using Base.Common.Grid;
 using EmployeeManagementAPI.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Utilities.Helpers;
 
 namespace Admin.API.Controllers
 {
@@ -14,6 +17,17 @@ namespace Admin.API.Controllers
         public AdminUserController(IServiceProvider provider) : base(provider)
         {
 
+        }
+
+        protected override GridPermissions Permissions => new()
+        {
+
+        };
+
+        public override AdminUser ProcessRequest(AdminUser request)
+        {
+            request.Password = StringHelper.EncryptPassword(request.Password);
+            return request;
         }
     }
 }

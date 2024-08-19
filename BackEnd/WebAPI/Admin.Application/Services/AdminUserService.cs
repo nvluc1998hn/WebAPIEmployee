@@ -3,6 +3,7 @@ using Admin.Application.ViewModels.Request;
 using Admin.Application.ViewModels.Response;
 using Admin.Domain.Entities;
 using Base.Common.Event;
+using Base.Common.Helper;
 using Base.Common.Service.Interfaces;
 using Base.Common.Services.Implementations;
 using Microsoft.Extensions.Logging;
@@ -34,9 +35,25 @@ namespace Admin.Application.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError($"CustomerService_{System.Reflection.MethodBase.GetCurrentMethod().Name.ToString()}_{ex.ToString()}");
+                _logger.LogError($"{GetType().Name}.{MethodHelper.GetNameAsync()}: {ex}");
             }
             return res;
+        }
+
+        public async Task<AdminUser> GetUserByUsername(string username)
+        {
+            AdminUser result = null;
+            try
+            {
+                result = await _repository.GetSingleByConditionAsync(new { Username = username });
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{GetType().Name}.{MethodHelper.GetNameAsync()}: {ex}");
+            }
+
+            return result;
         }
     }
 }
