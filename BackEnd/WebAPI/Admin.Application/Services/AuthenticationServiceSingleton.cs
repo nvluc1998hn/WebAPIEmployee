@@ -100,9 +100,9 @@ namespace Admin.Application.Services
                             UserId = user.Id,
                             UserName = user.Username,
                             UserType = user.UserType,
-                            Permissions = await _userPermissionsService.GetPermissionsByPriority(userId),
+                          //  Permissions = await _userPermissionsService.GetPermissionsByPriority(userId),
                             CompanyId = user.FK_Agency,
-                            CompanyType = user.Id,
+                         //   CompanyType = user.Id,
                         };
                     }
                 }

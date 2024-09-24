@@ -11,9 +11,77 @@ using Newtonsoft.Json;
 
 namespace EventBusRabbitMQ.Helper
 {
-    public static class RabbitMqSyncDataHelper
+    public class RabbitMqSyncDataHelper
     {
         private static readonly Guid InstanceId = Guid.NewGuid();
+
+        public async Task PublishSyncInstance<TEntity>(IEnumerable<TEntity> entities, bool isDeleteEvent = false)
+        {
+            RabbitMqBaseOptions options;
+            IBusClient busClient;
+            try
+            {
+                if (entities?.Count() > 0)
+                {
+                    //Kiểm tra xem có phải là bảng không, nếu có thì mới gửi message rabbitmq
+                  
+                    var tableAttribute = typeof(TEntity).GetCustomAttribute<TableAttribute>();
+
+                    if (tableAttribute != null)
+                    {
+                            options = RabbitMqConnection.RabbitV3Options;
+                            busClient = RabbitMqConnection.RabbitV3BusClient;
+
+                        if (options.Enabled && busClient != null)
+                        {
+                            var routingKey = $"{options.RoutingKey}.{tableAttribute.Name}";
+                            if (isDeleteEvent)
+                            {
+                                routingKey += "_DELETE";
+                            }
+
+                            var props = typeof(TEntity).GetProperties().Where(c => !Attribute.IsDefined(c, typeof(NotMappedAttribute))).ToList();
+                            var listJObject = new List<JObject>();
+
+                            // Parse dữ liệu sang json
+                            foreach (var entity in entities)
+                            {
+                                var jObject = new JObject();
+                                foreach (var prop in props)
+                                {
+                                    var colAtt = prop.GetCustomAttribute<ColumnAttribute>();
+                                    if (colAtt != null)
+                                    {
+                                        jObject.Add(new JProperty(colAtt.Name, prop.GetValue(entity)));
+                                    }
+                                    else
+                                    {
+                                        jObject.Add(new JProperty(prop.Name, prop.GetValue(entity)));
+                                    }
+                                }
+                                listJObject.Add(jObject);
+                            }
+
+                            var _event = new SyncEvent()
+                            {
+                                RoutingKey = routingKey,
+                                Data = listJObject,
+                                InstanceIdV3 = InstanceId
+                            };
+
+                            // Log thông tin ra màn hình
+                            Log.Logger.Warning($"RabbitMqSyncDataHelper.PublishSyncInstance(), option: {JsonConvert.SerializeObject(options)}, busClient: {JsonConvert.SerializeObject(busClient)} ");
+
+                            await busClient.PublishAsync(_event, ctx => ctx.UsePublishConfiguration(p => p.OnExchange(options.ExchangeName).WithRoutingKey(routingKey)));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Logger.Fatal($"RabbitMqSyncDataHelper.PublishSyncInstance() có lỗi: {ex.Message}", ex);
+            }
+        }
 
         public static void SubscribeSyncInstance<TEntity>(Action<List<TEntity>> handler, bool isDeleteEvent = false)
         {
@@ -21,6 +89,7 @@ namespace EventBusRabbitMQ.Helper
             {
                 //Kiểm tra xem có phải là bảng không, nếu có thì mới đăng ký nghe rabbitmq
                 var tableAttribute = typeof(TEntity).GetCustomAttribute<TableAttribute>();
+              
                 if (tableAttribute != null)
                 {
                     RabbitMqBaseOptions options;
