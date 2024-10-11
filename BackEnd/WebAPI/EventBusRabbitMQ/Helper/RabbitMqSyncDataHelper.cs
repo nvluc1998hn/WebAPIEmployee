@@ -24,7 +24,6 @@ namespace EventBusRabbitMQ.Helper
                 if (entities?.Count() > 0)
                 {
                     //Kiểm tra xem có phải là bảng không, nếu có thì mới gửi message rabbitmq
-                  
                     var tableAttribute = typeof(TEntity).GetCustomAttribute<TableAttribute>();
 
                     if (tableAttribute != null)
