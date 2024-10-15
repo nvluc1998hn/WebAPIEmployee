@@ -7,11 +7,6 @@ using Base.Common.Helper;
 using Base.Common.Jwt.Models;
 using Base.Common.Jwt.Service;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilities.Enum;
 using Utilities.Helpers;
 
@@ -27,7 +22,7 @@ namespace Admin.Application.Services
            )
         {
             _jwtService = jwtService;
-            _adminUserService = adminUserService;  
+            _adminUserService = adminUserService;
             _logger = logger;
         }
 
@@ -100,9 +95,9 @@ namespace Admin.Application.Services
                             UserId = user.Id,
                             UserName = user.Username,
                             UserType = user.UserType,
-                          //  Permissions = await _userPermissionsService.GetPermissionsByPriority(userId),
+                            //  Permissions = await _userPermissionsService.GetPermissionsByPriority(userId),
                             CompanyId = user.FK_Agency,
-                         //   CompanyType = user.Id,
+                            //   CompanyType = user.Id,
                         };
                     }
                 }
@@ -124,7 +119,7 @@ namespace Admin.Application.Services
             {
                 var loginvalid = await ValidateLogin(request.UserName, request.Password);
 
-                if(loginvalid.status == LoginStatus.Success)
+                if (loginvalid.status == LoginStatus.Success)
                 {
                     response = await CreateLoginSession(loginvalid.user, response);
                 }
@@ -152,8 +147,8 @@ namespace Admin.Application.Services
             try
             {
                 bool isValidateSuccess = true;
-               
-                isValidateSuccess = dataByUserName != null && !dataByUserName.IsLock;
+
+                isValidateSuccess = dataByUserName != null && !dataByUserName.IsLock && !dataByUserName.IsDelete;
 
                 if (isValidateSuccess)
                 {
@@ -171,7 +166,21 @@ namespace Admin.Application.Services
                 }
                 else
                 {
-                    status = LoginStatus.LoginFailed;
+                    if (dataByUserName != null)
+                    {
+                        if (dataByUserName.IsLock)
+                        {
+                            status = LoginStatus.AccountLock;
+                        }
+                        else
+                        {
+                            status = LoginStatus.AccountDelete;
+                        }
+                    }
+                    else
+                    {
+                        status = LoginStatus.LoginFailed;
+                    }
                 }
             }
             catch (Exception ex)

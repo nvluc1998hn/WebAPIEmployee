@@ -46,20 +46,20 @@ namespace AdminAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            //if (env.IsDevelopment())
+            //{
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(options =>
-                {
-                    // Đặt Swagger endpoint cho mỗi phiên bản API (nếu có)
-                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Admin API");
+                // Đặt Swagger endpoint cho mỗi phiên bản API (nếu có)
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Admin API");
 
-                    // Tùy chọn: Đặt DefaultModelsExpandDepth để giao diện gọn gàng hơn
-                    options.DefaultModelsExpandDepth(-1);
+                // Tùy chọn: Đặt DefaultModelsExpandDepth để giao diện gọn gàng hơn
+                options.DefaultModelsExpandDepth(-1);
 
-                });
-            }
+            });
+            //  }
 
             app.UseHttpsRedirection();
 

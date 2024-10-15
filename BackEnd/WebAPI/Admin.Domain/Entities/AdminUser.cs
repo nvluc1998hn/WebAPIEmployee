@@ -1,16 +1,11 @@
 ﻿using Base.Domain.Models.EntityBase;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Admin.Domain.Entities
 {
     [Table("AdminUser")]
-    public class AdminUser: BaseModel<Guid>
+    public class AdminUser : BaseModel<Guid>
     {
         [Key]
         [Column("PK_UserID")]
@@ -29,6 +24,8 @@ namespace Admin.Domain.Entities
         public string Fullname { get; set; }
 
         public bool IsLock { get; set; }
+
+        public bool IsDelete { get; set; }
 
     }
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Admin.Application.Enums
+﻿namespace Admin.Application.Enums
 {
     public enum LoginStatus : byte
     {
@@ -18,6 +12,8 @@ namespace Admin.Application.Enums
         WrongUsernameOrPasswordLocked = 7,
         CompanyNotExist = 8,
         CompanyLockedOrDeleted = 9,
-        CannotCreateToken
+        CannotCreateToken,
+        AccountLock,
+        AccountDelete
     }
 }

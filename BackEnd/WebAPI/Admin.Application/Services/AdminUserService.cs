@@ -46,7 +46,6 @@ namespace Admin.Application.Services
             try
             {
                 result = await _repository.GetSingleByConditionAsync(new { Username = username });
-
             }
             catch (Exception ex)
             {
