@@ -1,25 +1,19 @@
 ﻿using Base.Common.Interfaces;
-using Base.Common.Models;
 using Base.Common.Service.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Base.Common.Services.Implementations
 {
 
-    public class GridBaseService<TEntity, TId>  : IBaseService<TEntity, TId> where TEntity : class
+    public class GridBaseService<TEntity, TId> : IBaseService<TEntity, TId> where TEntity : class
     {
-        protected readonly IRepositoryAsync<TEntity, TId> _repository;
-        protected readonly ILogger<GridBaseService<TEntity, TId>> _logger;
+        public readonly IRepositoryAsync<TEntity, TId> _repository;
+        public readonly ILogger<GridBaseService<TEntity, TId>> _logger;
 
 
-        protected GridBaseService(IServiceProvider provider)
+        public GridBaseService(IServiceProvider provider)
         {
             _repository = provider.GetService<IRepositoryAsync<TEntity, TId>>();
             _logger = provider.GetService<ILogger<GridBaseService<TEntity, TId>>>();
@@ -98,7 +92,7 @@ namespace Base.Common.Services.Implementations
             try
             {
                 result = await _repository.AddAsync(data);
-               
+
             }
             catch (Exception ex)
             {
@@ -115,7 +109,7 @@ namespace Base.Common.Services.Implementations
             try
             {
                 result = await _repository.AddAsync(listData);
-               
+
             }
             catch (Exception ex)
             {
@@ -135,7 +129,7 @@ namespace Base.Common.Services.Implementations
             {
                 var entity = await _repository.UpdateAsync(data);
                 result = entity != null;
-               
+
             }
             catch (Exception ex)
             {

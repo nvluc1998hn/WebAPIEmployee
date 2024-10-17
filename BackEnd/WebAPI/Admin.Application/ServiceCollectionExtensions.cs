@@ -3,11 +3,6 @@ using Admin.Application.Mapper;
 using Admin.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Admin.Application
 {
@@ -24,7 +19,7 @@ namespace Admin.Application
                     .WithTransientLifetime());
 
             services.AddSingleton<IAuthenticationServiceSingleton, AuthenticationServiceSingleton>();
-           
+
             services.AddHttpClient();
 
             services.Configure<ApiBehaviorOptions>(options =>

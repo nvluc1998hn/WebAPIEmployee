@@ -1,5 +1,4 @@
-﻿using Base.Common.Cache.Redis.Interface;
-using Base.Common.Helper;
+﻿using Base.Common.Helper;
 using Base.Common.Jwt.Claims;
 using Base.Common.Jwt.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -7,13 +6,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.IdentityModel.Tokens.Jwt;
-using System.Net.Http.Headers;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Reflection;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace Base.Common.Jwt.Service
 {
@@ -45,7 +43,7 @@ namespace Base.Common.Jwt.Service
 
             _tokenValidationParameters = new TokenValidationParameters
             {
-                ValidIssuer= ServerIP,
+                ValidIssuer = ServerIP,
                 IssuerSigningKey = issuerSigningKey,
                 ValidateAudience = Options.ValidateAudience,
                 ValidAudience = Options.ValidAudience,
@@ -200,7 +198,7 @@ namespace Base.Common.Jwt.Service
                             httpClient.DefaultRequestHeaders.Remove("Authorization");
                             httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
 
-                            var url = "http://localhost:5000/authentication/login";
+                            // var url = "http://10.1.11.107:8069/authentication/login";
 
                             // Lấy body theo url 
                             //var content = await httpClient.GetStringAsync(url);
