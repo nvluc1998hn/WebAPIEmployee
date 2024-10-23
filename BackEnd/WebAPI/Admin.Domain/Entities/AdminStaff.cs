@@ -1,4 +1,5 @@
-﻿using Base.Domain.Models.EntityBase;
+﻿using Base.Common.Attributes;
+using Base.Domain.Models.EntityBase;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,7 +9,10 @@ namespace Admin.Domain.Entities
     {
         [Key]
         [Column("StaffId")]
+        [IgnoreInsert]
         public override int Id { get; set; }
+
+        public string StaffCode { get; set; }
 
         public string StaffName { get; set; }
 
@@ -17,6 +21,8 @@ namespace Admin.Domain.Entities
         public string Phone { get; set; }
 
         public string Email { get; set; }
+
+        public string Image { get; set; }
 
         public int Part { get; set; }
 

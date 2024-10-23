@@ -1,12 +1,8 @@
 ﻿using Dapper;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Base.Common.Dapper.SimpleCRUD
 {
@@ -392,10 +388,11 @@ namespace Base.Common.Dapper.SimpleCRUD
                 Trace.WriteLine(string.Format("Insert: {0}", sb));
             if (keytype == typeof(Guid) || keyHasPredefinedValue)
             {
-                var kt = sb.ToString();
                 await connection.ExecuteAsync(sb.ToString(), entityToInsert, transaction, commandTimeout);
                 return (TKey)idProps.First().GetValue(entityToInsert, null);
             }
+            var kt = sb.ToString();
+
             var r = await connection.QueryAsync(sb.ToString(), entityToInsert, transaction, commandTimeout);
             return (TKey)r.First().id;
         }
