@@ -1,20 +1,14 @@
-﻿using Base.Common.Cache.MemCache;
-using Base.Common.Cache;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Base.Common.Cache;
 using Base.Common.Jwt;
+using Base.Common.Mvc;
+using Base.Common.Swagger;
 using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
-using System.IO.Compression;
-using System.IdentityModel.Tokens.Jwt;
-using Base.Common.Mvc;
-using Microsoft.Net.Http.Headers;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.IO.Compression;
 
 namespace Base.Common
 {
@@ -38,6 +32,7 @@ namespace Base.Common
                     BearerFormat = "JWT",
                     Description = "Enter 'Bearer' followed by a space and your JWT token."
                 });
+                c.SchemaFilter<SwaggerSchemaCustomFilter>();
 
                 // Require Bearer token authentication for all endpoints
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement

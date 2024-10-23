@@ -56,9 +56,16 @@ namespace Admin.API.Controllers
             ApiResponse response;
             try
             {
-                var result = await _adminStaffService.InsertData(dataInsert);
+                if (dataInsert.IsValid())
+                {
+                    var result = await _adminStaffService.InsertData(dataInsert);
 
-                response = new ApiOkResultResponse(result);
+                    return new ApiOkResultResponse(true);
+                }
+                else
+                {
+                    response = new ApiOkResultResponse(false, dataInsert.ValidationResultMessage);
+                }
             }
             catch (Exception ex)
             {
@@ -80,9 +87,17 @@ namespace Admin.API.Controllers
             ApiResponse response;
             try
             {
-                var result = await _adminStaffService.UpdateData(dataUpdate);
+                if (dataUpdate.IsValid())
+                {
+                    var result = await _adminStaffService.UpdateData(dataUpdate);
 
-                response = new ApiOkResultResponse(result);
+                    return new ApiOkResultResponse(result);
+                }
+                else
+                {
+                    response = new ApiOkResultResponse(false, dataUpdate.ValidationResultMessage);
+                }
+
             }
             catch (Exception ex)
             {

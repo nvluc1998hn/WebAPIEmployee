@@ -39,6 +39,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Base.Mongo\Base.Mongo.csproj" />
+    <ProjectReference Include="..\Utilities\Utilities.csproj" />
   </ItemGroup>
 
 </Project>

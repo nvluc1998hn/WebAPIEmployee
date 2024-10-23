@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Base.Common.Models
+﻿namespace Base.Common.Models
 {
     /// <summary>
     /// Model chứa param tìm kiếm dữ liệu chung
@@ -13,15 +7,17 @@ namespace Base.Common.Models
     /// Name Date Comments
     /// lucnv 16/04/2024 created
     /// </Modified>
-    public class BaseRequestModel
+    public class BaseRequestModel : BaseRequest
     {
         public string? KeyWordSearch { get; set; }
 
         public DateTime FromDate { get; set; }
 
-        public int FK_CompanyId { get; set; }   
+        public int FK_CompanyId { get; set; }
 
         public DateTime ToDate { get; set; }
+
+
 
     }
 }
