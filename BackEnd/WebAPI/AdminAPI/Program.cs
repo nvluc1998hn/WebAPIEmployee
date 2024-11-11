@@ -1,7 +1,4 @@
-﻿using AdminAPI;
-using Serilog;
-
-namespace AdminAPI
+﻿namespace AdminAPI
 {
     public class Program
     {

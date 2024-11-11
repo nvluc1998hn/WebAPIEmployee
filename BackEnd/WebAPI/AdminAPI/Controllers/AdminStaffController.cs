@@ -127,7 +127,6 @@ namespace Admin.API.Controllers
             {
                 response = new ApiCatchResponse(ex);
             }
-
             return response;
         }
     }

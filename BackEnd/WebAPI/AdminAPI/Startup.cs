@@ -1,15 +1,12 @@
-﻿using Admin.Domain;
-using AutoMapper;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Configuration;
+﻿using Admin.Application;
+using Admin.Application.Mapper;
+using Admin.Domain;
+using Admin.Repository;
 using Base.Common;
 using Base.Common.Cache;
-using Admin.Application;
-using Admin.Repository;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using Admin.Application.Mapper;
-using System;
 
 namespace AdminAPI
 {
@@ -39,6 +36,8 @@ namespace AdminAPI
             services.AddServices();
             services.AddMvcCore().AddApiExplorer();
             services.AddServiceCommon();
+            services.AddHealthChecks();
+            services.ConfigureHealthChecks();
             services.AddEfCoreSqlServer<ApplicationDbContext>();
             services.AddResponseCompression();
         }
@@ -81,6 +80,12 @@ namespace AdminAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+                endpoints.MapHealthChecks("health", new HealthCheckOptions
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
             });
         }
     }
